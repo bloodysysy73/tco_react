@@ -1,5 +1,5 @@
 import React from "react";
-import { Line, Pie } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Card,
   CardHeader,
@@ -14,7 +14,11 @@ import {
   dashboardEmailStatisticsChart,
   dashboardNASDAQChart
 } from "variables/charts.jsx";
-import Input1 from 'components/input1'
+
+import SpecMachine from 'components/formulaire/specMachine'
+import ComplementSpec from "components/formulaire/complementSpec";
+import Resume from "components/other/resume";
+import AutresCouts from "components/formulaire/autreCouts";
 
 class Dashboard extends React.Component {
 
@@ -33,10 +37,14 @@ class Dashboard extends React.Component {
     }
   }
 
-  onsubmit1(a) {
-    // this.setState({
-    //   data1 : datasets
-    // })
+  onchange1(a) {
+    console.log("la value coté dashbord", a);
+  }
+  onchange2(a) {
+    console.log("la value coté dashbord", a);
+  }
+  onchange3(a) {
+    console.log("la value coté dashbord", a);
   }
 
   render() {
@@ -45,59 +53,13 @@ class Dashboard extends React.Component {
         <div className="content">
           <Row>
             <Col lg="3" md="6" sm="6">
-              <Input1 onsubmit={this.onsubmit1()}></Input1>
+              <SpecMachine onchange={(a) => this.onchange1(a)}></SpecMachine>
             </Col>
             <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-money-coins text-success" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Revenue</p>
-                        <CardTitle tag="p">$ 1,345</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-calendar" /> Last day
-                  </div>
-                </CardFooter>
-              </Card>
+              <ComplementSpec onchange={(a) => this.onchange2(a)} ></ComplementSpec>
             </Col>
             <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-vector text-danger" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Errors</p>
-                        <CardTitle tag="p">23</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-clock" /> In the last hour
-                  </div>
-                </CardFooter>
-              </Card>
+              <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
             </Col>
             <Col lg="3" md="6" sm="6">
               <Card className="card-stats">
@@ -127,55 +89,8 @@ class Dashboard extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col md="12">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Users Behavior</CardTitle>
-                  <p className="card-category">24 Hours performance</p>
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    data={this.state.data1}
-                    options={dashboard24HoursPerformanceChart.options}
-                    width={400}
-                    height={100}
-                  />
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fa fa-history" /> Updated 3 minutes ago
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
             <Col md="4">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Email Statistics</CardTitle>
-                  <p className="card-category">Last Campaign Performance</p>
-                </CardHeader>
-                <CardBody>
-                  <Pie
-                    data={this.state.data2}
-                    options={dashboardEmailStatisticsChart.options}
-                  />
-                </CardBody>
-                <CardFooter>
-                  <div className="legend">
-                    <i className="fa fa-circle text-primary" /> Opened{" "}
-                    <i className="fa fa-circle text-warning" /> Read{" "}
-                    <i className="fa fa-circle text-danger" /> Deleted{" "}
-                    <i className="fa fa-circle text-gray" /> Unopened
-                  </div>
-                  <hr />
-                  <div className="stats">
-                    <i className="fa fa-calendar" /> Number of emails sent
-                  </div>
-                </CardFooter>
-              </Card>
+              <Resume></Resume>
             </Col>
             <Col md="8">
               <Card className="card-chart">
@@ -199,6 +114,30 @@ class Dashboard extends React.Component {
                   <hr />
                   <div className="card-stats">
                     <i className="fa fa-check" /> Data information certified
+                  </div>
+                </CardFooter>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12">
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h5">Users Behavior</CardTitle>
+                  <p className="card-category">24 Hours performance</p>
+                </CardHeader>
+                <CardBody>
+                  <Line
+                    data={this.state.data1}
+                    options={dashboard24HoursPerformanceChart.options}
+                    width={400}
+                    height={100}
+                  />
+                </CardBody>
+                <CardFooter>
+                  <hr />
+                  <div className="stats">
+                    <i className="fa fa-history" /> Updated 3 minutes ago
                   </div>
                 </CardFooter>
               </Card>
