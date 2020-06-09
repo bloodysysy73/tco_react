@@ -4,7 +4,6 @@ import {
     Card,
     CardBody,
     CardFooter,
-    CardTitle,
     Row,
     Col
 } from "reactstrap";
@@ -66,13 +65,12 @@ class AutresCouts extends React.Component {
                 <Row>
                     <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                            <i className="nc-icon nc-vector text-danger" />
+                            <i className="nc-icon nc-globe-2 text-warning" />
                         </div>
                     </Col>
-                    <Col md="8" xs="7">
+                    <Col >
                         <div className="numbers">
-                            <p className="card-category">Total</p>
-                            <CardTitle tag="p">calcul</CardTitle>
+                            <p className="card-category">Autre coûts eventuels</p>
                             <p />
                         </div>
                     </Col>
@@ -87,7 +85,7 @@ class AutresCouts extends React.Component {
                             //value={dureeContratH}
                             onChange={e => this.setAutre1(e.target.value)}
                             required />
-                    </label>
+                    </label>&nbsp;
                     <label>
                         <input
                             name="autreValue1"
@@ -96,7 +94,7 @@ class AutresCouts extends React.Component {
                             min="1" max="5"
                             onChange={e => this.setAutreValue1(e.target.value)}
                             required />
-                    </label><br />
+                    </label>&nbsp; €<br />
 
                     <label>
                         <input
@@ -105,7 +103,7 @@ class AutresCouts extends React.Component {
                             //value={dureeContratH}
                             onChange={e => this.setAutre2(e.target.value)}
                             required />
-                    </label>
+                    </label>&nbsp;
                     <label>
                         <input
                             name="autreValue2"
@@ -114,7 +112,7 @@ class AutresCouts extends React.Component {
                             min="1" max="5"
                             onChange={e => this.setAutreValue2(e.target.value)}
                             required />
-                    </label><br />
+                    </label>&nbsp; €<br />
 
                     <label>
                         <input
@@ -123,7 +121,7 @@ class AutresCouts extends React.Component {
                             //value={dureeContratH}
                             onChange={e => this.setAutre3(e.target.value)}
                             required />
-                    </label>
+                    </label>&nbsp;
                     <label>
                         <input
                             name="autreValue3"
@@ -132,7 +130,7 @@ class AutresCouts extends React.Component {
                             min="1" max="5"
                             onChange={e => this.setAutreValue3(e.target.value)}
                             required />
-                    </label><br />
+                    </label>&nbsp; €<br />
                 </form>
 
             </CardFooter>
