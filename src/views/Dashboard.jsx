@@ -47,6 +47,10 @@ class Dashboard extends React.Component {
     console.log("la value coté dashbord", a);
   }
 
+  onchange5(a) {
+    console.log("la value coté dashbord", a);
+  }
+
   render() {
     return (
       <>
@@ -62,20 +66,18 @@ class Dashboard extends React.Component {
               <Col lg="3" md="6" sm="6" >
                 <Row>
                   <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
-                </Row>
-                <Row>
                   <Fonctionnalites></Fonctionnalites>
                 </Row>
+                {/* <Row>
+                  <Fonctionnalites></Fonctionnalites>
+                </Row> */}
               </Col>
-              {/* <Col lg="3" md="6" sm="6">
-              <Fonctionnalites></Fonctionnalites>
-            </Col> */}
             </Row>
-            <Row>
-              <Col md="4">
+            <Row className="justify-content-md-center">
+              <Col md="3">
                 <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
               </Col>
-              <Col md="8">
+              <Col md="7">
                 <Resume></Resume>
               </Col>
             </Row>

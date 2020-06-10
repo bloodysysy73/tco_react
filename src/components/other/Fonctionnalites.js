@@ -39,25 +39,25 @@ class Fonctionnalites extends React.Component {
             <CardFooter>
                 <hr />
 
-                <button class="ui vertical animated button">
-                    <div class="hidden content"><Printer></Printer></div>
-                    <div class="visible content"><i aria-hidden="true" class="print icon"></i></div>
+                <button className="ui vertical animated button">
+                    <div className="hidden content"><Printer></Printer></div>
+                    <div className="visible content"><i aria-hidden="true" className="print icon"></i></div>
                 </button>
-                <button class="ui vertical animated button">
-                    <div class="hidden content">Calculer</div>
-                    <div class="visible content"><i aria-hidden="true" class="calculator icon"></i></div>
+                <button className="ui vertical animated button">
+                    <div className="hidden content">Calculer</div>
+                    <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button>
-                <button class="ui vertical animated button">
-                    <div class="hidden content">Help</div>
-                    <div class="visible content"><i aria-hidden="true" class="help circle icon"></i></div>
+                <button className="ui vertical animated button">
+                    <div className="hidden content">Help</div>
+                    <div className="visible content"><i aria-hidden="true" className="help circle icon"></i></div>
                 </button>
-                <button class="ui vertical animated button">
-                    <div class="hidden content">Setting</div>
-                    <div class="visible content"><i aria-hidden="true" class="setting icon"></i></div>
+                <button className="ui vertical animated button">
+                    <div className="hidden content">Setting</div>
+                    <div className="visible content"><i aria-hidden="true" className="setting icon"></i></div>
                 </button>
-                <button class="ui vertical animated button">
-                    <div class="hidden content">Excel</div>
-                    <div class="visible content"><i aria-hidden="true" class="file excel icon"></i></div>
+                <button className="ui vertical animated button">
+                    <div className="hidden content">Excel</div>
+                    <div className="visible content"><i aria-hidden="true" className="file excel icon"></i></div>
                 </button>
             </CardFooter>
         </Card>

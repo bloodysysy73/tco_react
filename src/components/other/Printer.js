@@ -9,6 +9,7 @@ class Printer extends React.Component {
         return (
             <div>
                 <ReactToPrint
+                    // eslint-disable-next-line
                     trigger={() => <a href="#">Imprimer</a>}
                     content={() => this.componentRef}
                 />
