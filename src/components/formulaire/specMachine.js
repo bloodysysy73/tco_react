@@ -1,5 +1,6 @@
 import React from 'react';
-import { machines, nSerie, clim, deplacement, entretien250 } from "../../variables/specMachineVariable";
+import { machines, nSerie, clim, entretien250 } from "../../variables/specMachineVariable";
+import { Link } from 'react-router-dom'
 
 import {
     Card,
@@ -77,7 +78,7 @@ class SpecMachine extends React.Component {
                     <Row>
                         <Col md="4" xs="5">
                             <div className="icon-big text-center icon-warning">
-                                <i className="nc-icon nc-globe text-warning" />
+                                <i className="nc-icon nc-spaceship text-warning" />
                             </div>
                         </Col>
                         <Col md="8" xs="7">
@@ -134,19 +135,15 @@ class SpecMachine extends React.Component {
                         </label><br />
 
                         <label>
-                            deplacement:
-        <select
-                                name="deplacement"
-                                //value={deplacement}
-                                onChange={e => this.setDeplacement(e.target.value)}
-                                required>
-                                <option key=""></option>
-                                {deplacement.map(deplacement => (
-                                    <option key={deplacement}>{deplacement}</option>
-                                ))}
-                            </select>
+                            deplacement:<br />
+                            <Link to='/admin/choixTypeModal/' >
+                                <div className="ui animated button" tabIndex="0">
+                                    <div className="visible content">Choix du type</div>
+                                    <div className="hidden content">
+                                        <i aria-hidden="true" className="angle double right icon"></i>
+                                    </div></div>
+                            </Link>
                         </label><br />
-
                         <label>
                             dureeContratH:
         <input

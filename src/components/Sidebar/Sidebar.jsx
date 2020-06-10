@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
 import PerfectScrollbar from "perfect-scrollbar";
 
-import logo from "logo.svg";
-
 var ps;
 
 class Sidebar extends React.Component {
@@ -43,7 +41,7 @@ class Sidebar extends React.Component {
             className="simple-text logo-mini"
           >
             <div className="logo-img">
-              <img src={logo} alt="react-logo" />
+              <i className="nc-icon nc-button-play text-primary" />
             </div>
           </a>
           <a
@@ -56,24 +54,27 @@ class Sidebar extends React.Component {
         <div className="sidebar-wrapper" ref={this.sidebar}>
           <Nav>
             {this.props.routes.map((prop, key) => {
-              return (
-                <li
-                  className={
-                    this.activeRoute(prop.path) +
-                    (prop.pro ? " active-pro" : "")
-                  }
-                  key={key}
-                >
-                  <NavLink
-                    to={prop.layout + prop.path}
-                    className="nav-link"
-                    activeClassName="active"
+
+              if (prop.affiche !== false) {
+                return (
+                  <li
+                    className={
+                      this.activeRoute(prop.path) +
+                      (prop.pro ? " active-pro" : "")
+                    }
+                    key={key}
                   >
-                    <i className={prop.icon} />
-                    <p>{prop.name}</p>
-                  </NavLink>
-                </li>
-              );
+                    <NavLink
+                      to={prop.layout + prop.path}
+                      className="nav-link"
+                      activeClassName="active"
+                    >
+                      <i className={prop.icon} />
+                      <p>{prop.name}</p>
+                    </NavLink>
+                  </li>
+                );
+              } else { return <div key={key}></div> }
             })}
           </Nav>
         </div>
