@@ -45,12 +45,12 @@ Quels sont les objectifs ?
 Mettre à disposition des concessionnaires un outil de calcul fiable permettant de
 proposer au client un suivi d’entretien de leur parc machines.
 
-Service client
+Service client : 
 - Suivi intégral de l’entretient de la machine
 - Possibilité de laisser le client faire une partie de l’entretien
 - Bilan des coûts horaires comprenant les pannes et casses
 
-Simplification et justesse des chiffrages
+Simplification et justesse des chiffrages :
 
 - 4 clics
 - Marges, discounts et inflations modifiables
