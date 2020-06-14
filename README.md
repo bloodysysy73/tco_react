@@ -39,35 +39,21 @@
 <!-- ABOUT THE PROJECT -->
 ## Principe de l'application
 
-[![Product Name Screen Shot][product-screenshot]]
+Cette application web est un calculateur de contrat de services qui permets d'éditer des devis.
+Quels sont les objectifs ?
 
-Ceci est la page d'accueil du site internet telle qu'un utilisateur lambda la voit. Il est possible de se connecter avec son compte gmail ou via un email et un mot de passe.
+Mettre à disposition des concessionnaires un outil de calcul fiable permettant de
+proposer au client un suivi d’entretien de leur parc machines.
 
-Un adminitrateur aura un onglet en plus : "administration".
+Service client
+- Suivi intégral de l’entretient de la machine
+- Possibilité de laisser le client faire une partie de l’entretien
+- Bilan des coûts horaires comprenant les pannes et casses
 
-L'administrateur peut ajouter des publications et des évènements qui apparaitront sur le mur les uns à la suites des autres. Les publications sont sur la page d'accueil et les évènements sur la page évènement.
+Simplification et justesse des chiffrages
 
-* L'onglet FAC/Question
-
-L'onglet FAC/Question contient des questions par defaut que l'ont peut dérouler. Mais chaque utilisateur peut également poster une question à laquelle n'importe quel utilisateur connecté peut répondre après avoir cliqué sur "voir réponses" . 
-
-[![Capture question][capture-question]]
-
-[![Capture question 2][capture-question-2]]
-
-L'utilisateur peut contacter les gérants de l'association via l'onglet "nous contacter" qui envoie le message dans la boite mail de l'association.
-
-* L'onglet user profile
-
-L'un des onglets principaux de cette application est l'onglet "user profile". Ici un utlisateur peut changer son mot de passe, son pseudo, ses informations générales et sa photo de profil. 
-
-[![Capture profile][capture-profile]]
-
-* L'onglet administration
-
-[![Capture admin][capture-admin]]
-
-Sur cette page, l'admistrateur a accès à plusieurs menus déroulants pour modifier, supprimer ou effacer les utlisateurs, les évènements et les publications. Lors de la modification, il y a un visuel de prévisualisation.
+- 4 clics
+- Marges, discounts et inflations modifiables
 
 ### Built With
 
