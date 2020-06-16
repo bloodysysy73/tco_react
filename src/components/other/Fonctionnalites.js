@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import {
     Card,
@@ -47,14 +48,20 @@ class Fonctionnalites extends React.Component {
                     <div className="hidden content">Calculer</div>
                     <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button>
-                <button className="ui vertical animated button">
-                    <div className="hidden content">Help</div>
-                    <div className="visible content"><i aria-hidden="true" className="help circle icon"></i></div>
-                </button>
-                <button className="ui vertical animated button">
-                    <div className="hidden content">Setting</div>
-                    <div className="visible content"><i aria-hidden="true" className="setting icon"></i></div>
-                </button>
+                <Link to='/admin/HelpModal/' >
+                    <div className="ui animated button" tabIndex="0">
+                        <div className="visible content"><i aria-hidden="true" className="help circle icon"></i></div>
+                        <div className="hidden content">
+                            Help
+                        </div></div>
+                </Link>
+                <Link to='/admin/SettingModal/' >
+                    <div className="ui animated button" tabIndex="0">
+                        <div className="visible content"><i aria-hidden="true" className="setting icon"></i></div>
+                        <div className="hidden content">
+                            Help
+                        </div></div>
+                </Link>
                 <button className="ui vertical animated button">
                     <div className="hidden content">Excel</div>
                     <div className="visible content"><i aria-hidden="true" className="file excel icon"></i></div>

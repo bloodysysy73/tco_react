@@ -10,11 +10,11 @@ import {
   dashboardNASDAQChart
 } from "variables/charts.jsx";
 
-import SpecMachine from 'components/formulaire/specMachine'
-import ComplementSpec from "components/formulaire/complementSpec";
+import SpecMachine from 'components/Formulaire/specMachine'
+import ComplementSpec from "components/Formulaire/complementSpec";
 import Resume from "components/other/resume";
-import AutresCouts from "components/formulaire/autreCouts";
-import BilanEntretienMaintenance from "components/formulaire/BilanEntretienMaintenance";
+import AutresCouts from "components/Formulaire/autreCouts";
+import BilanEntretienMaintenance from "components/Formulaire/BilanEntretienMaintenance"
 import Fonctionnalites from "components/other/Fonctionnalites";
 
 class Dashboard extends React.Component {
