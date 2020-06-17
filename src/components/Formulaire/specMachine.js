@@ -1,5 +1,5 @@
 import React from 'react';
-import { machines, nSerie, clim, entretien250 } from "../../variables/specMachineVariable";
+import { machinesSpec, clim, entretien250 } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 
 import {
@@ -24,7 +24,6 @@ class SpecMachine extends React.Component {
             dureeContratHValue: null,
             dureeContratAValue: null,
             entretien250Value: null
-
         };
     }
 
@@ -100,8 +99,8 @@ class SpecMachine extends React.Component {
                                 onChange={e => this.setMachine(e.target.value)}
                                 required>
                                 <option key=""></option>
-                                {machines.map(machine => (
-                                    <option key={machine}>{machine}</option>
+                                {machinesSpec.map(machine => (
+                                    <option key={machine.id}>{machine.name}</option>
                                 ))}
                             </select>
                         </label><br />
@@ -114,9 +113,15 @@ class SpecMachine extends React.Component {
                                 onChange={e => this.setNSerie(e.target.value)}
                                 required>
                                 <option key=""></option>
-                                {nSerie.map(nSerie => (
-                                    <option key={nSerie}>{nSerie}</option>
-                                ))}
+                                {
+                                    machinesSpec.map(machinesSpec => {
+                                        return machinesSpec.name === this.state.machineValue ? (
+
+                                            machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
+
+                                        ) : <></>
+                                    }
+                                    )}
                             </select>
                         </label><br />
 
