@@ -89,7 +89,7 @@ class ComplementSpec extends React.Component {
                         </label><br />
 
                         <label>
-                            Options CAPTURE:
+                            Option Télématique:
         <select
                                 name="machines"
                                 //value={this.state.machine}
