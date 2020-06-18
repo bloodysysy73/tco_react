@@ -10,12 +10,14 @@ import {
   dashboardNASDAQChart
 } from "variables/charts.jsx";
 
-import SpecMachine from 'components/Formulaire/specMachine'
+import SpecMachine from 'components/Formulaire/specMachine';
 import ComplementSpec from "components/Formulaire/complementSpec";
 import Resume from "components/other/resume";
 import AutresCouts from "components/Formulaire/autreCouts";
 import BilanEntretienMaintenance from "components/Formulaire/BilanEntretienMaintenance"
 import Fonctionnalites from "components/other/Fonctionnalites";
+
+
 
 class Dashboard extends React.Component {
 
@@ -51,6 +53,8 @@ class Dashboard extends React.Component {
     console.log("la value coté dashbord", a);
   }
 
+
+
   render() {
     return (
       <>
@@ -81,6 +85,7 @@ class Dashboard extends React.Component {
                 <Resume></Resume>
               </Col>
             </Row>
+            
             <Row>
               <Col md="12">
 

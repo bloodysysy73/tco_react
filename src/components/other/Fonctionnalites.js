@@ -39,15 +39,15 @@ class Fonctionnalites extends React.Component {
             </CardBody>
             <CardFooter>
                 <hr />
-
-                <button className="ui vertical animated button">
-                    <div className="hidden content"><Printer></Printer></div>
-                    <div className="visible content"><i aria-hidden="true" className="print icon"></i></div>
-                </button>
                 <button className="ui vertical animated button">
                     <div className="hidden content">Calculer</div>
                     <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button>
+                <button className="ui vertical animated button">
+                    <div className="hidden content"><Printer></Printer></div>
+                    <div className="visible content"><i aria-hidden="true" className="print icon"></i></div>
+                </button>
+
                 <Link to='/admin/HelpModal/' >
                     <div className="ui animated button" tabIndex="0">
                         <div className="visible content"><i aria-hidden="true" className="help circle icon"></i></div>
