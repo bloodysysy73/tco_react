@@ -1,0 +1,80 @@
+import React from 'react';
+
+import {
+    Card,
+    CardFooter,
+    CardBody,
+    Row,
+    Col
+} from "reactstrap";
+
+class ExtensionWarranty extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            min: null,
+            max: null
+        };
+    }
+
+    setMin(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ min: value });
+        this.props.onchange(this.state);
+    }
+
+    setMax(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ max: value });
+        this.props.onchange(this.state);
+    }
+
+
+
+
+    render() {
+        return (<Card className="card-stats">
+
+            <CardBody>
+                <Row>
+                    <Col md="4" xs="5">
+                        <div className="icon-big text-center icon-warning">
+                            <i className="nc-icon nc-air-baloon text-warning" />
+                        </div>
+                    </Col>
+                    <Col md="8" xs="7">
+                        <div className="numbers">
+                            <p className="card-category">Extension de garrantie</p>
+                            <p />
+                        </div>
+                    </Col>
+                </Row>
+            </CardBody>
+            <CardFooter><br />
+                <form className="ui form">
+                    <label>
+                        Coût horaire entre :
+                        <input
+                            name="min"
+                            type="number"
+                            //value={dureeContratH}
+                            onChange={e => this.setMin(e.target.value)}
+                            required />
+                    </label>&nbsp; <label> heures</label><br />
+                    <label>et
+                        <input
+                            name="max"
+                            type="number"
+                            //value={dureeContratH}
+                            onChange={e => this.setMax(e.target.value)}
+                            required />
+                    </label> &nbsp; <label> heures</label>
+                </form>
+
+            </CardFooter>
+        </Card>);
+    }
+}
+
+export default ExtensionWarranty;

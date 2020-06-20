@@ -23,7 +23,8 @@ class SpecMachine extends React.Component {
             deplacementValue: null,
             dureeContratHValue: null,
             dureeContratAValue: null,
-            entretien250Value: null
+            entretien250Value: null,
+            optionDeplacement: null
         };
     }
 
@@ -66,6 +67,12 @@ class SpecMachine extends React.Component {
     setEntretien250(value) {
         console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ entretien250: value });
+        this.props.onchange(this.state);
+    }
+
+    setCheckbox(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ optionDeplacement: value });
         this.props.onchange(this.state);
     }
 
@@ -138,7 +145,23 @@ class SpecMachine extends React.Component {
                                 ))}
                             </select>
                         </label><br />
-
+                        <label>
+                            type de deplacement:<br />
+                            <div className="grouped fields">
+                                <div className="field">
+                                    <div className="ui slider checkbox">
+                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("a")} />
+                                        <label>Option A: calcul </label>
+                                    </div>
+                                </div>
+                                <div className="field">
+                                    <div className="ui slider checkbox checked">
+                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("b")} />
+                                        <label>Option B: forfait </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </label><br />
                         <label>
                             deplacement:<br />
                             <Link to='/admin/choixTypeModal/' >

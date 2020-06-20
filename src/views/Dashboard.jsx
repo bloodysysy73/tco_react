@@ -16,7 +16,7 @@ import Resume from "components/other/resume";
 import AutresCouts from "components/Formulaire/autreCouts";
 import BilanEntretienMaintenance from "components/Formulaire/BilanEntretienMaintenance"
 import Fonctionnalites from "components/other/Fonctionnalites";
-
+import ExtensionWarranty from "components/Formulaire/ExtensionWarranty"
 
 
 class Dashboard extends React.Component {
@@ -63,25 +63,26 @@ class Dashboard extends React.Component {
             <Row className="justify-content-md-center">
               <Col lg="3" md="6" sm="6">
                 <SpecMachine onchange={(a) => this.onchange1(a)}></SpecMachine>
+                <Fonctionnalites></Fonctionnalites>
               </Col>
               <Col lg="3" md="6" sm="6">
                 <ComplementSpec onchange={(a) => this.onchange2(a)} ></ComplementSpec>
+                <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
               </Col>
               <Col lg="3" md="6" sm="6" >
                 <Row>
                   <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
-                  <Fonctionnalites></Fonctionnalites>
-                </Row>
+                  <ExtensionWarranty onchange={(a) => this.onchange5(a)} ></ExtensionWarranty>
+                  
+                  </Row>
                 {/* <Row>
                   <Fonctionnalites></Fonctionnalites>
                 </Row> */}
               </Col>
             </Row>
             <Row className="justify-content-md-center">
-              <Col md="3">
-                <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
-              </Col>
-              <Col md="7">
+
+              <Col md="9">
                 <Resume></Resume>
               </Col>
             </Row>
