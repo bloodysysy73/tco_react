@@ -20,33 +20,33 @@ class ChoixTypeModalA extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            prixLavage: null,
-            prixDeplacement: null,
-            nbSemaine: null,
-            nbHeure: null,
+            geoScope: null,
+            kmCost: null,
+            averageSpee: null,
+            tripWfCost: null,
             periodicite: false
         };
     }
 
-    setPrixLavage(value) {
+    setGeoScope(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ prixLavage: value });
+        this.setState({ geoScope: value });
     }
 
-    setPrixDeplacement(value) {
+    setKmCost(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ prixDeplacement: value });
+        this.setState({ kmCost: value });
     }
 
-    setNbSemaine(value) {
+    setAverageSpeed(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ nbSemaine: value });
+        this.setState({ averageSpeed: value });
     }
 
 
-    setNbHeure(value) {
+    setTripWfCost(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ nbHeure: value });
+        this.setState({ tripWfCost: value });
     }
 
     setPeriodicite() {
@@ -79,7 +79,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     //value={dureeContratH}
                                     min="1" max="100"
-                                    onChange={e => this.setgeoScope(e.target.value)}
+                                    onChange={e => this.setGeoScope(e.target.value)}
                                     required />
                             </label><br />
 
@@ -93,7 +93,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     //value={dureeContratA}
                                     min="0.4" max="0.8"
-                                    onChange={e => this.setkmCost(e.target.value)}
+                                    onChange={e => this.setKmCost(e.target.value)}
                                     required />
                             </label><br />
 
@@ -107,7 +107,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     //value={dureeContratH}
                                     min="30" max="100"
-                                    onChange={e => this.setaverageSpeed(e.target.value)}
+                                    onChange={e => this.setAverageSpeed(e.target.value)}
                                     required />
                             </label><br />
 
@@ -120,44 +120,25 @@ class ChoixTypeModalA extends React.Component {
                                     name="tripWfCost"
                                     type="number"
                                     placeholder="h/€"
-                                    disabled={!this.state.periodicite}
                                     //value={dureeContratA}
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     min="1" max="100"
-                                    onChange={e => this.settripWfCost(e.target.value)}
+                                    onChange={e => this.setTripWfCost(e.target.value)}
                                     required />
-                            </label><br /><br /><br />
-                            <CardTitle>Préférer définir un forfait de déplacement </CardTitle>
-                            <label>
-                                Choisir cette option (cocher la case) &nbsp;
-<input
-                                    name="workTripPackageChoice"
-                                    type="checkbox"
-                                    //value={dureeContratA}
-                                    onChange={e => this.setworkTripPackageChoice()}
-                                />
                             </label><br /><br />
 
                             <label>
-                                Définir le prix du forfait de déplacement
-<input
-                                    name="workTripPackage"
-                                    type="number"
-                                    placeholder="€"
-                                    disabled={!this.state.periodicite}
-                                    //value={dureeContratA}
-                                    style={{ direction: "rtl", textAlign: "right" }}
-                                    min="1" max="1000"
-                                    onChange={e => this.setworkTripPackage(e.target.value)}
-                                    required />
-                            </label><br />
-                            <label><br />
-                                <div className="ui animated button" tabIndex="0">
-                                    <div className="visible content">Sauvegarder et retour</div>
-                                    <div className="hidden content">
-                                        <button className="ui button"><i className="angle double right icon"></i></button>
-                                    </div></div>
-                            </label><br />
+                                 <br />
+                                <Link to='/admin/Parametres/' >
+                                    <div className="ui animated button" tabIndex="0">
+                                        <div className="visible content">Calculer</div>
+                                        <div className="hidden content">
+                                            <i aria-hidden="true" className="calculator icon"></i>
+                                        </div></div>
+                                </Link>
+                              </label>
+                              <br />
+                            Afficher résultat ?
                         </form>
                     </CardBody>
                     <CardFooter>

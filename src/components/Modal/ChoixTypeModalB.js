@@ -68,7 +68,26 @@ class ChoixTypeModalB extends React.Component {
                     <br />
                     <CardTitle>Paramétrer B </CardTitle>
                     <CardBody>
-
+                    <label>
+                                Définir le prix du forfait de déplacement
+<input
+                                    name="workTripPackage"
+                                    type="number"
+                                    placeholder="€"
+                                    disabled={!this.state.periodicite}
+                                    //value={dureeContratA}
+                                    style={{ direction: "rtl", textAlign: "right" }}
+                                    min="1" max="1000"
+                                    onChange={e => this.setworkTripPackage(e.target.value)}
+                                    required />
+                            </label><br />
+                            <label><br />
+                                <div className="ui animated button" tabIndex="0">
+                                    <div className="visible content">Sauvegarder et retour</div>
+                                    <div className="hidden content">
+                                        <button className="ui button"><i className="angle double right icon"></i></button>
+                                    </div></div>
+                            </label><br />
 
                     </CardBody>
                     <CardFooter>
@@ -78,9 +97,8 @@ class ChoixTypeModalB extends React.Component {
                 </Card></div>);
     }
 
-    // méthode pour calculer le coût de déplacement : tripWfCost*(geoScope/averageSpeed)+kmCost*geoScope
-    workTripCalcul() {
-    }
+    
+
 
     renderActions = () => {
 
