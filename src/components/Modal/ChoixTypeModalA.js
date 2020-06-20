@@ -13,9 +13,9 @@ import {
 /* Ce module calcule les frais de déplacement au plus juste en ajoutant les coûts horaires de main d'œuvre aux coûts kilométriques.
 Renseigner le rayon d'action le plus grand concernant votre concession; 
 les coûts kilométriques correspondants a vos véhicules ainsi que la vitesse moyenne de circulation dans votre zone d'activité,
-*/ 
+*/
 
-class ChoixTypeModal extends React.Component {
+class ChoixTypeModalA extends React.Component {
 
     constructor(props) {
         super(props);
@@ -69,7 +69,7 @@ class ChoixTypeModal extends React.Component {
                     <CardTitle>Paramétrer le calcul du coût d'un déplacement </CardTitle>
                     <CardBody>
                         <form className="ui form" onSubmit={() => this.onSubmitForm}>
-                        <br /><label>
+                            <br /><label>
                                 Définir le champ d'action géographique
 <input
                                     // Indiquer la distance maximum d'action du concessionnaire
@@ -96,7 +96,7 @@ class ChoixTypeModal extends React.Component {
                                     onChange={e => this.setkmCost(e.target.value)}
                                     required />
                             </label><br />
-                            
+
                             <label>
                                 Estimer la vitesse moyenne du véhicule
 <input
@@ -110,14 +110,14 @@ class ChoixTypeModal extends React.Component {
                                     onChange={e => this.setaverageSpeed(e.target.value)}
                                     required />
                             </label><br />
-                            
+
 
 
                             <label>
-                                Coût de la main d'oeuvre en déplacement :  
-<input 
-                                   // Le coût de la main d'oeuvre en déplacement sera calculé dans le module "coût de la MO".
-                                   name="tripWfCost"
+                                Coût de la main d'oeuvre en déplacement :
+<input
+                                    // Le coût de la main d'oeuvre en déplacement sera calculé dans le module "coût de la MO".
+                                    name="tripWfCost"
                                     type="number"
                                     placeholder="h/€"
                                     disabled={!this.state.periodicite}
@@ -168,7 +168,7 @@ class ChoixTypeModal extends React.Component {
     }
 
     // méthode pour calculer le coût de déplacement : tripWfCost*(geoScope/averageSpeed)+kmCost*geoScope
-    workTripCalcul(){
+    workTripCalcul() {
     }
 
     renderActions = () => {
@@ -194,4 +194,4 @@ class ChoixTypeModal extends React.Component {
 
 }
 
-export default (ChoixTypeModal);
+export default (ChoixTypeModalA);
