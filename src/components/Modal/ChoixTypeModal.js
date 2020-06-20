@@ -10,6 +10,10 @@ import {
     CardTitle
 } from "reactstrap";
 
+/* Ce module calcule les frais de déplacement au plus juste en ajoutant les coûts horaires de main d'œuvre aux coûts kilométriques.
+Renseigner le rayon d'action le plus grand concernant votre concession; 
+les coûts kilométriques correspondants a vos véhicules ainsi que la vitesse moyenne de circulation dans votre zone d'activité,
+*/ 
 
 class ChoixTypeModal extends React.Component {
 
@@ -62,65 +66,89 @@ class ChoixTypeModal extends React.Component {
             <div className="content">
                 <Card className="card-user">
                     <br />
-                    <CardTitle>Nettoyage/ Entretien Exterieur</CardTitle>
+                    <CardTitle>Paramétrer le calcul du coût d'un déplacement </CardTitle>
                     <CardBody>
                         <form className="ui form" onSubmit={() => this.onSubmitForm}>
-                            <label>
-                                Prix lavage:
+                        <br /><label>
+                                Définir le champ d'action géographique
 <input
-                                    name="prixLavage"
+                                    // Indiquer la distance maximum d'action du concessionnaire
+                                    name="geoScope"
                                     type="number"
-                                    placeholder="€"
+                                    placeholder="km"
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     //value={dureeContratH}
                                     min="1" max="100"
-                                    onChange={e => this.setPrixLavage(e.target.value)}
+                                    onChange={e => this.setgeoScope(e.target.value)}
                                     required />
                             </label><br />
 
                             <label>
-                                Prix déplacement:
+                                Fixer le coût du km
 <input
-                                    name="prixDeplacement"
+                                    // Coûts kilométriques des déplacements en voiture (compris entre 0,4 et 0,8 )
+                                    name="kmCost"
                                     type="number"
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     //value={dureeContratA}
-                                    min="1" max="100"
-                                    onChange={e => this.setPrixDeplacement(e.target.value)}
+                                    min="0.4" max="0.8"
+                                    onChange={e => this.setkmCost(e.target.value)}
                                     required />
                             </label><br />
+                            
                             <label>
-                                periodicité : &nbsp;
+                                Estimer la vitesse moyenne du véhicule
 <input
-                                    name="periodicite"
+                                    //Vitesse moyenne de déplacement en fonction de la localisation
+                                    name="averageSpeed"
+                                    type="number"
+                                    placeholder="km/h"
+                                    style={{ direction: "rtl", textAlign: "right" }}
+                                    //value={dureeContratH}
+                                    min="30" max="100"
+                                    onChange={e => this.setaverageSpeed(e.target.value)}
+                                    required />
+                            </label><br />
+                            
+
+
+                            <label>
+                                Coût de la main d'oeuvre en déplacement :  
+<input 
+                                   // Le coût de la main d'oeuvre en déplacement sera calculé dans le module "coût de la MO".
+                                   name="tripWfCost"
+                                    type="number"
+                                    placeholder="h/€"
+                                    disabled={!this.state.periodicite}
+                                    //value={dureeContratA}
+                                    style={{ direction: "rtl", textAlign: "right" }}
+                                    min="1" max="100"
+                                    onChange={e => this.settripWfCost(e.target.value)}
+                                    required />
+                            </label><br /><br /><br />
+                            <CardTitle>Préférer définir un forfait de déplacement </CardTitle>
+                            <label>
+                                Choisir cette option (cocher la case) &nbsp;
+<input
+                                    name="workTripPackageChoice"
                                     type="checkbox"
                                     //value={dureeContratA}
-                                    onChange={e => this.setPeriodicite()}
+                                    onChange={e => this.setworkTripPackageChoice()}
                                 />
-                            </label><br />
+                            </label><br /><br />
+
                             <label>
-                                nombre de semaine:
+                                Définir le prix du forfait de déplacement
 <input
-                                    name="nbSemaine"
+                                    name="workTripPackage"
                                     type="number"
+                                    placeholder="€"
                                     disabled={!this.state.periodicite}
                                     //value={dureeContratA}
                                     style={{ direction: "rtl", textAlign: "right" }}
-                                    min="1" max="100"
-                                    onChange={e => this.setNbSemaine(e.target.value)}
-                                    required />
-                            </label><br />
-                            <label>
-                                nombre d'heure:
-<input
-                                    name="nbHeure"
-                                    type="number"
-                                    disabled={!this.state.periodicite}
-                                    //value={dureeContratA}
-                                    style={{ direction: "rtl", textAlign: "right" }}
-                                    min="1" max="100"
-                                    onChange={e => this.setNbHeure(e.target.value)}
+                                    min="1" max="1000"
+                                    onChange={e => this.setworkTripPackage(e.target.value)}
                                     required />
                             </label><br />
                             <label><br />
@@ -138,6 +166,11 @@ class ChoixTypeModal extends React.Component {
                     </CardFooter>
                 </Card></div>);
     }
+
+    // méthode pour calculer le coût de déplacement : tripWfCost*(geoScope/averageSpeed)+kmCost*geoScope
+    workTripCalcul(){
+    }
+
     renderActions = () => {
 
         return (
@@ -157,6 +190,8 @@ class ChoixTypeModal extends React.Component {
             />
         )
     }
+
+
 }
 
 export default (ChoixTypeModal);
