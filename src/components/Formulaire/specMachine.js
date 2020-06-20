@@ -146,27 +146,27 @@ class SpecMachine extends React.Component {
                             </select>
                         </label><br />
                         <label>
-                            type de deplacement:<br />
+                            Choix du type de deplacement:<br />
                             <div className="grouped fields">
                                 <div className="field">
                                     <div className="ui slider checkbox">
                                         <input type="radio" name="throughput" onChange={e => this.setCheckbox("a")} />
-                                        <label>Option A: calcul </label>
+                                        <label>Calculer le déplacement </label>
                                     </div>
                                 </div>
                                 <div className="field">
                                     <div className="ui slider checkbox checked">
                                         <input type="radio" name="throughput" onChange={e => this.setCheckbox("b")} />
-                                        <label>Option B: forfait </label>
+                                        <label>Définir un montant forfaitaire </label>
                                     </div>
                                 </div>
                             </div>
                         </label><br />
                         <label>
-                            deplacement:<br />
-                            <Link to='/admin/choixTypeModal/' >
+                            Paramétrer le choix de déplacement:<br />
+                            <Link to='/admin/choixTypeModalA/' style={!this.state.optionDeplacement ? { pointerEvents: "none" } : null}>
                                 <div className="ui animated button" tabIndex="0">
-                                    <div className="visible content">Choix du type</div>
+                                    <div className="visible content">Paramétrage</div>
                                     <div className="hidden content">
                                         <i aria-hidden="true" className="angle double right icon"></i>
                                     </div></div>

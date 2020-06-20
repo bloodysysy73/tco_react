@@ -1,8 +1,9 @@
 import Dashboard from "views/Dashboard.jsx";
-import ChoixTypeModal from "./components/Modal/ChoixTypeModal"
+import ChoixTypeModalA from "./components/Modal/ChoixTypeModalA"
 import HelpModal from "components/Modal/HelpModal";
 import SettingModal from "components/Modal/SettingModal";
 import Parametres from "components/Modal/Parametres";
+import ChoixTypeModalB from "components/Modal/ChoixTypeModalB";
 
 var routes = [
   {
@@ -13,10 +14,18 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/choixTypeModal",
+    path: "/choixTypeModalA",
     name: "Choix Type",
     icon: "nc-icon nc-bell-55",
-    component: ChoixTypeModal,
+    component: ChoixTypeModalA,
+    layout: "/admin",
+    affiche: false
+  },
+  {
+    path: "/choixTypeModalB",
+    name: "Choix Type",
+    icon: "nc-icon nc-bell-55",
+    component: ChoixTypeModalB,
     layout: "/admin",
     affiche: false
   },
