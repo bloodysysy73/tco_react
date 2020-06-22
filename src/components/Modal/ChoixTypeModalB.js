@@ -68,9 +68,12 @@ class ChoixTypeModalB extends React.Component {
                     <br />
                     <CardTitle>Paramétrer B </CardTitle>
                     <CardBody>
+                    
+                    <form className="ui form" onSubmit={() => this.onSubmitForm}></form>
+                    
                     <label>
                                 Définir le prix du forfait de déplacement
-<input
+                                <input
                                     name="workTripPackage"
                                     type="number"
                                     placeholder="€"
@@ -81,6 +84,7 @@ class ChoixTypeModalB extends React.Component {
                                     onChange={e => this.setworkTripPackage(e.target.value)}
                                     required />
                             </label><br />
+                            <br />
                             <label><br />
                                 <div className="ui animated button" tabIndex="0">
                                     <div className="visible content">Sauvegarder et retour</div>

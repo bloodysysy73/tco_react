@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
 import PerfectScrollbar from "perfect-scrollbar";
 
+
 var ps;
 
 class Sidebar extends React.Component {
@@ -48,7 +49,7 @@ class Sidebar extends React.Component {
             href="http://localhost:3000/admin/dashboard"
             className="simple-text logo-normal"
           >
-            TCO
+            MECALAC CALCULATOR
           </a>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>
@@ -63,20 +64,24 @@ class Sidebar extends React.Component {
                       (prop.pro ? " active-pro" : "")
                     }
                     key={key}
-                  >
+                  > 
                     <NavLink
                       to={prop.layout + prop.path}
                       className="nav-link"
                       activeClassName="active"
-                    >
-                      <i className={prop.icon} />
-                      <p>{prop.name}</p>
+                    >            
+                      <p><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQELJdZeAb4dPA/company-logo_200_200/0?e=1600905600&v=beta&t=F6ZsmtXt7BLhhQBMfB6XqclM_nomTYLtsW-XM-Zt3IU" 
+                    className="img-fluid" alt="" border="1px" border-radius="1px" padding="1px" width="25px" />
+                    . Calculator Dashboard</p>
+                    
                     </NavLink>
+                    
                   </li>
                 );
               } else { return <div key={key}></div> }
             })}
           </Nav>
+          
         </div>
       </div>
     );
