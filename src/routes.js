@@ -5,7 +5,7 @@ import SettingModal from "components/Modal/SettingModal";
 import Parametres from "components/Modal/Parametres";
 import ChoixTypeModalB from "components/Modal/ChoixTypeModalB";
 
-import About from "components/About"
+import About from "views/About"
 
 
 var routes = [
