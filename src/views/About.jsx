@@ -26,6 +26,7 @@ class About extends React.Component {
         return (
           <>
             <div className="content">
+                
             </div>
       </>
     );

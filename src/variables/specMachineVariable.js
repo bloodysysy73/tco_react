@@ -81,7 +81,7 @@ export const clim = [
 
 export const entretien250 = [
     'Concessionnaire',
-    'yyy'
+    'Client final'
 ];
 
 export const price = {
