@@ -128,7 +128,7 @@ class ChoixTypeModalA extends React.Component {
                             </label><br /><br />
 
                             <label>
-                                 <br />
+                                <br />
                                 <Link to='/admin/Parametres/' >
                                     <div className="ui animated button" tabIndex="0">
                                         <div className="visible content">Calculer</div>
@@ -136,16 +136,16 @@ class ChoixTypeModalA extends React.Component {
                                             <i aria-hidden="true" className="calculator icon"></i>
                                         </div></div>
                                 </Link>
-                              </label>
-                              <br />
-                              <br />
-                            
+                            </label>
+                            <br />
+                            <br />
+
                             <label>
-                                Coût estimé d'un  déplacement : 
+                                Coût estimé d'un  déplacement :
 <input
                                     //Résultat du coût d'estimation estimé
                                     name="workTripResult"
-                                    type="string"
+                                    type="number"
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     required />
@@ -164,7 +164,7 @@ class ChoixTypeModalA extends React.Component {
     }
 
     // méthode pour afficher le résultat du calcul du coût de déplacement
-    workTripResult() { 
+    workTripResult() {
         // console.log(workTripCalcul)
     }
 

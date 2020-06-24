@@ -164,7 +164,7 @@ class SpecMachine extends React.Component {
                         </label><br />
                         <label>
                             Paramétrer le choix de déplacement:<br />
-                            <Link to='/admin/choixTypeModalA/' style={!this.state.optionDeplacement ? { pointerEvents: "none" } : null}>
+                            <Link to={this.state.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'} style={!this.state.optionDeplacement ? { pointerEvents: "none" } : null}>
                                 <div className="ui animated button" tabIndex="0">
                                     <div className="visible content">Paramétrage</div>
                                     <div className="hidden content">
