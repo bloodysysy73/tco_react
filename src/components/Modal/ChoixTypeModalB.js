@@ -3,6 +3,11 @@ import history from "../../variables/history";
 import { Link } from 'react-router-dom'
 import Modal from './Modaux'
 
+//pour redux
+import { connect } from "react-redux";
+import { definiMontantForfait } from "../../actions/actionMachine"
+
+
 import {
     Card,
     CardFooter,
@@ -20,44 +25,18 @@ class ChoixTypeModalB extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            prixLavage: null,
-            prixDeplacement: null,
-            nbSemaine: null,
-            nbHeure: null,
-            periodicite: false
+            montantForfait: null
         };
     }
 
-    setPrixLavage(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ prixLavage: value });
+
+    setMontantForfait() {
+        this.props.definiMontantForfait(this.state.montantForfait);
     }
 
-    setPrixDeplacement(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ prixDeplacement: value });
-    }
-
-    setNbSemaine(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ nbSemaine: value });
-    }
-
-
-    setNbHeure(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ nbHeure: value });
-    }
-
-    setPeriodicite() {
-        this.setState({ periodicite: this.state.periodicite ? false : true });
-        console.log("la périodicité", this.state.periodicite);
-    }
-
-    onSubmitForm() {
-        console.log("submit")
-
-        console.log(this.state)
+    setStateMontantForfait(value) {
+        this.setState({ montantForfait: value });
+        console.log("montantForfait : ", value)
     }
 
 
@@ -68,40 +47,39 @@ class ChoixTypeModalB extends React.Component {
                     <br />
                     <CardTitle>Paramétrer B </CardTitle>
                     <CardBody>
-                    
-                    <form className="ui form" onSubmit={() => this.onSubmitForm}></form>
-                    
-                    <label>
-                                Définir le prix du forfait de déplacement
-                                <input
-                                    name="workTripPackage"
-                                    type="number"
-                                    placeholder="€"
-                                    disabled={!this.state.periodicite}
-                                    //value={dureeContratA}
-                                    style={{ direction: "rtl", textAlign: "right" }}
-                                    min="1" max="1000"
-                                    onChange={e => this.setworkTripPackage(e.target.value)}
-                                    required />
-                            </label><br />
-                            <br />
-                            <label><br />
-                                <div className="ui animated button" tabIndex="0">
-                                    <div className="visible content">Sauvegarder et retour</div>
-                                    <div className="hidden content">
-                                        <button className="ui button"><i className="angle double right icon"></i></button>
-                                    </div></div>
-                            </label><br />
+
+                        <form className="ui form"  ></form>
+
+                        <label>
+                            Définir le prix du forfait de déplacement
+                               <br /> <br />  <input
+                                name="montantForfait"
+                                type="number"
+                                placeholder="€"
+                                //value={dureeContratA}
+                                style={{ direction: "rtl", textAlign: "right" }}
+                                min="1" max="1000"
+                                onChange={e => this.setStateMontantForfait(e.target.value)}
+                                required />
+                        </label><br />
+                        <br />
+                        <label><br />
+                            <div className="ui animated button" tabIndex="0">
+                                <div className="visible content">Sauvegarder et retour</div>
+                                <div className="hidden content">
+                                    <button className="ui button" onClick={e => this.setMontantForfait(e.target.value)}><i className="angle double right icon"></i></button>
+                                </div></div>
+                        </label><br />
 
                     </CardBody>
                     <CardFooter>
                         <hr />
 
                     </CardFooter>
-                </Card></div>);
+                </Card></div >);
     }
 
-    
+
 
 
     renderActions = () => {
@@ -127,4 +105,8 @@ class ChoixTypeModalB extends React.Component {
 
 }
 
-export default (ChoixTypeModalB);
+const mapStateToProps = (state) => {
+    return {};
+};
+
+export default connect(mapStateToProps, { definiMontantForfait })(ChoixTypeModalB);
