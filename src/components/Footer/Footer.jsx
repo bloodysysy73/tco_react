@@ -38,7 +38,7 @@ class Footer extends React.Component {
                 <a
                   href="http://localhost:3000/admin/about"
                   target="_blank"
-                > &copy; {1900 + new Date().getYear()}, made by Guehria Paris</a>
+                > &copy; {1900 + new Date().getYear()}, made by S.Guehria and J.Paris</a>
               </div>
             </div>
           </Row>

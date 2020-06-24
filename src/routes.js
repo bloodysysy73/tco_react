@@ -3,26 +3,25 @@ import ChoixTypeModalA from "./components/Modal/ChoixTypeModalA"
 import HelpModal from "components/Modal/HelpModal";
 import SettingModal from "components/Modal/SettingModal";
 import Parametres from "components/Modal/Parametres";
-import ChoixTypeModalB from "components/Modal/ChoixTypeModalB";
-
-import About from "views/About"
+import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
+import About from "views/About.jsx"
 
 
 var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "nc-icon square-root-alt",
-    component: Dashboard, 
+    icon: "nc-icon nc-ruler-pencil",
+    component: Dashboard,
     layout: "/admin"
   },
   {
     path: "/about",
     name: "About",
-    icon: "nc-icon star",
+    icon: "nc-icon nc-bell-55",
     component: About,
     layout: "/admin",
-    affiche: false
+    affiche: true
   },
   {
     path: "/choixTypeModalA",
