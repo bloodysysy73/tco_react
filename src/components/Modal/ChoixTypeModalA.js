@@ -138,7 +138,18 @@ class ChoixTypeModalA extends React.Component {
                                 </Link>
                               </label>
                               <br />
-                            Afficher résultat ?
+                              <br />
+                            
+                            <label>
+                                Coût estimé d'un  déplacement : 
+<input
+                                    //Résultat du coût d'estimation estimé
+                                    name="workTripResult"
+                                    type="string"
+                                    placeholder="€"
+                                    style={{ direction: "rtl", textAlign: "right" }}
+                                    required />
+                            </label><br />
                         </form>
                     </CardBody>
                     <CardFooter>
@@ -150,6 +161,11 @@ class ChoixTypeModalA extends React.Component {
 
     // méthode pour calculer le coût de déplacement : tripWfCost*(geoScope/averageSpeed)+kmCost*geoScope
     workTripCalcul() {
+    }
+
+    // méthode pour afficher le résultat du calcul du coût de déplacement
+    workTripResult() { 
+        // console.log(workTripCalcul)
     }
 
     renderActions = () => {
