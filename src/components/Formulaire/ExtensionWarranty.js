@@ -45,7 +45,7 @@ class ExtensionWarranty extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                         <div className="numbers">
-                            <p className="card-category">Extension de garrantie</p>
+                            <p className="card-category">Extension de garantie</p>
                             <p />
                         </div>
                     </Col>

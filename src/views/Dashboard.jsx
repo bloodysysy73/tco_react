@@ -17,6 +17,8 @@ import AutresCouts from "components/Formulaire/autreCouts";
 import BilanEntretienMaintenance from "components/Formulaire/BilanEntretienMaintenance"
 import Fonctionnalites from "components/other/Fonctionnalites";
 import ExtensionWarranty from "components/Formulaire/ExtensionWarranty"
+import MachineView from "components/Images/MachineView"
+import MachineFleet from "components/Images/MachineFleet";
 
 
 class Dashboard extends React.Component {
@@ -66,6 +68,7 @@ class Dashboard extends React.Component {
                 <Fonctionnalites></Fonctionnalites>
               </Col>
               <Col lg="3" md="6" sm="6">
+                <MachineFleet></MachineFleet>
                 <ComplementSpec onchange={(a) => this.onchange2(a)} ></ComplementSpec>
                 <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
               </Col>
@@ -73,7 +76,7 @@ class Dashboard extends React.Component {
                 <Row>
                   <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
                   <ExtensionWarranty onchange={(a) => this.onchange5(a)} ></ExtensionWarranty>
-                  
+                  <MachineView></MachineView>
                   </Row>
                 {/* <Row>
                   <Fonctionnalites></Fonctionnalites>
@@ -84,6 +87,7 @@ class Dashboard extends React.Component {
 
               <Col md="9">
                 <Resume></Resume>
+                
               </Col>
             </Row>
             

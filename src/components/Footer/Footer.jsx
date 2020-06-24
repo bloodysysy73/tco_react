@@ -19,7 +19,7 @@ class Footer extends React.Component {
                     href=""
                     target="_blank"
                   >
-                    TCO
+                    CALCULATOR
 
                 </a>
                 </li>
@@ -36,9 +36,9 @@ class Footer extends React.Component {
             <div className="credits ml-auto">
               <div className="copyright">
                 <a
-                  href="https://www.linkedin.com/in/sylvain-guehria-ab9737134/"
+                  href="http://localhost:3000/admin/about"
                   target="_blank"
-                > &copy; {1900 + new Date().getYear()}, made by Sylvain Guehria</a>
+                > &copy; {1900 + new Date().getYear()}, made by S.Guehria and J.Paris</a>
               </div>
             </div>
           </Row>
