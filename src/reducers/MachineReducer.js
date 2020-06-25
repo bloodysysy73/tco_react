@@ -1,6 +1,7 @@
 import {
     DEFINE_OPTION,
-    DEFINI_MONTANT_FORFAIT
+    DEFINI_MONTANT_FORFAIT,
+    CALCUL_OPTION_A
 } from "../actions";
 
 
@@ -15,6 +16,11 @@ export default (state = {}, action) => {
             return {
                 ...state,
                 prixForfait: action.payload
+            };
+        case CALCUL_OPTION_A:
+            return {
+                ...state,
+                estimatedCostOptionA: action.payload
             };
         default:
             return state

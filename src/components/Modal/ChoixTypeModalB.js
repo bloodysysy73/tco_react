@@ -68,7 +68,7 @@ class ChoixTypeModalB extends React.Component {
                                 <div className="visible content">Sauvegarder et retour</div>
                                 <div className="hidden content">
                                     <React.Fragment>
-                                        <Link to="/"> <button className="ui button" onClick={e => this.setMontantForfait(e.target.value)}>
+                                        <Link to="/"> <button className="ui button" onClick={() => this.setMontantForfait()}>
                                             <i className="angle double right icon"></i></button>
                                         </Link>
                                     </React.Fragment>
