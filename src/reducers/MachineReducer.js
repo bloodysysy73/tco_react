@@ -14,7 +14,7 @@ export default (state = {}, action) => {
         case DEFINI_MONTANT_FORFAIT:
             return {
                 ...state,
-                optionDeplacement: action.payload
+                prixForfait: action.payload
             };
         default:
             return state

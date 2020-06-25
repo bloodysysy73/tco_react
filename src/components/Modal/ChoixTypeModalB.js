@@ -30,7 +30,7 @@ class ChoixTypeModalB extends React.Component {
     }
 
 
-    setMontantForfait() {
+    setMontantForfait = () => {
         this.props.definiMontantForfait(this.state.montantForfait);
     }
 
@@ -67,7 +67,11 @@ class ChoixTypeModalB extends React.Component {
                             <div className="ui animated button" tabIndex="0">
                                 <div className="visible content">Sauvegarder et retour</div>
                                 <div className="hidden content">
-                                    <button className="ui button" onClick={e => this.setMontantForfait(e.target.value)}><i className="angle double right icon"></i></button>
+                                    <React.Fragment>
+                                        <Link to="/"> <button className="ui button" onClick={e => this.setMontantForfait(e.target.value)}>
+                                            <i className="angle double right icon"></i></button>
+                                        </Link>
+                                    </React.Fragment>
                                 </div></div>
                         </label><br />
 

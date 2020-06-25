@@ -3,6 +3,9 @@ import history from "../../variables/history";
 import { Link } from 'react-router-dom'
 import Modal from './Modaux'
 
+import { connect } from "react-redux";
+import { } from "../../actions/actionMachine"
+
 import {
     Card,
     CardFooter,
@@ -191,4 +194,10 @@ class ChoixTypeModalA extends React.Component {
 
 }
 
-export default (ChoixTypeModalA);
+
+const mapStateToProps = (state) => {
+    return {};
+};
+
+export default connect(mapStateToProps, {})(ChoixTypeModalA);
+

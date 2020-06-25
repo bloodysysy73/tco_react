@@ -2,6 +2,9 @@ import React from 'react';
 import { machinesSpec, clim, entretien250 } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 
+import { connect } from "react-redux";
+import { definiOptionDeplacement } from 'actions/actionMachine'
+
 import {
     Card,
     CardBody,
@@ -13,6 +16,9 @@ import {
 
 class SpecMachine extends React.Component {
 
+    componentDidMount() {
+        console.log("oiption de déplacement", this.props.optionDeplacement);
+    }
 
     constructor(props) {
         super(props);
@@ -74,6 +80,7 @@ class SpecMachine extends React.Component {
         console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ optionDeplacement: value });
         this.props.onchange(this.state);
+        this.props.definiOptionDeplacement(value);
     }
 
 
@@ -121,12 +128,13 @@ class SpecMachine extends React.Component {
                                 required>
                                 <option key=""></option>
                                 {
-                                    machinesSpec.map(machinesSpec => {
+                                    machinesSpec.map((machinesSpec, i) => {
+
                                         return machinesSpec.name === this.state.machineValue ? (
 
                                             machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
 
-                                        ) : <></>
+                                        ) : <option hidden key={i} ></option>
                                     }
                                     )}
                             </select>
@@ -150,13 +158,15 @@ class SpecMachine extends React.Component {
                             <div className="grouped fields">
                                 <div className="field">
                                     <div className="ui slider checkbox">
-                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("a")} />
+                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("a")}
+                                            checked={this.props.optionDeplacement === "a" ? true : false} />
                                         <label>Calculer le déplacement </label>
                                     </div>
                                 </div>
                                 <div className="field">
                                     <div className="ui slider checkbox checked">
-                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("b")} />
+                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("b")}
+                                            checked={this.props.optionDeplacement === "b" ? true : false} />
                                         <label>Définir un montant forfaitaire </label>
                                     </div>
                                 </div>
@@ -164,7 +174,8 @@ class SpecMachine extends React.Component {
                         </label><br />
                         <label>
                             Paramétrer le choix de déplacement:<br />
-                            <Link to={this.state.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'} style={!this.state.optionDeplacement ? { pointerEvents: "none" } : null}>
+                            <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
+                                style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
                                 <div className="ui animated button" tabIndex="0">
                                     <div className="visible content">Paramétrage</div>
                                     <div className="hidden content">
@@ -216,6 +227,13 @@ class SpecMachine extends React.Component {
     }
 }
 
-export default SpecMachine;
+
+const mapStateToProps = (state) => {
+    return {
+        optionDeplacement: state.machine.optionDeplacement
+    };
+};
+
+export default connect(mapStateToProps, { definiOptionDeplacement })(SpecMachine);
 
 
