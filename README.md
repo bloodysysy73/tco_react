@@ -57,6 +57,8 @@ Simplification et justesse des chiffrages :
 - 4 clics
 - Marges, discounts et inflations modifiables
 
+Mes objectifs personnels ? Un design moderne et responsive, une utilisation simple et des performances qui permettent une édition rapide de devis et un confort d'utilisatation.
+
 ### Built With
 
 * []() ReactJS 16.8 (javascript ES6) pour la partie frontend
