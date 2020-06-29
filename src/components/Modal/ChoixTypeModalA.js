@@ -3,6 +3,9 @@ import history from "../../variables/history";
 import { Link } from 'react-router-dom'
 import Modal from './Modaux'
 
+import { connect } from "react-redux";
+import { calculOptionA } from "../../actions/actionMachine"
+
 import {
     Card,
     CardFooter,
@@ -20,11 +23,11 @@ class ChoixTypeModalA extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            geoScope: null,
-            kmCost: null,
-            averageSpee: null,
-            tripWfCost: null,
-            periodicite: false
+            geoScope: 0,
+            kmCost: 0,
+            averageSpeed: 0,
+            tripWfCost: 0,
+            estimatedCostOptionA: 0
         };
     }
 
@@ -49,15 +52,11 @@ class ChoixTypeModalA extends React.Component {
         this.setState({ tripWfCost: value });
     }
 
-    setPeriodicite() {
-        this.setState({ periodicite: this.state.periodicite ? false : true });
-        console.log("la périodicité", this.state.periodicite);
-    }
-
-    onSubmitForm() {
-        console.log("submit")
-
-        console.log(this.state)
+    calculDeplacement() {
+        let estimatedCostOptionA = parseFloat(this.state.geoScope) + parseFloat(this.state.kmCost) + parseFloat(this.state.averageSpeed) + parseFloat(this.state.tripWfCost);
+        this.setState({ estimatedCostOptionA: estimatedCostOptionA });
+        this.props.calculOptionA(estimatedCostOptionA);
+        console.log("state : ", this.state)
     }
 
 
@@ -68,7 +67,7 @@ class ChoixTypeModalA extends React.Component {
                     <br />
                     <CardTitle>Paramétrer le calcul du coût d'un déplacement </CardTitle>
                     <CardBody>
-                        <form className="ui form" onSubmit={() => this.onSubmitForm}>
+                        <form className="ui form">
                             <br /><label>
                                 Définir le champ d'action géographique
 <input
@@ -129,13 +128,22 @@ class ChoixTypeModalA extends React.Component {
 
                             <label>
                                 <br />
-                                <Link to='/admin/Parametres/' >
-                                    <div className="ui animated button" tabIndex="0">
-                                        <div className="visible content">Calculer</div>
-                                        <div className="hidden content">
-                                            <i aria-hidden="true" className="calculator icon"></i>
-                                        </div></div>
-                                </Link>
+                                <div className="hidden content">
+                                    <div className="ui button" onClick={() => this.calculDeplacement()}>
+                                        <i aria-hidden="true" className="calculator icon"></i>Calculer</div>
+                                </div>
+                            </label>
+                            <br />
+                            <label>
+                                <br />
+                                <div className="hidden content">
+                                    <React.Fragment>
+                                        <Link to="/admin/Parametres">
+                                            <div className="ui button">
+                                                <i aria-hidden="true" className="calculator icon"></i>parametres</div>
+                                        </Link>
+                                    </React.Fragment>
+                                </div>
                             </label>
                             <br />
                             <br />
@@ -153,7 +161,6 @@ class ChoixTypeModalA extends React.Component {
                         </form>
                     </CardBody>
                     <CardFooter>
-                        <hr />
 
                     </CardFooter>
                 </Card></div>);
@@ -191,4 +198,10 @@ class ChoixTypeModalA extends React.Component {
 
 }
 
-export default (ChoixTypeModalA);
+
+const mapStateToProps = (state) => {
+    return {};
+};
+
+export default connect(mapStateToProps, { calculOptionA })(ChoixTypeModalA);
+
