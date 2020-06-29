@@ -39,6 +39,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Principe de l'application
 
+[![Capture mecalac][capture-mecalac]]
+
 Cette application web est un calculateur de contrat de services qui permets d'éditer des devis.
 Quels sont les objectifs ?
 
@@ -114,5 +116,7 @@ Sylvain GUEHRIA   - sylvain.guehria@gmail.com - 06 64 39 70 53
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sylvain-guehria-ab9737134/
+[capture-mecalac]: public/images/mecalac.png
+
 
 
