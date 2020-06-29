@@ -56,7 +56,7 @@ class ChoixTypeModalB extends React.Component {
                                 name="montantForfait"
                                 type="number"
                                 placeholder="€"
-                                //value={dureeContratA}
+                                value={this.props.prixForfait}
                                 style={{ direction: "rtl", textAlign: "right" }}
                                 min="1" max="1000"
                                 onChange={e => this.setStateMontantForfait(e.target.value)}
@@ -110,7 +110,9 @@ class ChoixTypeModalB extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        prixForfait: state.specMachineReducer.prixForfait,
+    };
 };
 
 export default connect(mapStateToProps, { definiMontantForfait })(ChoixTypeModalB);

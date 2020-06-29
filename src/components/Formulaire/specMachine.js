@@ -3,7 +3,7 @@ import { machinesSpec, clim, entretien250 } from "../../variables/specMachineVar
 import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux";
-import { definiOptionDeplacement } from 'actions/actionMachine'
+import { definiAttribut } from 'actions/actionMachine'
 
 import {
     Card,
@@ -16,71 +16,33 @@ import {
 
 class SpecMachine extends React.Component {
 
-    componentDidMount() {
-        console.log("oiption de déplacement", this.props.optionDeplacement);
-    }
 
     constructor(props) {
         super(props);
         this.state = {
-            machineValue: null,
-            nSerieValue: null,
-            climValue: null,
-            deplacementValue: null,
-            dureeContratHValue: null,
-            dureeContratAValue: null,
-            entretien250Value: null,
+            machine: null,
+            nSerie: null,
+            clim: null,
+            dureeContratH: null,
+            dureeContratA: null,
+            entretien250: null,
             optionDeplacement: null
         };
     }
 
-    setMachine(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ machineValue: value });
+    handleChangeCheckBox(e, value) {
+
+        this.setState({ [e.target.name]: value });
         this.props.onchange(this.state);
+        this.props.definiAttribut(e.target.name, value);
     }
 
-    setNSerie(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ nSerieValue: value });
-        this.props.onchange(this.state);
-    }
 
-    setClim(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ climValue: value });
-        this.props.onchange(this.state);
-    }
+    handleChange(e) {
 
-    setDeplacement(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ deplacementValue: value });
+        this.setState({ [e.target.name]: e.target.value });
         this.props.onchange(this.state);
-    }
-
-    setDureeContratH(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ dureeContratHValue: value });
-        this.props.onchange(this.state);
-    }
-
-    setDureeContratA(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ dureeContratAValue: value });
-        this.props.onchange(this.state);
-    }
-
-    setEntretien250(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ entretien250: value });
-        this.props.onchange(this.state);
-    }
-
-    setCheckbox(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ optionDeplacement: value });
-        this.props.onchange(this.state);
-        this.props.definiOptionDeplacement(value);
+        this.props.definiAttribut(e.target.name, e.target.value);
     }
 
 
@@ -108,9 +70,9 @@ class SpecMachine extends React.Component {
                         <label>
                             machines:
         <select
-                                name="machines"
-                                //value={this.state.machine}
-                                onChange={e => this.setMachine(e.target.value)}
+                                name="machine"
+                                value={this.props.machine}
+                                onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
                                 {machinesSpec.map(machine => (
@@ -123,14 +85,14 @@ class SpecMachine extends React.Component {
                             nSerie:
         <select
                                 name="nSerie"
-                                //value={nSerie}
-                                onChange={e => this.setNSerie(e.target.value)}
+                                Value={this.props.nSerie}
+                                onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
                                 {
                                     machinesSpec.map((machinesSpec, i) => {
 
-                                        return machinesSpec.name === this.state.machineValue ? (
+                                        return machinesSpec.name === this.state.machine ? (
 
                                             machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
 
@@ -144,8 +106,8 @@ class SpecMachine extends React.Component {
                             clim:
         <select
                                 name="clim"
-                                //value={clim}
-                                onChange={e => this.setClim(e.target.value)}
+                                value={this.props.clim}
+                                onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
                                 {clim.map(clim => (
@@ -158,14 +120,14 @@ class SpecMachine extends React.Component {
                             <div className="grouped fields">
                                 <div className="field">
                                     <div className="ui slider checkbox">
-                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("a")}
+                                        <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
                                             checked={this.props.optionDeplacement === "a" ? true : false} />
                                         <label>Calculer le déplacement </label>
                                     </div>
                                 </div>
                                 <div className="field">
                                     <div className="ui slider checkbox checked">
-                                        <input type="radio" name="throughput" onChange={e => this.setCheckbox("b")}
+                                        <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
                                             checked={this.props.optionDeplacement === "b" ? true : false} />
                                         <label>Définir un montant forfaitaire </label>
                                     </div>
@@ -188,9 +150,9 @@ class SpecMachine extends React.Component {
         <input
                                 name="dureeContratH"
                                 type="number"
-                                //value={dureeContratH}
+                                value={this.props.dureeContratH}
                                 min="1" max="5"
-                                onChange={e => this.setDureeContratH(e.target.value)}
+                                onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
 
@@ -199,9 +161,9 @@ class SpecMachine extends React.Component {
         <input
                                 name="dureeContratA"
                                 type="number"
-                                //value={dureeContratA}
+                                value={this.props.dureeContratA}
                                 min="1" max="5"
-                                onChange={e => this.setDureeContratA(e.target.value)}
+                                onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
 
@@ -209,8 +171,8 @@ class SpecMachine extends React.Component {
                             Entretien des 250h:
         <select
                                 name="entretien250"
-                                //value={entretien250}
-                                onChange={e => this.setEntretien250(e.target.value)}
+                                value={this.props.entretien250}
+                                onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
                                 {entretien250.map(entretien250 => (
@@ -230,10 +192,16 @@ class SpecMachine extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        optionDeplacement: state.machine.optionDeplacement
+        optionDeplacement: state.specMachineReducer.optionDeplacement,
+        machine: state.specMachineReducer.machine,
+        nSerie: state.specMachineReducer.nSerie,
+        clim: state.specMachineReducer.clim,
+        dureeContratH: state.specMachineReducer.dureeContratH,
+        dureeContratA: state.specMachineReducer.dureeContratA,
+        entretien250: state.specMachineReducer.entretien250,
     };
 };
 
-export default connect(mapStateToProps, { definiOptionDeplacement })(SpecMachine);
+export default connect(mapStateToProps, { definiAttribut })(SpecMachine);
 
 

@@ -1,16 +1,3 @@
-export const machines = [
-    '11MWR',
-    '9MWR',
-    '7MWR',
-    '10MCR',
-    '8MCR',
-    '6MCR',
-    '15MC',
-    '15MWR',
-    '12MTX'
-
-];
-
 export const machinesSpec = [
     {
         id: '1',
@@ -67,11 +54,6 @@ export const machinesSpec = [
         numSerie: ['46184']
     },
 
-];
-
-
-export const nSerie = [
-    '120100'
 ];
 
 export const clim = [
