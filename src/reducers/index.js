@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import machineReducer from "../reducers/MachineReducer"
+import specMachineReducer from "./SpecMachineReducer"
 
 export default combineReducers({
-    machine: machineReducer
+    specMachineReducer: specMachineReducer
 });

@@ -32,31 +32,36 @@ class ChoixTypeModalA extends React.Component {
     }
 
     setGeoScope(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ geoScope: value });
     }
 
     setKmCost(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ kmCost: value });
     }
 
     setAverageSpeed(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ averageSpeed: value });
     }
 
 
     setTripWfCost(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ tripWfCost: value });
     }
+
 
     calculDeplacement() {
         let estimatedCostOptionA = parseFloat(this.state.geoScope) + parseFloat(this.state.kmCost) + parseFloat(this.state.averageSpeed) + parseFloat(this.state.tripWfCost);
         this.setState({ estimatedCostOptionA: estimatedCostOptionA });
-        this.props.calculOptionA(estimatedCostOptionA);
-        console.log("state : ", this.state)
+
+        let modalBValue = {
+            estimatedCostOptionA: estimatedCostOptionA,
+            geoScope: this.state.geoScope,
+            kmCost: this.state.kmCost,
+            averageSpeed: this.state.averageSpeed,
+            tripWfCost: this.state.tripWfCost
+        }
+
+        this.props.calculOptionA(modalBValue);
     }
 
 
@@ -76,7 +81,7 @@ class ChoixTypeModalA extends React.Component {
                                     type="number"
                                     placeholder="km"
                                     style={{ direction: "rtl", textAlign: "right" }}
-                                    //value={dureeContratH}
+                                    value={this.props.geoScope}
                                     min="1" max="100"
                                     onChange={e => this.setGeoScope(e.target.value)}
                                     required />
@@ -90,7 +95,7 @@ class ChoixTypeModalA extends React.Component {
                                     type="number"
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
-                                    //value={dureeContratA}
+                                    value={this.props.kmCost}
                                     min="0.4" max="0.8"
                                     onChange={e => this.setKmCost(e.target.value)}
                                     required />
@@ -104,7 +109,7 @@ class ChoixTypeModalA extends React.Component {
                                     type="number"
                                     placeholder="km/h"
                                     style={{ direction: "rtl", textAlign: "right" }}
-                                    //value={dureeContratH}
+                                    value={this.props.averageSpeed}
                                     min="30" max="100"
                                     onChange={e => this.setAverageSpeed(e.target.value)}
                                     required />
@@ -119,7 +124,7 @@ class ChoixTypeModalA extends React.Component {
                                     name="tripWfCost"
                                     type="number"
                                     placeholder="h/€"
-                                    //value={dureeContratA}
+                                    value={this.props.tripWfCost}
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     min="1" max="100"
                                     onChange={e => this.setTripWfCost(e.target.value)}
@@ -154,6 +159,8 @@ class ChoixTypeModalA extends React.Component {
                                     //Résultat du coût d'estimation estimé
                                     name="workTripResult"
                                     type="number"
+                                    value={this.props.estimatedCostOptionA}
+                                    onChange={e => this.calculDeplacement(e.target.value)}
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     required />
@@ -200,7 +207,13 @@ class ChoixTypeModalA extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        estimatedCostOptionA: state.specMachineReducer.estimatedCostOptionA,
+        geoScope: state.specMachineReducer.geoScope,
+        kmCost: state.specMachineReducer.kmCost,
+        averageSpeed: state.specMachineReducer.averageSpeed,
+        tripWfCost: state.specMachineReducer.tripWfCost
+    };
 };
 
 export default connect(mapStateToProps, { calculOptionA })(ChoixTypeModalA);
