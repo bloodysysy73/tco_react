@@ -25,31 +25,31 @@ class ComplementSpec extends React.Component {
 
     setextensionGarantie(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ machineValue: value });
+        this.setState({ extensionGarantie: value });
         this.props.onchange(this.state);
     }
 
     setcapture(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ nSerieValue: value });
+        this.setState({ capture: value });
         this.props.onchange(this.state);
     }
 
     setvgp(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ climValue: value });
+        this.setState({ vgp: value });
         this.props.onchange(this.state);
     }
 
     setpieceUsure(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ deplacementValue: value });
+        this.setState({ pieceUsure: value });
         this.props.onchange(this.state);
     }
 
     setlavage(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ dureeContratHValue: value });
+        this.setState({ lavage: value });
         this.props.onchange(this.state);
     }
 

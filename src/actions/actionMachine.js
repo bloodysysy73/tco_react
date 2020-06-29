@@ -1,12 +1,4 @@
-import { DEFINE_OPTION, DEFINI_MONTANT_FORFAIT, CALCUL_OPTION_A } from 'actions';
-
-//definie si option A ou B pour le déplacement
-export const definiOptionDeplacement = (option) => {
-    return {
-        type: DEFINE_OPTION,
-        payload: option,
-    };
-};
+import { DEFINI_MONTANT_FORFAIT, CALCUL_OPTION_A, UPDATE_ATTRIBUT } from 'actions';
 
 export const definiMontantForfait = (montant) => {
     return {
@@ -15,9 +7,16 @@ export const definiMontantForfait = (montant) => {
     };
 };
 
-export const calculOptionA = (montant) => {
+export const calculOptionA = (modalBValue) => {
     return {
         type: CALCUL_OPTION_A,
-        payload: montant,
+        payload: modalBValue,
+    };
+};
+
+export const definiAttribut = (name, value) => {
+    return {
+        type: UPDATE_ATTRIBUT,
+        payload: { name, value }
     };
 };
