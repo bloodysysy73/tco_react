@@ -48,7 +48,7 @@ class Sidebar extends React.Component {
             href="http://localhost:3000/admin/dashboard"
             className="simple-text logo-normal"
           >
-            TCO
+            CACULATOR
           </a>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>
