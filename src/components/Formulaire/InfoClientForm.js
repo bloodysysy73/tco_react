@@ -1,0 +1,95 @@
+import React from 'react';
+import { definiInfoClient } from 'actions';
+import { connect } from "react-redux";
+
+
+import {
+    Card,
+    CardFooter,
+    CardBody,
+    Col,
+    Row
+} from "reactstrap";
+
+class InfoClientForm extends React.Component {
+
+
+    handleChange(e) {
+
+        this.props.definiInfoClient(e.target.name, e.target.value);
+    }
+
+    render() {
+        return (
+
+            <Card className="card-stats">
+
+                <CardBody>
+                    <Row>
+                        <Col md="4" xs="5">
+                            <div className="icon-big text-center icon-warning">
+                                <i className="nc-icon nc-single-copy-04 text-warning" />
+                            </div>
+                        </Col>
+                        <Col md="8" xs="7">
+                            <div className="numbers">
+                                <p className="card-category">Informations Client</p>
+                                <p />
+                            </div>
+                        </Col>
+                    </Row>
+                </CardBody>
+                <CardFooter><br />
+                    <form className="ui form" onSubmit={this.onSubmitForm}>
+
+
+                        <label>
+                            Prenom et Nom:
+<input
+                                name="prenomNom"
+                                type="text"
+                                value={this.props.prenomNom}
+                                onChange={e => this.handleChange(e)}
+                                required />
+                        </label><br />
+
+                        <label>
+                            adresse:
+<input
+                                name="adresse"
+                                type="text"
+                                value={this.props.adresse}
+                                onChange={e => this.handleChange(e)}
+                                required />
+                        </label><br />
+
+                        <label>
+                            email :
+                        <input
+                                name="email"
+                                type="text"
+                                value={this.props.email}
+                                onChange={e => this.handleChange(e)}
+                                required />
+                        </label><br />
+
+
+
+                        {/* <button className="ui button" >Submit</button> */}
+                    </form>
+
+                </CardFooter>
+            </Card>);
+    }
+}
+
+
+const mapStateToProps = (state) => {
+    return {
+        prenomNom: state.clientReducer.prenomNom,
+        adresse: state.clientReducer.adresse,
+        email: state.clientReducer.email,
+    };
+};
+
+export default connect(mapStateToProps, { definiInfoClient })(InfoClientForm);

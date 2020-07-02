@@ -1,6 +1,6 @@
 import React from "react";
 import ReactToPrint from "react-to-print";
-import Resume from "./resume";
+import Devis from "./Devis";
 
 
 
@@ -14,7 +14,7 @@ class Printer extends React.Component {
                     content={() => this.componentRef}
                 />
                 <div style={{ display: "none" }}>
-                    <Resume ref={el => (this.componentRef = el)} />
+                    <Devis ref={el => (this.componentRef = el)} />
                 </div>
             </div>
         );
