@@ -76,7 +76,7 @@ class SpecMachine extends React.Component {
                                 required>
                                 <option key=""></option>
                                 {machinesSpec.map(machine => (
-                                    <option key={machine.id}>{machine.name}</option>
+                                    <option key={machine.id}>{machine.gamme}</option>
                                 ))}
                             </select>
                         </label><br />
@@ -92,7 +92,7 @@ class SpecMachine extends React.Component {
                                 {
                                     machinesSpec.map((machinesSpec, i) => {
 
-                                        return machinesSpec.name === this.state.machine ? (
+                                        return machinesSpec.gamme === this.state.machine ? (
 
                                             machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
 
