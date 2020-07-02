@@ -30,7 +30,7 @@ class ChoixTypeModalB extends React.Component {
     }
 
 
-    setMontantForfait() {
+    setMontantForfait = () => {
         this.props.definiMontantForfait(this.state.montantForfait);
     }
 
@@ -56,7 +56,7 @@ class ChoixTypeModalB extends React.Component {
                                 name="montantForfait"
                                 type="number"
                                 placeholder="€"
-                                //value={dureeContratA}
+                                value={this.props.prixForfait}
                                 style={{ direction: "rtl", textAlign: "right" }}
                                 min="1" max="1000"
                                 onChange={e => this.setStateMontantForfait(e.target.value)}
@@ -67,7 +67,11 @@ class ChoixTypeModalB extends React.Component {
                             <div className="ui animated button" tabIndex="0">
                                 <div className="visible content">Sauvegarder et retour</div>
                                 <div className="hidden content">
-                                    <button className="ui button" onClick={e => this.setMontantForfait(e.target.value)}><i className="angle double right icon"></i></button>
+                                    <React.Fragment>
+                                        <Link to="/"> <button className="ui button" onClick={() => this.setMontantForfait()}>
+                                            <i className="angle double right icon"></i></button>
+                                        </Link>
+                                    </React.Fragment>
                                 </div></div>
                         </label><br />
 
@@ -106,7 +110,9 @@ class ChoixTypeModalB extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        prixForfait: state.specMachineReducer.prixForfait,
+    };
 };
 
 export default connect(mapStateToProps, { definiMontantForfait })(ChoixTypeModalB);

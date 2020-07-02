@@ -32,10 +32,6 @@ export const type = [
 
 ];
 
-
-
-
-
 export const machinesSpec = [
     {
         id: '1',
@@ -121,11 +117,6 @@ export const machinesSpec = [
         familyPieces: '2',
     },
 
-];
-
-
-export const nSerie = [
-    '120100'
 ];
 
 export const clim = [
