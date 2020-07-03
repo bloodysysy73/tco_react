@@ -50,7 +50,7 @@ class ChoixTypeModalA extends React.Component {
 
 
     calculDeplacement() {
-        let estimatedCostOptionA = parseFloat(this.state.geoScope) + parseFloat(this.state.kmCost) + parseFloat(this.state.averageSpeed) + parseFloat(this.state.tripWfCost);
+        let estimatedCostOptionA = parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope));
         this.setState({ estimatedCostOptionA: estimatedCostOptionA });
 
         let modalBValue = {
