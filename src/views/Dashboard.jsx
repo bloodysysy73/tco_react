@@ -63,16 +63,16 @@ class Dashboard extends React.Component {
         <div className="content">
           <Container fluid>
             <Row className="justify-content-md-center">
-              <Col lg="3" md="6" sm="6">
+              <Col lg="4" md="6" sm="6">
                 <SpecMachine onchange={(a) => this.onchange1(a)}></SpecMachine>
                 <Fonctionnalites></Fonctionnalites>
               </Col>
-              <Col lg="3" md="6" sm="6">
+              <Col lg="4" md="6" sm="6">
                 <MachineFleet></MachineFleet>
                 <ComplementSpec onchange={(a) => this.onchange2(a)} ></ComplementSpec>
                 <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
               </Col>
-              <Col lg="3" md="6" sm="6" >
+              <Col lg="4" md="6" sm="6" >
                 <Row>
                   <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
                   <ExtensionWarranty onchange={(a) => this.onchange5(a)} ></ExtensionWarranty>
@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
             </Row>
             <Row className="justify-content-md-center">
 
-              <Col md="9">
+              <Col md="12">
                 <Devis></Devis>
 
               </Col>
