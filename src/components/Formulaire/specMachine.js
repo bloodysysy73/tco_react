@@ -103,7 +103,7 @@ class SpecMachine extends React.Component {
                         <Row>
                         <Col md="6" xs="6">
                         <label>
-                            machines:
+                            Modèle:
         <select
                                 name="machine"
                                 value={this.props.machine}
@@ -185,19 +185,8 @@ class SpecMachine extends React.Component {
                             </Link>
                         </label><br />
                         <label>
-                            dureeContratH:
-        <input
-                                name="dureeContratH"
-                                type="number"
-                                value={this.props.dureeContratH}
-                                min="1" max="5"
-                                onChange={e => this.handleChange(e)}
-                                required />
-                        </label><br />
-
-                        <label>
-                            dureeContratA:
-        <input
+                            Durée du contrat en mois (*12):
+        <input // Valeur par défault : 24 mois
                                 name="dureeContratA"
                                 type="number"
                                 value={this.props.dureeContratA}
@@ -205,6 +194,17 @@ class SpecMachine extends React.Component {
                                 onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
+
+                        <label>
+                            Durée du contrat en heures :
+        <input // Valeur par défault : 3000 heures
+                                name="dureeContratH"
+                                type="number"
+                                value={this.props.dureeContratH}
+                                min="1" max="5"
+                                onChange={e => this.handleChange(e)}
+                                required /> 
+                        </label><br /> 
 
                         <label>
                             Entretien des 250h:
