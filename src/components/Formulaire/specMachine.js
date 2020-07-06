@@ -85,7 +85,7 @@ class SpecMachine extends React.Component {
                             nSerie:
         <select
                                 name="nSerie"
-                                Value={this.props.nSerie}
+                                value={this.props.nSerie}
                                 onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
