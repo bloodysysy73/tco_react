@@ -12,13 +12,13 @@ import {
 
 import SpecMachine from 'components/Formulaire/specMachine';
 import ComplementSpec from "components/Formulaire/complementSpec";
-import Resume from "components/other/resume";
 import AutresCouts from "components/Formulaire/autreCouts";
 import BilanEntretienMaintenance from "components/Formulaire/BilanEntretienMaintenance"
 import Fonctionnalites from "components/other/Fonctionnalites";
 import ExtensionWarranty from "components/Formulaire/ExtensionWarranty"
 import MachineView from "components/Images/MachineView"
 import MachineFleet from "components/Images/MachineFleet";
+import Devis from "components/other/Devis";
 
 
 class Dashboard extends React.Component {
@@ -77,7 +77,7 @@ class Dashboard extends React.Component {
                   <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
                   <ExtensionWarranty onchange={(a) => this.onchange5(a)} ></ExtensionWarranty>
                   <MachineView></MachineView>
-                  </Row>
+                </Row>
                 {/* <Row>
                   <Fonctionnalites></Fonctionnalites>
                 </Row> */}
@@ -86,11 +86,11 @@ class Dashboard extends React.Component {
             <Row className="justify-content-md-center">
 
               <Col md="9">
-                <Resume></Resume>
-                
+                <Devis></Devis>
+
               </Col>
             </Row>
-            
+
             <Row>
               <Col md="12">
 
