@@ -5,7 +5,7 @@ import SettingModal from "components/Modal/SettingModal";
 import Parametres from "components/Modal/Parametres";
 import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
 import About from "views/About.jsx"
-import InfoClient from "views/InfoClient";
+import Informations from "views/Informations";
 
 
 var routes = [
@@ -65,10 +65,10 @@ var routes = [
     affiche: false
   },
   {
-    path: "/infoclient",
-    name: "Informations client",
+    path: "/informations",
+    name: "Informations",
     icon: "nc-icon nc-badge",
-    component: InfoClient,
+    component: Informations,
     layout: "/admin",
   },
 ];

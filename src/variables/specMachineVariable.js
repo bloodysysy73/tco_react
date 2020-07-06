@@ -1,11 +1,10 @@
 export const categories = [
     'Excavator',
-    'Loader', 
+    'Loader',
     'Dumper',
     'Backhoe Loader',
     'Compaction Rollers',
     'Specific Customer Activities',
-
 ];
 
 export const type = [

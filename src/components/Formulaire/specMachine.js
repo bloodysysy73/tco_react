@@ -21,6 +21,8 @@ class SpecMachine extends React.Component {
         super(props);
         this.state = {
             machine: null,
+            categories: null,
+            type: null,
             nSerie: null,
             clim: null,
             dureeContratH: null,
@@ -33,8 +35,13 @@ class SpecMachine extends React.Component {
     }
 
     handleChangeCheckBox(e, value) {
-
         this.setState({ [e.target.name]: value });
+    }
+
+
+    setNSerie(e, value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ nSerieValue: value });
         this.props.onchange(this.state);
         this.props.definiAttribut(e.target.name, value);
     }
@@ -70,7 +77,7 @@ class SpecMachine extends React.Component {
                     <form className="ui form" onSubmit={this.onSubmitForm}>
                     <Row>
                         <Col md="6" xs="6">
-                    <label>
+                        <label>
                             Catégories:
         <select
                                 name="categories"
@@ -99,6 +106,7 @@ class SpecMachine extends React.Component {
                             </select>
                         </label><br />
                         </Col>
+
                         </Row>
                         <Row>
                         <Col md="6" xs="6">
@@ -115,6 +123,9 @@ class SpecMachine extends React.Component {
                                 ))}
                             </select>
                         </label><br />
+                              
+                        </label>
+
                         </Col>
                         <Col md="6" xs="6">
 
@@ -122,11 +133,12 @@ class SpecMachine extends React.Component {
                             nSerie:
         <select
                                 name="nSerie"
-                                Value={this.props.nSerie}
+                                value={this.props.nSerie}
                                 onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
                                 {
+
                                     machinesSpec.map((machinesSpec, i) => {
 
                                         return machinesSpec.gamme === this.state.machine ? (
@@ -137,7 +149,10 @@ class SpecMachine extends React.Component {
                                     }
                                     )}
                             </select>
+                                          
                         </label><br />
+                                          
+                        </label>
                         </Col>
                         </Row>
 

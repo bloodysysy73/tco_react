@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { defineTime } from 'actions';
+
 import "assets/css/invoice.css";
 
 class Devis extends React.Component {
 
-    constructor() {
-        super();
+    componentDidMount() {
 
-        var today = new Date(),
+        let today = new Date(),
             date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        this.props.date ? console.log("date", this.props.date) : this.props.defineTime("date", date);
 
-        this.state = {
-            date: date
-        };
     }
 
     render() {
@@ -49,15 +48,16 @@ class Devis extends React.Component {
                                 </div>
                                 <div className="col invoice-details">
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
-                                    <div className="date">  Date: {this.state.date}</div>
-                                    <div className="Label">Label: FR 30/07/2020</div> à définir
-                            <div className="Order type">Order type: FR</div>  à définir
-                        </div>
+                                    <div className="date">  Date: {this.props.date}</div>
+                                    <div className="date">  Lieu: {this.props.lieu}</div>
+                                    <div className="Label">Label: FR 30/07/2020</div>
+                                    <div className="Order type">Order type: FR</div>
+                                </div>
                             </div>
                             <div className="row contacts">
                                 Order : WEB1598607  à définir
                     </div>
-                            <table border="0" cellspacing="0" cellpadding="0">
+                            <table border="0" cellSpacing="0" cellPadding="0">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -135,18 +135,18 @@ class Devis extends React.Component {
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="4">SUBTOTAL</td>
+                                        <td colSpan="2"></td>
+                                        <td colSpan="4">SUBTOTAL</td>
                                         <td>$X,000.00</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="4">TAX 25%</td>
+                                        <td colSpan="2"></td>
+                                        <td colSpan="4">TAX 25%</td>
                                         <td>$Y,000.00</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="4">GRAND TOTAL</td>
+                                        <td colSpan="2"></td>
+                                        <td colSpan="4">GRAND TOTAL</td>
                                         <td>$Z,000.00</td>
                                     </tr>
                                 </tfoot>
@@ -174,7 +174,9 @@ const mapStateToProps = (state) => {
         prenomNom: state.clientReducer.prenomNom,
         adresse: state.clientReducer.adresse,
         email: state.clientReducer.email,
+        date: state.infocomplementaireReducer.date,
+        lieu: state.infocomplementaireReducer.lieu
     };
 };
 
-export default connect(mapStateToProps, {})(Devis);
+export default connect(mapStateToProps, { defineTime })(Devis);
