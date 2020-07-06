@@ -29,18 +29,17 @@ class SpecMachine extends React.Component {
             dureeContratA: null,
             entretien250: null,
             optionDeplacement: null,
-            categories: null,
-            type: null
         };
     }
 
     handleChangeCheckBox(e, value) {
         this.setState({ [e.target.name]: value });
+        this.props.onchange(this.state);
+        this.props.definiAttribut(e.target.name, value);
     }
 
 
     setNSerie(e, value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ nSerieValue: value });
         this.props.onchange(this.state);
         this.props.definiAttribut(e.target.name, value);
@@ -75,85 +74,82 @@ class SpecMachine extends React.Component {
                 </CardBody>
                 <CardFooter>
                     <form className="ui form" onSubmit={this.onSubmitForm}>
-                    <Row>
-                        <Col md="6" xs="6">
-                        <label>
-                            Catégories:
+                        <Row>
+                            <Col md="6" xs="6">
+                                <label>
+                                    Catégories:
         <select
-                                name="categories"
-                                value={this.props.categories}
-                                onChange={e => this.handleChange(e)}
-                                required>
-                                <option key=""></option>
-                                {categories.map(categories => (
-                                    <option key={categories}>{categories}</option>
-                                ))}
-                            </select>
-                        </label><br />
-                        </Col>
-                        <Col md="6" xs="6">
-                        <label>
-                            Type:
+                                        name="categories"
+                                        value={this.props.categories}
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {categories.map(categories => (
+                                            <option key={categories}>{categories}</option>
+                                        ))}
+                                    </select>
+                                </label><br />
+                            </Col>
+                            <Col md="6" xs="6">
+                                <label>
+                                    Type:
         <select
-                                name="type"
-                                value={this.props.type}
-                                onChange={e => this.handleChange(e)}
-                                required>
-                                <option key=""></option>
-                                {type.map(type => (
-                                    <option key={type}>{type}</option>
-                                ))}
-                            </select>
-                        </label><br />
-                        </Col>
+                                        name="type"
+                                        value={this.props.type}
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {type.map(type => (
+                                            <option key={type}>{type}</option>
+                                        ))}
+                                    </select>
+                                </label><br />
+                            </Col>
 
                         </Row>
                         <Row>
-                        <Col md="6" xs="6">
-                        <label>
-                            Modèle:
+                            <Col md="6" xs="6">
+                                <label>
+                                    Modèle:
         <select
-                                name="machine"
-                                value={this.props.machine}
-                                onChange={e => this.handleChange(e)}
-                                required>
-                                <option key=""></option>
-                                {machinesSpec.map(machine => (
-                                    <option key={machine.id}>{machine.gamme}</option>
-                                ))}
-                            </select>
-                        </label><br />
-                              
-                        </label>
+                                        name="machine"
+                                        value={this.props.machine}
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {machinesSpec.map(machine => (
+                                            <option key={machine.id}>{machine.gamme}</option>
+                                        ))}
+                                    </select>
+                                </label><br />
 
-                        </Col>
-                        <Col md="6" xs="6">
+                            </Col>
+                            <Col md="6" xs="6">
 
-                        <label>
-                            nSerie:
+                                <label>
+                                    nSerie:
         <select
-                                name="nSerie"
-                                value={this.props.nSerie}
-                                onChange={e => this.handleChange(e)}
-                                required>
-                                <option key=""></option>
-                                {
+                                        name="nSerie"
+                                        value={this.props.nSerie}
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {
 
-                                    machinesSpec.map((machinesSpec, i) => {
+                                            machinesSpec.map((machinesSpec, i) => {
 
-                                        return machinesSpec.gamme === this.state.machine ? (
+                                                return machinesSpec.gamme === this.state.machine ? (
 
-                                            machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
+                                                    machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
 
-                                        ) : <option hidden key={i} ></option>
-                                    }
-                                    )}
-                            </select>
-                                          
-                        </label><br />
-                                          
-                        </label>
-                        </Col>
+                                                ) : <option hidden key={i} ></option>
+                                            }
+                                            )}
+                                    </select>
+
+                                </label><br />
+
+                            </Col>
                         </Row>
 
                         <label>
@@ -200,7 +196,7 @@ class SpecMachine extends React.Component {
                             </Link>
                         </label><br />
                         <label>
-                            Durée du contrat en mois (*12):
+                            Durée du contrat en mois:
         <input // Valeur par défault : 24 mois
                                 name="dureeContratA"
                                 type="number"
@@ -218,8 +214,8 @@ class SpecMachine extends React.Component {
                                 value={this.props.dureeContratH}
                                 min="1" max="5"
                                 onChange={e => this.handleChange(e)}
-                                required /> 
-                        </label><br /> 
+                                required />
+                        </label><br />
 
                         <label>
                             Entretien des 250h:
@@ -238,7 +234,7 @@ class SpecMachine extends React.Component {
                         {/* <button className="ui button" >Submit</button> */}
                     </form>
                 </CardFooter>
-            </Card>
+            </Card >
         );
     }
 }
