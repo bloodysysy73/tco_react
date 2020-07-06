@@ -131,7 +131,7 @@ class SpecMachine extends React.Component {
                             nSerie:
         <select
                                 name="nSerie"
-                                Value={this.props.nSerie}
+                                value={this.props.nSerie}
                                 onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
@@ -140,7 +140,6 @@ class SpecMachine extends React.Component {
                                     machinesSpec.map((machinesSpec, i) => {
 
                                         return machinesSpec.gamme === this.state.machine ? (
-
 
                                             machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
 

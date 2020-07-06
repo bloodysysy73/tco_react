@@ -5,6 +5,7 @@ import SettingModal from "components/Modal/SettingModal";
 import Parametres from "components/Modal/Parametres";
 import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
 import About from "views/About.jsx"
+import Informations from "views/Informations";
 
 
 var routes = [
@@ -18,7 +19,7 @@ var routes = [
   {
     path: "/about",
     name: "About",
-    icon: "nc-icon nc-bell-55",
+    icon: "nc-icon nc-compass-05",
     component: About,
     layout: "/admin",
     affiche: true
@@ -62,6 +63,13 @@ var routes = [
     component: Parametres,
     layout: "/admin",
     affiche: false
+  },
+  {
+    path: "/informations",
+    name: "Informations",
+    icon: "nc-icon nc-badge",
+    component: Informations,
+    layout: "/admin",
   },
 ];
 export default routes;

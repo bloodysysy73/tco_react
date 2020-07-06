@@ -1,4 +1,6 @@
 import React from "react";
+import { Container } from "reactstrap";
+
 
 class About extends React.Component {
 
@@ -12,7 +14,10 @@ class About extends React.Component {
     return (
       <>
         <div className="content">
-          about MECALAC
+          <Container>
+            <div>ABOUT MECALAC COMPONENT HERE</div>
+
+          </Container>
         </div>
       </>
     );
