@@ -5,8 +5,6 @@ export const categories = [
     'Backhoe Loader',
     'Compaction Rollers',
     'Specific Customer Activities',
-
-
 ];
 
 export const type = [
@@ -22,7 +20,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '11MWR', 
-        numSerie: ['242131', '242157'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['242011', '240011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2', // Fammille de pièces confère des prix différenciés.
         
@@ -32,7 +30,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '9MWR', 
-        numSerie: ['232160', '232900'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['232011', '230011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -41,7 +39,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '7MWR', 
-        numSerie: ['22011'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['222011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -51,7 +49,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '10MCR', 
-        numSerie: ['140561'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['140300', '172011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -60,7 +58,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '8MCR', 
-        numSerie: ['131339'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['130900', '162011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -69,7 +67,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '6MCR', 
-        numSerie: ['152015'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['120015','152011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -77,8 +75,8 @@ export const machinesSpec = [
         id: '7',
         categorie: 'Excavator', 
         type: 'Roue' ,
-        gamme: '15MC', 
-        numSerie: ['86024'], // Différenciation type de moteur == différent coûts et types de services
+        gamme: '15MCR', 
+        numSerie: ['87011', '86011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -87,7 +85,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '15MWR', 
-        numSerie: ['82011'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['82011', '83011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },
@@ -96,7 +94,7 @@ export const machinesSpec = [
         categorie: 'Excavator', 
         type: 'Roue' ,
         gamme: '12MTX', 
-        numSerie: ['46184'], // Différenciation type de moteur == différent coûts et types de services
+        numSerie: ['42011', '42500', '43200', '47011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
     },

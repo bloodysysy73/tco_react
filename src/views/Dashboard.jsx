@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
             </Row>
             <Row className="justify-content-md-center">
 
-              <Col md="9">
+              <Col md="12">
                 <Devis></Devis>
 
               </Col>

@@ -29,7 +29,8 @@ class SpecMachine extends React.Component {
             dureeContratA: null,
             entretien250: null,
             optionDeplacement: null,
-            
+            categories: null,
+            type: null
         };
     }
 
@@ -91,11 +92,10 @@ class SpecMachine extends React.Component {
                         </label><br />
                         </Col>
                         <Col md="6" xs="6">
-
                         <label>
                             Type:
         <select
-                                name="Type"
+                                name="type"
                                 value={this.props.type}
                                 onChange={e => this.handleChange(e)}
                                 required>
@@ -106,11 +106,12 @@ class SpecMachine extends React.Component {
                             </select>
                         </label><br />
                         </Col>
-                    </Row>
-                    <Row>
+
+                        </Row>
+                        <Row>
                         <Col md="6" xs="6">
                         <label>
-                            machines:
+                            Modèle:
         <select
                                 name="machine"
                                 value={this.props.machine}
@@ -121,9 +122,10 @@ class SpecMachine extends React.Component {
                                     <option key={machine.id}>{machine.gamme}</option>
                                 ))}
                             </select>
+                        </label><br />
+                              
                         </label>
 
-                 
                         </Col>
                         <Col md="6" xs="6">
 
@@ -147,6 +149,9 @@ class SpecMachine extends React.Component {
                                     }
                                     )}
                             </select>
+                                          
+                        </label><br />
+                                          
                         </label>
                         </Col>
                         </Row>
@@ -195,19 +200,8 @@ class SpecMachine extends React.Component {
                             </Link>
                         </label><br />
                         <label>
-                            dureeContratH:
-        <input
-                                name="dureeContratH"
-                                type="number"
-                                value={this.props.dureeContratH}
-                                min="1" max="5"
-                                onChange={e => this.handleChange(e)}
-                                required />
-                        </label><br />
-
-                        <label>
-                            dureeContratA:
-        <input
+                            Durée du contrat en mois (*12):
+        <input // Valeur par défault : 24 mois
                                 name="dureeContratA"
                                 type="number"
                                 value={this.props.dureeContratA}
@@ -215,6 +209,17 @@ class SpecMachine extends React.Component {
                                 onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
+
+                        <label>
+                            Durée du contrat en heures :
+        <input // Valeur par défault : 3000 heures
+                                name="dureeContratH"
+                                type="number"
+                                value={this.props.dureeContratH}
+                                min="1" max="5"
+                                onChange={e => this.handleChange(e)}
+                                required /> 
+                        </label><br /> 
 
                         <label>
                             Entretien des 250h:
