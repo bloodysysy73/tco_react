@@ -1,5 +1,5 @@
 import React from 'react';
-import { machinesSpec, clim, entretien250 } from "../../variables/specMachineVariable";
+import { machinesSpec, clim, entretien250, categories, type } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux";
@@ -21,18 +21,26 @@ class SpecMachine extends React.Component {
         super(props);
         this.state = {
             machine: null,
+            categories: null,
+            type: null,
             nSerie: null,
             clim: null,
             dureeContratH: null,
             dureeContratA: null,
             entretien250: null,
-            optionDeplacement: null
+            optionDeplacement: null,
+            
         };
     }
 
     handleChangeCheckBox(e, value) {
-
         this.setState({ [e.target.name]: value });
+    }
+
+
+    setNSerie(e, value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ nSerieValue: value });
         this.props.onchange(this.state);
         this.props.definiAttribut(e.target.name, value);
     }
@@ -66,7 +74,41 @@ class SpecMachine extends React.Component {
                 </CardBody>
                 <CardFooter>
                     <form className="ui form" onSubmit={this.onSubmitForm}>
+                    <Row>
+                        <Col md="6" xs="6">
+                        <label>
+                            Catégories:
+        <select
+                                name="categories"
+                                value={this.props.categories}
+                                onChange={e => this.handleChange(e)}
+                                required>
+                                <option key=""></option>
+                                {categories.map(categories => (
+                                    <option key={categories}>{categories}</option>
+                                ))}
+                            </select>
+                        </label><br />
+                        </Col>
+                        <Col md="6" xs="6">
 
+                        <label>
+                            Type:
+        <select
+                                name="Type"
+                                value={this.props.type}
+                                onChange={e => this.handleChange(e)}
+                                required>
+                                <option key=""></option>
+                                {type.map(type => (
+                                    <option key={type}>{type}</option>
+                                ))}
+                            </select>
+                        </label><br />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md="6" xs="6">
                         <label>
                             machines:
         <select
@@ -79,7 +121,11 @@ class SpecMachine extends React.Component {
                                     <option key={machine.id}>{machine.gamme}</option>
                                 ))}
                             </select>
-                        </label><br />
+                        </label>
+
+                 
+                        </Col>
+                        <Col md="6" xs="6">
 
                         <label>
                             nSerie:
@@ -90,6 +136,7 @@ class SpecMachine extends React.Component {
                                 required>
                                 <option key=""></option>
                                 {
+
                                     machinesSpec.map((machinesSpec, i) => {
 
                                         return machinesSpec.gamme === this.state.machine ? (
@@ -100,7 +147,9 @@ class SpecMachine extends React.Component {
                                     }
                                     )}
                             </select>
-                        </label><br />
+                        </label>
+                        </Col>
+                        </Row>
 
                         <label>
                             clim:
@@ -199,6 +248,8 @@ const mapStateToProps = (state) => {
         dureeContratH: state.specMachineReducer.dureeContratH,
         dureeContratA: state.specMachineReducer.dureeContratA,
         entretien250: state.specMachineReducer.entretien250,
+        categories: state.specMachineReducer.categories,
+        type: state.specMachineReducer.type,
     };
 };
 

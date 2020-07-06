@@ -1,28 +1,12 @@
 export const categories = [
-    {
-        id: '1',
-        name: 'Excavator' 
-    },
-    {
-        id: '2',
-        name: 'Loader',
-    },
-    {
-        id: '3',
-        name: 'Dumper', 
-    },
-    {
-        id: '4',
-        name: 'Backhoe Loader', 
-    },
-    {
-        id: '5',
-        name: 'Compaction Rollers', 
-    },
-    {
-        id: '6',
-        name: 'Specific Customer Activities',
-    },
+    'Excavator',
+    'Loader',
+    'Dumper',
+    'Backhoe Loader',
+    'Compaction Rollers',
+    'Specific Customer Activities',
+
+
 ];
 
 export const type = [
