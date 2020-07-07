@@ -8,7 +8,7 @@ import {
     Row,
     Col
 } from "reactstrap";
-import Printer from './Printer';
+import Printer from '../Devis/Printer';
 
 class Fonctionnalites extends React.Component {
 
@@ -54,15 +54,15 @@ class Fonctionnalites extends React.Component {
                     <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button><br />
                 <label>
-                            paramètrer <br />
-                            <Link to='/admin/Parametres/' >
-                                <div className="ui animated button" tabIndex="0">
-                                    <div className="visible content">Paramètres</div>
-                                    <div className="hidden content">
-                                        <i aria-hidden="true" className="setting icon"></i>
-                                    </div></div>
-                            </Link>
-                        </label>
+                    paramètrer <br />
+                    <Link to='/admin/Parametres/' >
+                        <div className="ui animated button" tabIndex="0">
+                            <div className="visible content">Paramètres</div>
+                            <div className="hidden content">
+                                <i aria-hidden="true" className="setting icon"></i>
+                            </div></div>
+                    </Link>
+                </label>
                 <Link to='/admin/SettingModal/' >
                     <div className="ui animated button" tabIndex="0">
                         <div className="visible content"><i aria-hidden="true" className="setting icon"></i></div>
@@ -86,7 +86,7 @@ class Fonctionnalites extends React.Component {
                             Help
                         </div></div>
                 </Link>
-               
+
 
             </CardFooter>
         </Card>
