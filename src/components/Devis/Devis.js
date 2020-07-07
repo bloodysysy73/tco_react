@@ -23,7 +23,6 @@ class Devis extends React.Component {
                             <div className="row">
                                 <div className="col">
                                     <a id="img" target="" href="https://www.mecalac.com/">
-                                        <img alt="" src="img/blue.png" data-holder-rendered="true" />
                                     </a>
                                 </div>
                                 <div className="col company-details">

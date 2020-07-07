@@ -4,11 +4,7 @@ import {
   Col,
   Container
 } from "reactstrap";
-import {
-  dashboard24HoursPerformanceChart,
-  dashboardEmailStatisticsChart,
-  dashboardNASDAQChart
-} from "variables/charts.jsx";
+
 
 import SpecMachine from 'components/Formulaire/specMachine';
 import ComplementSpec from "components/Formulaire/complementSpec";
@@ -18,7 +14,7 @@ import Fonctionnalites from "components/other/Fonctionnalites";
 import ExtensionWarranty from "components/Formulaire/ExtensionWarranty"
 import MachineView from "components/Images/MachineView"
 import MachineFleet from "components/Images/MachineFleet";
-import Devis from "components/other/Devis";
+import Devis from "components/Devis/Devis";
 
 
 class Dashboard extends React.Component {
@@ -27,14 +23,6 @@ class Dashboard extends React.Component {
     super(props)
 
     this.state = {
-      data1: dashboard24HoursPerformanceChart.data,
-      option1: dashboard24HoursPerformanceChart.options,
-
-      data2: dashboardEmailStatisticsChart.data,
-      option2: dashboardEmailStatisticsChart.options,
-
-      data3: dashboardNASDAQChart.data,
-      option3: dashboardNASDAQChart.options
     }
   }
 
@@ -78,9 +66,6 @@ class Dashboard extends React.Component {
                   <ExtensionWarranty onchange={(a) => this.onchange5(a)} ></ExtensionWarranty>
                   <MachineView></MachineView>
                 </Row>
-                {/* <Row>
-                  <Fonctionnalites></Fonctionnalites>
-                </Row> */}
               </Col>
             </Row>
             <Row className="justify-content-md-center">
