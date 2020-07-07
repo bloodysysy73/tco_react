@@ -19,15 +19,11 @@ class BilanEntretienMaintenance extends React.Component {
     }
 
     setMin(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ min: value });
-        this.props.onchange(this.state);
     }
 
     setMax(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ max: value });
-        this.props.onchange(this.state);
     }
 
 

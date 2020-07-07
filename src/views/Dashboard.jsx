@@ -19,31 +19,6 @@ import Devis from "components/Devis/Devis";
 
 class Dashboard extends React.Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-    }
-  }
-
-  onchange1(a) {
-    console.log("la value coté dashbord", a);
-  }
-  onchange2(a) {
-    console.log("la value coté dashbord", a);
-  }
-  onchange3(a) {
-    console.log("la value coté dashbord", a);
-  }
-  onchange4(a) {
-    console.log("la value coté dashbord", a);
-  }
-
-  onchange5(a) {
-    console.log("la value coté dashbord", a);
-  }
-
-
 
   render() {
     return (
@@ -52,18 +27,18 @@ class Dashboard extends React.Component {
           <Container fluid>
             <Row className="justify-content-md-center">
               <Col lg="4" md="6" sm="6">
-                <SpecMachine onchange={(a) => this.onchange1(a)}></SpecMachine>
+                <SpecMachine ></SpecMachine>
                 <Fonctionnalites></Fonctionnalites>
               </Col>
               <Col lg="4" md="6" sm="6">
                 <MachineFleet></MachineFleet>
-                <ComplementSpec onchange={(a) => this.onchange2(a)} ></ComplementSpec>
-                <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
+                <ComplementSpec></ComplementSpec>
+                <BilanEntretienMaintenance ></BilanEntretienMaintenance>
               </Col>
               <Col lg="4" md="6" sm="6" >
                 <Row>
-                  <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
-                  <ExtensionWarranty onchange={(a) => this.onchange5(a)} ></ExtensionWarranty>
+                  <AutresCouts ></AutresCouts>
+                  <ExtensionWarranty></ExtensionWarranty>
                   <MachineView></MachineView>
                 </Row>
               </Col>
