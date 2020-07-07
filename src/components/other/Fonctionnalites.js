@@ -12,14 +12,6 @@ import Printer from '../Devis/Printer';
 
 class Fonctionnalites extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-    }
-
-
     render() {
         return <Card className="card-stats">
             <CardBody>

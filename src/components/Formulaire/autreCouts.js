@@ -24,39 +24,27 @@ class AutresCouts extends React.Component {
     }
 
     setAutre1(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ autre1: value });
-        this.props.onchange(this.state);
     }
 
     setAutre2(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ autre2: value });
-        this.props.onchange(this.state);
     }
 
     setAutre3(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ autre3: value });
-        this.props.onchange(this.state);
     }
 
     setAutreValue1(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ autre1: value });
-        this.props.onchange(this.state);
     }
 
     setAutreValue2(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ autre2: value });
-        this.props.onchange(this.state);
     }
 
     setAutreValue3(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
         this.setState({ autre3: value });
-        this.props.onchange(this.state);
     }
 
     render() {

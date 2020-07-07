@@ -17,39 +17,11 @@ import {
 class SpecMachine extends React.Component {
 
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            machine: null,
-            categories: null,
-            type: null,
-            nSerie: null,
-            clim: null,
-            dureeContratH: null,
-            dureeContratA: null,
-            entretien250: null,
-            optionDeplacement: null,
-        };
-    }
-
     handleChangeCheckBox(e, value) {
-        this.setState({ [e.target.name]: value });
-        this.props.onchange(this.state);
         this.props.definiAttribut(e.target.name, value);
     }
-
-
-    setNSerie(e, value) {
-        this.setState({ nSerieValue: value });
-        this.props.onchange(this.state);
-        this.props.definiAttribut(e.target.name, value);
-    }
-
 
     handleChange(e) {
-
-        this.setState({ [e.target.name]: e.target.value });
-        this.props.onchange(this.state);
         this.props.definiAttribut(e.target.name, e.target.value);
     }
 
@@ -138,7 +110,7 @@ class SpecMachine extends React.Component {
 
                                             machinesSpec.map((machinesSpec, i) => {
 
-                                                return machinesSpec.gamme === this.state.machine ? (
+                                                return machinesSpec.gamme === this.props.machine ? (
 
                                                     machinesSpec.numSerie.map(numSerie => { return <option key={numSerie}>{numSerie}</option> })
 
