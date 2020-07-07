@@ -1,6 +1,6 @@
 import React from "react";
 import ReactToPrint from "react-to-print";
-import Devis from "./Devis";
+import HelperPrinter from "./HelperPrinter";
 
 
 
@@ -14,7 +14,7 @@ class Printer extends React.Component {
                     content={() => this.componentRef}
                 />
                 <div style={{ display: "none" }}>
-                    <Devis ref={el => (this.componentRef = el)} />
+                    <HelperPrinter ref={el => (this.componentRef = el)} />
                 </div>
             </div>
         );
