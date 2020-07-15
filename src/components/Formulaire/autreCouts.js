@@ -89,7 +89,7 @@ class AutresCouts extends React.Component {
                 <Row>
                     <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                            <i className="nc-icon nc-globe-2 text-warning" />
+                            <i className="nc-icon nc-briefcase-24 text-warning" />
                         </div>
                     </Col>
                     <Col >

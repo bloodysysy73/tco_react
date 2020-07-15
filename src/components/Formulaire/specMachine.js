@@ -33,7 +33,7 @@ class SpecMachine extends React.Component {
                     <Row>
                         <Col md="4" xs="5">
                             <div className="icon-big text-center icon-warning">
-                                <i className="nc-icon nc-spaceship text-warning" />
+                                <i className="nc-icon nc-settings text-warning" />
                             </div>
                         </Col>
                         <Col md="8" xs="7">
