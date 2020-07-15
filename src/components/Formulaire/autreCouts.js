@@ -102,28 +102,34 @@ class AutresCouts extends React.Component {
             </CardBody>
             <CardFooter><br />
             <Row>
-                    <Col md="4" xs="5"> Nom de l'élément</Col>
-                    <Col md="4" xs="5"> Coût de l'élémént</Col>
-                    <Col md="4" xs="5"> Ajouter l'élément</Col>
+                    <Col md="4" xs="4"> Nom de l'élément</Col>
+                    <Col md="4" xs="4"> Coût de l'élémént</Col>
+                    <Col md="4" xs="4"> Ajouter l'élément</Col>
                     </Row>
                 <form className="ui form">
+                <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre1"
                             type="text"
-                            //value={dureeContratH}
                             onChange={e => this.setAutre1(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue1"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
                             onChange={e => this.setAutreValue1(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -131,24 +137,33 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre2"
                             type="text"
-                            //value={dureeContratH}
+                            
                             onChange={e => this.setAutre2(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue2"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
                             onChange={e => this.setAutreValue2(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -156,24 +171,33 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre3"
                             type="text"
-                            //value={dureeContratH}
+                            
                             onChange={e => this.setAutre3(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue3"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
                             onChange={e => this.setAutreValue3(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -181,24 +205,33 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre4"
                             type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre3(e.target.value)}
+                            
+                            onChange={e => this.setAutre4(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue4"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
+                            onChange={e => this.setAutreValue4(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -206,24 +239,33 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre5"
                             type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre3(e.target.value)}
+                            
+                            onChange={e => this.setAutre5(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue5"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
+                            onChange={e => this.setAutreValue5(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -231,24 +273,33 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre6"
                             type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre3(e.target.value)}
+                            
+                            onChange={e => this.setAutre6(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue6"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
+                            onChange={e => this.setAutreValue6(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -256,24 +307,33 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autre7"
                             type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre3(e.target.value)}
+                            
+                            onChange={e => this.setAutre7(e.target.value)}
                             required />
                     </label>&nbsp;
+                    </Col>
+                    <Col md="4" xs="4">
                     <label>
                         <input
                             name="autreValue7"
                             type="number"
-                            //value={dureeContratH}
+                            placeholder="€"
+                            
                             min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
+                            onChange={e => this.setAutreValue7(e.target.value)}
                             required />
-                    </label>&nbsp; € &nbsp; &nbsp;
+                    </label>
+                    </Col>
+                    <Col md="4" xs="4">
                     <label> 
                         <input
                             type="checkbox"
@@ -281,81 +341,12 @@ class AutresCouts extends React.Component {
                             onChange={this.handleChange}
                             /> Clicker pour ajouter
                     </label><br />
+                    </Col>
+                    </Row>
 
-                    <label>
-                        <input
-                            name="autre8"
-                            type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre3(e.target.value)}
-                            required />
-                    </label>&nbsp;
-                    <label>
-                        <input
-                            name="autreValue8"
-                            type="number"
-                            //value={dureeContratH}
-                            min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
-                            required />
-                    </label>&nbsp; € &nbsp; &nbsp;
-                    <label> 
-                        <input
-                            type="checkbox"
-                            defaultChecked={this.state.i_agree}
-                            onChange={this.handleChange}
-                            /> Clicker pour ajouter
-                    </label><br />
 
-                    <label>
-                        <input
-                            name="autre9"
-                            type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre3(e.target.value)}
-                            required />
-                    </label>&nbsp;
-                    <label>
-                        <input
-                            name="autreValue9"
-                            type="number"
-                            //value={dureeContratH}
-                            min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
-                            required />
-                    </label>&nbsp; € &nbsp; &nbsp;
-                    <label> 
-                        <input
-                            type="checkbox"
-                            defaultChecked={this.state.i_agree}
-                            onChange={this.handleChange}
-                            /> Clicker pour ajouter
-                    </label><br />
 
-                    <label>
-                        <input
-                            name="autre10"
-                            type="text"
-                            //value={dureeContratH}
-                            onChange={e => this.setAutre10(e.target.value)}
-                            required />
-                    </label>&nbsp;
-                    <label>
-                        <input
-                            name="autreValue6"
-                            type="number"
-                            //value={dureeContratH}
-                            min="1" max="5"
-                            onChange={e => this.setAutreValue3(e.target.value)}
-                            required />
-                    </label>&nbsp; € &nbsp; &nbsp;
-                    <label> 
-                        <input
-                            type="checkbox"
-                            defaultChecked={this.state.i_agree}
-                            onChange={this.handleChange}
-                            /> Clicker pour ajouter
-                    </label><br />
+
                 </form>
 
                 TOTAL - Autres services ajoutés : 
