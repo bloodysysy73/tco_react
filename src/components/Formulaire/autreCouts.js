@@ -92,7 +92,7 @@ class AutresCouts extends React.Component {
                             <i className="nc-icon nc-briefcase-24 text-warning" />
                         </div>
                     </Col>
-                    <Col >
+                    <Col md="8" xs="7">
                         <div className="numbers">
                             <p className="card-category">Autres services ajoutés</p>
                             <p />

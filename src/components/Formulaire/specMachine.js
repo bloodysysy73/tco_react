@@ -21,9 +21,14 @@ class SpecMachine extends React.Component {
         this.props.definiAttribut(e.target.name, value);
     }
 
+    handleChangeCheckBox1(e, value) {
+        this.props.definiAttribut(e.target.name, value);
+    }
+
     handleChange(e) {
         this.props.definiAttribut(e.target.name, e.target.value);
     }
+    
 
 
     render() {
@@ -182,12 +187,14 @@ class SpecMachine extends React.Component {
 
                         <Row> <Col md="12" xs="12"><br /> Définir la durée du contrat de service : <br /></Col></Row>
                         
-                        
+                        <Row>
+                        <Col md="6" xs="6">
                         <label>
-                            Durée du contrat en mois (*12):
-                        <select
+                            Durée du contrat en mois :
+                        <select // Par défault 24 mois
                                 name="dureeContratM"
                                 value={this.props.dureeContratM}
+                                defaultInputValue="24"
                                 onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
@@ -200,9 +207,10 @@ class SpecMachine extends React.Component {
 
                         <label>
                             Durée du contrat en heures :
-                        <select
+                        <select // Par défault 3000 heures
                                 name="dureeContratH"
                                 value={this.props.dureeContratH}
+                                defaultInputValue="3000"
                                 onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
@@ -210,7 +218,24 @@ class SpecMachine extends React.Component {
                                     <option key={dureeContratH}>{dureeContratH}</option>
                                 ))}
                             </select>
+                            </label><br /></Col>
+                            
+                            <Col md="6" xs="6">
+                            <br />
+                            <label>
+                                <div className="grouped fields">
+                                <div className="field">
+                                    <div className="ui slider checkbox">
+                                        <input type="radio" name="optionExtension" onChange={e => this.handleChangeCheckBox1(e, "a")}
+                                            checked={this.props.optionExtension === "a" ? true : false} />
+                                        <label>Extension de garranties </label>
+                                    </div>
+                                </div>
+                                </div>
                             </label><br />
+
+                            </Col>
+                            </Row>
 
                             <Row> <Col md="12" xs="12"><br /> Définir qui assurera l'entretien des 250 heures :<br /></Col></Row>
 

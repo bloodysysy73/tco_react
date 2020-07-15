@@ -76,20 +76,7 @@ class ComplementSpec extends React.Component {
                     <form className="ui form" onSubmit={this.onSubmitForm}>
 
                         <label>
-                            Extensions de ganranties:
-        <select
-                                name="machines"
-                                //value={this.state.machine}
-                                onChange={e => this.setextensionGarantie(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br />
-
-                        <label>
-                            Option Télématique:
+                            Option Télématique :
         <select
                                 name="machines"
                                 //value={this.state.machine}
@@ -102,7 +89,7 @@ class ComplementSpec extends React.Component {
                         </label><br />
 
                         <label>
-                            Option VPG:
+                            Option VPG (Visite Générale Périodique) :
         <select
                                 name="machines"
                                 //value={this.state.machine}
@@ -115,7 +102,7 @@ class ComplementSpec extends React.Component {
                         </label><br />
 
                         <label>
-                            Option pièces d'usure:
+                            Option pièces d'usure :
         <select
                                 name="machines"
                                 //value={this.state.machine}
@@ -128,7 +115,7 @@ class ComplementSpec extends React.Component {
                         </label><br />
 
                         <label>
-                            Option lavage:
+                            Option lavage :
         <select
                                 name="machines"
                                 //value={this.state.machine}
