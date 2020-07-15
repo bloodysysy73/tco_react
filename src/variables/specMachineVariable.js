@@ -117,3 +117,30 @@ export const price = {
     kits: 0.6
 }
 
+// Extensions de garantie
+export const dureeContratM = [
+    '24', 
+    '36',
+    '48',
+    '60',
+
+];
+
+export const dureeContratH = [
+    '3000',
+    '3500', 
+    '4000',
+    '4500',
+    '5000',
+    '5500', 
+    '6000',
+    '6500',
+    '7000',
+    '7500', 
+    '8000',
+    '8500',
+    '9000',
+    '9500', 
+    '10000',
+
+];
