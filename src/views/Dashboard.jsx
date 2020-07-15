@@ -26,23 +26,20 @@ class Dashboard extends React.Component {
           <Container fluid>
             <Row className="justify-content-md-center">
               <Col lg="4" md="6" sm="6">
-                <SpecMachine onchange={(a) => this.onchange1(a)}></SpecMachine>
+                <SpecMachine></SpecMachine>
                 <Fonctionnalites></Fonctionnalites>
               </Col>
               <Col lg="4" md="6" sm="6">
                 <MachineFleet></MachineFleet>
-                <ComplementSpec onchange={(a) => this.onchange2(a)} ></ComplementSpec>
-                <BilanEntretienMaintenance onchange={(a) => this.onchange4(a)} ></BilanEntretienMaintenance>
+                <ComplementSpec></ComplementSpec>
+                <BilanEntretienMaintenance></BilanEntretienMaintenance>
               </Col>
               <Col lg="4" md="6" sm="6" >
                 <Row>
-                  <AutresCouts onchange={(a) => this.onchange3(a)} ></AutresCouts>
+                  <AutresCouts></AutresCouts>
 
                   <MachineView></MachineView>
                 </Row>
-                {/* <Row>
-                  <Fonctionnalites></Fonctionnalites>
-                </Row> */}
               </Col>
             </Row>
             <Row className="justify-content-md-center">
