@@ -1,5 +1,5 @@
 import React from 'react';
-import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM  } from "../../variables/specMachineVariable";
+import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux";
@@ -16,19 +16,21 @@ import {
 
 class SpecMachine extends React.Component {
 
+    componentDidMount() {
+        this.props.definiAttribut("dureeContratH", "3000");
+        this.props.definiAttribut("dureeContrat", "24");
 
-    handleChangeCheckBox(e, value) {
-        this.props.definiAttribut(e.target.name, value);
     }
 
-    handleChangeCheckBox1(e, value) {
+
+    handleChangeCheckBox(e, value) {
         this.props.definiAttribut(e.target.name, value);
     }
 
     handleChange(e) {
         this.props.definiAttribut(e.target.name, e.target.value);
     }
-    
+
 
 
     render() {
@@ -52,7 +54,7 @@ class SpecMachine extends React.Component {
                 <CardFooter>
                     <form className="ui form" onSubmit={this.onSubmitForm}>
 
-                    <Row> <Col md="12" xs="12"><br /> Indiquer les spécifications de la machine choisie : <br /></Col></Row>
+                        <Row> <Col md="12" xs="12"><br /> Indiquer les spécifications de la machine choisie : <br /></Col></Row>
 
 
                         <Row>
@@ -129,7 +131,7 @@ class SpecMachine extends React.Component {
                                     </select>
 
                                 </label><br />
-                                
+
 
                             </Col>
                         </Row>
@@ -149,95 +151,95 @@ class SpecMachine extends React.Component {
                         </label><br />
 
                         <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
-                        
+
                         <Row>
-                        <Col md="6" xs="6">
-                            <label>
-                                <div className="grouped fields">
-                                <div className="field">
-                                    <div className="ui slider checkbox">
-                                        <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
-                                            checked={this.props.optionDeplacement === "a" ? true : false} />
-                                        <label>Calculer le déplacement </label>
+                            <Col md="6" xs="6">
+                                <label>
+                                    <div className="grouped fields">
+                                        <div className="field">
+                                            <div className="ui slider checkbox">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
+                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
+                                                <label>Calculer le déplacement </label>
+                                            </div>
+                                        </div>
+                                        <div className="field">
+                                            <div className="ui slider checkbox checked">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
+                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
+                                                <label>Définir un montant forfaitaire </label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="field">
-                                    <div className="ui slider checkbox checked">
-                                        <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
-                                            checked={this.props.optionDeplacement === "b" ? true : false} />
-                                        <label>Définir un montant forfaitaire </label>
-                                    </div>
-                                </div>
-                            </div>
-                            </label><br />
-                        </Col>
-                        <Col md="6" xs="6">
-                        <br /><label>
-                                <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
-                                style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
-                                <div className="ui animated button" tabIndex="0">
-                                    <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>
-                                    <div className="hidden content">
-                                        <i aria-hidden="true" className="angle double right icon"></i>
-                                    </div></div>
-                            </Link>
-                            </label><br />
-                        </Col>
+                                </label><br />
+                            </Col>
+                            <Col md="6" xs="6">
+                                <br /><label>
+                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
+                                        style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
+                                        <div className="ui animated button" tabIndex="0">
+                                            <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>
+                                            <div className="hidden content">
+                                                <i aria-hidden="true" className="angle double right icon"></i>
+                                            </div></div>
+                                    </Link>
+                                </label><br />
+                            </Col>
                         </Row>
 
                         <Row> <Col md="12" xs="12"><br /> Définir la durée du contrat de service : <br /></Col></Row>
-                        
+
                         <Row>
-                        <Col md="6" xs="6">
-                        <label>
-                            Durée du contrat en mois :
-                        <select // Par défault 24 mois
-                                name="dureeContratM"
-                                value={this.props.dureeContratM}
-                                defaultInputValue="24"
-                                onChange={e => this.handleChange(e)}
-                                required>
-                                <option key=""></option>
-                                {dureeContratM.map(dureeContratM => (
-                                    <option key={dureeContratM}>{dureeContratM}</option>
-                                ))}
-                            </select>
-                            </label><br />
-
-
-                        <label>
-                            Durée du contrat en heures :
-                        <select // Par défault 3000 heures
-                                name="dureeContratH"
-                                value={this.props.dureeContratH}
-                                defaultInputValue="3000"
-                                onChange={e => this.handleChange(e)}
-                                required>
-                                <option key=""></option>
-                                {dureeContratH.map(dureeContratH => (
-                                    <option key={dureeContratH}>{dureeContratH}</option>
-                                ))}
-                            </select>
-                            </label><br /></Col>
-                            
                             <Col md="6" xs="6">
-                            <br />
-                            <label>
-                                <div className="grouped fields">
-                                <div className="field">
-                                    <div className="ui slider checkbox">
-                                        <input type="radio" name="optionExtension" onChange={e => this.handleChangeCheckBox1(e, "a")}
-                                            checked={this.props.optionExtension === "a" ? true : false} />
-                                        <label>Extension de garranties </label>
+                                <label>
+                                    Durée du contrat en mois :
+                        <select // Par défault 24 mois
+                                        name="dureeContratM"
+                                        value={this.props.dureeContratM}
+                                        defaultValue="24"
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {dureeContratM.map(dureeContratM => (
+                                            <option key={dureeContratM}>{dureeContratM}</option>
+                                        ))}
+                                    </select>
+                                </label><br />
+
+
+                                <label>
+                                    Durée du contrat en heures :
+                        <select // Par défault 3000 heures
+                                        name="dureeContratH"
+                                        value={this.props.dureeContratH}
+                                        defaultValue="3000"
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {dureeContratH.map(dureeContratH => (
+                                            <option key={dureeContratH}>{dureeContratH}</option>
+                                        ))}
+                                    </select>
+                                </label><br /></Col>
+
+                            <Col md="6" xs="6">
+                                <br />
+                                <label>
+                                    <div className="grouped fields">
+                                        <div className="field">
+                                            <div className="ui slider checkbox">
+                                                <input type="radio" name="optionExtension"
+                                                    checked={this.props.dureeContratM > 24 || this.props.dureeContratH > 3000 ? true : false} />
+                                                <label>Extension de garranties </label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                </div>
-                            </label><br />
+                                </label><br />
 
                             </Col>
-                            </Row>
+                        </Row>
 
-                            <Row> <Col md="12" xs="12"><br /> Définir qui assurera l'entretien des 250 heures :<br /></Col></Row>
+                        <Row> <Col md="12" xs="12"><br /> Définir qui assurera l'entretien des 250 heures :<br /></Col></Row>
 
 
                         <label>
