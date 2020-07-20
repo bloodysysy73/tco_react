@@ -1,5 +1,5 @@
 import React from 'react';
-import { machinesSpec, clim, entretien250, categories, type } from "../../variables/specMachineVariable";
+import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux";
@@ -16,6 +16,12 @@ import {
 
 class SpecMachine extends React.Component {
 
+    componentDidMount() {
+        this.props.definiAttribut("dureeContratH", "3000");
+        this.props.definiAttribut("dureeContrat", "24");
+
+    }
+
 
     handleChangeCheckBox(e, value) {
         this.props.definiAttribut(e.target.name, value);
@@ -26,6 +32,7 @@ class SpecMachine extends React.Component {
     }
 
 
+
     render() {
         return (
             <Card className="card-stats">
@@ -33,7 +40,7 @@ class SpecMachine extends React.Component {
                     <Row>
                         <Col md="4" xs="5">
                             <div className="icon-big text-center icon-warning">
-                                <i className="nc-icon nc-spaceship text-warning" />
+                                <i className="nc-icon nc-settings text-warning" />
                             </div>
                         </Col>
                         <Col md="8" xs="7">
@@ -46,6 +53,10 @@ class SpecMachine extends React.Component {
                 </CardBody>
                 <CardFooter>
                     <form className="ui form" onSubmit={this.onSubmitForm}>
+
+                        <Row> <Col md="12" xs="12"><br /> Indiquer les spécifications de la machine choisie : <br /></Col></Row>
+
+
                         <Row>
                             <Col md="6" xs="6">
                                 <label>
@@ -121,12 +132,13 @@ class SpecMachine extends React.Component {
 
                                 </label><br />
 
+
                             </Col>
                         </Row>
 
                         <label>
                             clim:
-        <select
+                            <select
                                 name="clim"
                                 value={this.props.clim}
                                 onChange={e => this.handleChange(e)}
@@ -137,61 +149,102 @@ class SpecMachine extends React.Component {
                                 ))}
                             </select>
                         </label><br />
-                        <label>
-                            Choix du type de deplacement:<br />
-                            <div className="grouped fields">
-                                <div className="field">
-                                    <div className="ui slider checkbox">
-                                        <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
-                                            checked={this.props.optionDeplacement === "a" ? true : false} />
-                                        <label>Calculer le déplacement </label>
-                                    </div>
-                                </div>
-                                <div className="field">
-                                    <div className="ui slider checkbox checked">
-                                        <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
-                                            checked={this.props.optionDeplacement === "b" ? true : false} />
-                                        <label>Définir un montant forfaitaire </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </label><br />
-                        <label>
-                            Paramétrer le choix de déplacement:<br />
-                            <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
-                                style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
-                                <div className="ui animated button" tabIndex="0">
-                                    <div className="visible content">Paramétrage</div>
-                                    <div className="hidden content">
-                                        <i aria-hidden="true" className="angle double right icon"></i>
-                                    </div></div>
-                            </Link>
-                        </label><br />
-                        <label>
-                            Durée du contrat en mois:
-        <input // Valeur par défault : 24 mois
-                                name="dureeContratA"
-                                type="number"
-                                value={this.props.dureeContratA}
-                                min="1" max="5"
-                                onChange={e => this.handleChange(e)}
-                                required />
-                        </label><br />
 
-                        <label>
-                            Durée du contrat en heures :
-        <input // Valeur par défault : 3000 heures
-                                name="dureeContratH"
-                                type="number"
-                                value={this.props.dureeContratH}
-                                min="1" max="5"
-                                onChange={e => this.handleChange(e)}
-                                required />
-                        </label><br />
+                        <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
+
+                        <Row>
+                            <Col md="6" xs="6">
+                                <label>
+                                    <div className="grouped fields">
+                                        <div className="field">
+                                            <div className="ui slider checkbox">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
+                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
+                                                <label>Calculer le déplacement </label>
+                                            </div>
+                                        </div>
+                                        <div className="field">
+                                            <div className="ui slider checkbox checked">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
+                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
+                                                <label>Définir un montant forfaitaire </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label><br />
+                            </Col>
+                            <Col md="6" xs="6">
+                                <br /><label>
+                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
+                                        style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
+                                        <div className="ui animated button" tabIndex="0">
+                                            <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>
+                                            <div className="hidden content">
+                                                <i aria-hidden="true" className="angle double right icon"></i>
+                                            </div></div>
+                                    </Link>
+                                </label><br />
+                            </Col>
+                        </Row>
+
+                        <Row> <Col md="12" xs="12"><br /> Définir la durée du contrat de service : <br /></Col></Row>
+
+                        <Row>
+                            <Col md="6" xs="6">
+                                <label>
+                                    Durée du contrat en mois :
+                        <select // Par défault 24 mois
+                                        name="dureeContratM"
+                                        value={this.props.dureeContratM}
+                                        defaultValue="24"
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {dureeContratM.map(dureeContratM => (
+                                            <option key={dureeContratM}>{dureeContratM}</option>
+                                        ))}
+                                    </select>
+                                </label><br />
+
+
+                                <label>
+                                    Durée du contrat en heures :
+                        <select // Par défault 3000 heures
+                                        name="dureeContratH"
+                                        value={this.props.dureeContratH}
+                                        defaultValue="3000"
+                                        onChange={e => this.handleChange(e)}
+                                        required>
+                                        <option key=""></option>
+                                        {dureeContratH.map(dureeContratH => (
+                                            <option key={dureeContratH}>{dureeContratH}</option>
+                                        ))}
+                                    </select>
+                                </label><br /></Col>
+
+                            <Col md="6" xs="6">
+                                <br />
+                                <label>
+                                    <div className="grouped fields">
+                                        <div className="field">
+                                            <div className="ui slider checkbox">
+                                                <input type="radio" name="optionExtension"
+                                                    checked={this.props.dureeContratM > 24 || this.props.dureeContratH > 3000 ? true : false} />
+                                                <label>Extension de garranties </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label><br />
+
+                            </Col>
+                        </Row>
+
+                        <Row> <Col md="12" xs="12"><br /> Définir qui assurera l'entretien des 250 heures :<br /></Col></Row>
+
 
                         <label>
                             Entretien des 250h:
-        <select
+                            <select
                                 name="entretien250"
                                 value={this.props.entretien250}
                                 onChange={e => this.handleChange(e)}
@@ -218,11 +271,11 @@ const mapStateToProps = (state) => {
         machine: state.specMachineReducer.machine,
         nSerie: state.specMachineReducer.nSerie,
         clim: state.specMachineReducer.clim,
-        dureeContratH: state.specMachineReducer.dureeContratH,
-        dureeContratA: state.specMachineReducer.dureeContratA,
         entretien250: state.specMachineReducer.entretien250,
         categories: state.specMachineReducer.categories,
         type: state.specMachineReducer.type,
+        dureeContratM: state.specMachineReducer.dureeContratM,
+        dureeContratH: state.specMachineReducer.dureeContratH,
     };
 };
 

@@ -16,12 +16,12 @@ class Fonctionnalites extends React.Component {
         return <Card className="card-stats">
             <CardBody>
                 <Row>
-                    <Col >
+                    <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                            <i className="nc-icon nc-controller-modern text-warning" />
+                            <i className="nc-icon nc-button-power text-warning" />
                         </div>
                     </Col>
-                    <Col >
+                    <Col md="8" xs="7">
                         <div className="numbers">
                             <p className="card-category">Fonctionnalités</p>
                             <p />

@@ -26,9 +26,6 @@ class BilanEntretienMaintenance extends React.Component {
         this.setState({ max: value });
     }
 
-
-
-
     render() {
         return (<Card className="card-stats">
 
@@ -41,7 +38,7 @@ class BilanEntretienMaintenance extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                         <div className="numbers">
-                            <p className="card-category">Bilan Entretien + Maintenance</p>
+                            <p className="card-category">Bilan Entretien & Maintenance</p>
                             <p />
                         </div>
                     </Col>
@@ -66,10 +63,14 @@ class BilanEntretienMaintenance extends React.Component {
                             onChange={e => this.setMax(e.target.value)}
                             required />
                     </label> &nbsp; <label> heures</label>
-                </form>
+                </form><br />
+                TOTAL - Entretien & maintenance : 
+                &nbsp;<label>&nbsp; N/A &nbsp; </label>&nbsp;  € 
+                &nbsp;<label>&nbsp; N/A &nbsp; </label>&nbsp; € / h 
 
-            </CardFooter>
+            </CardFooter> 
         </Card>);
+    
     }
 }
 
