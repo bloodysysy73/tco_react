@@ -15,13 +15,19 @@ class Incrementeur extends React.Component {
     render() {
         return (
             <Card>
-                <div class="ui vertical animated button" tabindex="0">
-                    <div class=" hidden content" onClick={() => this.props.setServiceNumber(this.props.serviceNumber + 1)}>Ajouter une ligne</div>
-                    <div class="visible  content">
-                        <i class="add icon"></i>
+                <div className="ui vertical animated button" tabIndex="0">
+                    <div className=" hidden content" onClick={() => this.props.setServiceNumber(this.props.serviceNumber + 1)}>Ajouter une ligne</div>
+                    <div className="visible  content">
+                        <i className="add icon"></i>
                     </div>
                 </div>
-
+                <br />
+                <div className="ui vertical animated button" tabIndex="0">
+                    <div className=" hidden content" onClick={() => this.props.setServiceNumber(this.props.serviceNumber - 1)}>Supprimer une ligne</div>
+                    <div className="visible  content">
+                        <i className="minus icon"></i>
+                    </div>
+                </div>
 
             </Card >
         );

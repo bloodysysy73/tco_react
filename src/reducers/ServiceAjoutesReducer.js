@@ -1,5 +1,5 @@
 import {
-    SETSERVICENUMBER,
+    SETSERVICENUMBER, UPDATE_ATTRIBUT
 } from "../actions";
 
 export default (state = {}, action) => {
@@ -8,6 +8,11 @@ export default (state = {}, action) => {
             return {
                 ...state,
                 numberService: action.payload
+            };
+        case UPDATE_ATTRIBUT:
+            return {
+                ...state,
+                [action.payload.name]: action.payload.value
             };
         default:
             return state

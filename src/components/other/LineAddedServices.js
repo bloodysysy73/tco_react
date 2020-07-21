@@ -1,14 +1,33 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { definiAttributline } from 'actions/actionServiceajoutes'
+
 
 import {
     Card,
-    CardBody,
     CardFooter,
     Row,
     Col
 } from "reactstrap";
+import Line from './Line';
 
 class LineAddedService extends React.Component {
+
+    line = () => {
+        let numbers = Array.from({ length: this.props.numberofline }, (v, i) => i)
+        return (
+            <div>
+                {numbers.map((number) =>
+                    <Line key={number}
+                        key1={number.toString()}
+                        key2={-number.toString()}
+                        value={number}
+                    />
+                )}
+
+            </div>
+        );
+    }
 
     render() {
         return (
@@ -21,22 +40,7 @@ class LineAddedService extends React.Component {
                             <Col > Coût de l'élémént</Col>
                         </Row>
                         <br />
-                        <Row>
-                            <Col ><input
-                                name="name"
-                                type="text"
-                                //value={dureeContratH}
-                                //onChange={e => this.setMin(e.target.value)}
-                                required />
-                            </Col>
-
-                            <Col > <input
-                                name="cout"
-                                type="text"
-                                //value={dureeContratH}
-                                //onChange={e => this.setMin(e.target.value)}
-                                required /></Col>
-                        </Row>
+                        {this.line()}
                     </form>
                 </CardFooter>
             </Card >
@@ -44,4 +48,12 @@ class LineAddedService extends React.Component {
     }
 
 }
-export default LineAddedService;
+
+const mapStateToProps = (state) => {
+    return {
+        numberofline: state.serviceAjoutesReducer.numberService,
+    };
+};
+
+export default connect(mapStateToProps, { definiAttributline })(LineAddedService);
+
