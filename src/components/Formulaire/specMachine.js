@@ -228,7 +228,7 @@ class SpecMachine extends React.Component {
                                     <div className="grouped fields">
                                         <div className="field">
                                             <div className="ui slider checkbox">
-                                                <input type="radio" name="optionExtension"
+                                                <input type="radio" name="optionExtension" readOnly
                                                     checked={this.props.dureeContratM > 24 || this.props.dureeContratH > 3000 ? true : false} />
                                                 <label>Extension de garranties </label>
                                             </div>
