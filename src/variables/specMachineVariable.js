@@ -75,7 +75,7 @@ export const machinesSpec = [
         id: '7',
         categorie: 'Excavator', 
         type: 'Roue' ,
-        gamme: '15MCR', 
+        gamme: '15MC', 
         numSerie: ['87011', '86011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
         familyPieces: '2',
