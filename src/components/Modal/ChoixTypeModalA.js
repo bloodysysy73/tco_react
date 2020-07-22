@@ -50,7 +50,7 @@ class ChoixTypeModalA extends React.Component {
 
 
     calculDeplacement() {
-        let estimatedCostOptionA = parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope));
+        let estimatedCostOptionA = 2 *(parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope)));
         this.setState({ estimatedCostOptionA: estimatedCostOptionA });
 
         let modalBValue = {
@@ -138,19 +138,7 @@ class ChoixTypeModalA extends React.Component {
                                         <i aria-hidden="true" className="calculator icon"></i>Calculer</div>
                                 </div>
                             </label>
-                            <br />
-                            <label>
-                                <br />
-                                <div className="hidden content">
-                                    <React.Fragment>
-                                        <Link to="/admin/Parametres">
-                                            <div className="ui button">
-                                                <i aria-hidden="true" className="calculator icon"></i>parametres</div>
-                                        </Link>
-                                    </React.Fragment>
-                                </div>
-                            </label>
-                            <br />
+
                             <br />
 
                             <label>
@@ -165,6 +153,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     required />
                             </label><br />
+                            <br />
                         </form>
                     </CardBody>
                     <CardFooter>

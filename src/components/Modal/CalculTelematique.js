@@ -1,6 +1,7 @@
 import React from "react";
 import history from "../../variables/history";
 import { Link } from 'react-router-dom'
+import Modal from './Modaux'
 
 import { connect } from "react-redux";
 

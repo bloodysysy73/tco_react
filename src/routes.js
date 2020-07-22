@@ -4,6 +4,8 @@ import HelpModal from "components/Modal/HelpModal";
 import SettingModal from "components/Modal/SettingModal";
 import Parametres from "components/Modal/Parametres";
 import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
+import ChoixTypeModalC from "./components/Modal/ChoixTypeModalC";
+import ChoixPiecesUsures from "./components/Modal/ChoixPiecesUsures";
 import About from "views/About.jsx"
 import Informations from "views/Informations";
 
@@ -37,6 +39,22 @@ var routes = [
     name: "Choix Type",
     icon: "nc-icon nc-bell-55",
     component: ChoixTypeModalB,
+    layout: "/admin",
+    affiche: false
+  },
+  {
+    path: "/choixTypeModalC",
+    name: "Choix Type",
+    icon: "nc-icon nc-bell-55",
+    component: ChoixTypeModalC,
+    layout: "/admin",
+    affiche: false
+  },
+  {
+    path: "/choixPiecesUsures",
+    name: "Choix Type",
+    icon: "nc-icon nc-bell-55",
+    component: ChoixPiecesUsures,
     layout: "/admin",
     affiche: false
   },
