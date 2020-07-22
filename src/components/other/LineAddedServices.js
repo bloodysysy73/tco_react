@@ -36,8 +36,8 @@ class LineAddedService extends React.Component {
                     <form className="ui form">
 
                         <Row>
-                            <Col md="6" xs="6"> Nom de l'élément</Col>
-                            <Col md="6" xs="6"> Coût de l'élémént</Col>
+                        <Col md="6" xs="6"> Nom de l'élément</Col>
+                        <Col md="6" xs="6"> Coût de l'élémént</Col>
                         </Row>
                         <br />
                         <Row>

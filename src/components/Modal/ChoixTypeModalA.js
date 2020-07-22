@@ -50,7 +50,7 @@ class ChoixTypeModalA extends React.Component {
 
 
     calculDeplacement() {
-        let estimatedCostOptionA = parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope));
+        let estimatedCostOptionA = 2 *(parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope)));
         this.setState({ estimatedCostOptionA: estimatedCostOptionA });
 
         let modalBValue = {
@@ -140,8 +140,6 @@ class ChoixTypeModalA extends React.Component {
                             </label>
                             <br />
 
-                            <br />
-
                             <label>
                                 Coût estimé d'un  déplacement :
 <input
@@ -154,6 +152,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     required />
                             </label><br />
+                            <br />
                         </form>
                     </CardBody>
                     <CardFooter>

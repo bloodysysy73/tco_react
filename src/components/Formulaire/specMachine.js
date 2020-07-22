@@ -153,9 +153,10 @@ class SpecMachine extends React.Component {
                         <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
 
                         <Row>
-                            <Col md="6" xs="6">
+                            <Col md="6" xs="6"> 
                                 <label>
                                     <div className="grouped fields">
+
                                         <div className="field">
                                             <div className="ui slider checkbox">
                                                 <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
@@ -181,8 +182,9 @@ class SpecMachine extends React.Component {
                                 </label><br />
                             </Col>
                             <Col md="6" xs="6">
+                                <br />
                                 <br /><label>
-                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
+                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/ '} 
                                         style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
                                         <div className="ui animated button" tabIndex="0">
                                             <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>

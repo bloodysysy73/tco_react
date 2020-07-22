@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import {
     Card,
@@ -61,7 +62,6 @@ class ComplementSpec extends React.Component {
     }
 
 
-
     render() {
         return (
             <Card className="card-stats">
@@ -107,8 +107,12 @@ class ComplementSpec extends React.Component {
                                 <option key={"non"}>non</option>
                                 <option key={"oui"}>oui</option>
                             </select>
-                        </label><br />
+                        </label><br /> <br />
 
+
+
+                        <Row>
+                        <Col md="6" xs="6">
                         <label>
                             Option pièces d'usure :
         <select
@@ -120,8 +124,21 @@ class ComplementSpec extends React.Component {
                                 <option key={"non"}>non</option>
                                 <option key={"oui"}>oui</option>
                             </select>
-                        </label><br />
-
+                        </label>
+                        </Col>
+                        <Col md="6" xs="6">
+                                <br /><label>
+                                <Link to="/admin/choixPiecesUsures" 
+                                        className="ui animated button" tabIndex="0">
+                                            <div className="visible content">Paramétrer les options</div>
+                                            <div className="hidden content">
+                                                <i aria-hidden="true" className="angle double right icon"></i>
+                                            </div>
+                                    </Link>
+                                </label><br />
+                            </Col>
+                    </Row>
+                    <br />
                         <label>
                             Option lavage :
         <select
