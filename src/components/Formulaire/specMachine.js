@@ -153,27 +153,36 @@ class SpecMachine extends React.Component {
                         <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
 
                         <Row>
-                            <Col md="6" xs="6">
+                            <Col md="6" xs="6"> 
                                 <label>
                                     <div className="grouped fields">
+                                    <div className="field">
+                                            <div className="ui slider checkbox checked"> 
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")} // Mettre cette option par défault ?
+                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
+                                                <label>Ne pas considérer le coût du déplacement </label>
+                                            </div>
+                                        </div>
                                         <div className="field">
                                             <div className="ui slider checkbox">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
-                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
+                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
                                                 <label>Calculer le déplacement </label>
                                             </div>
                                         </div>
                                         <div className="field">
                                             <div className="ui slider checkbox checked">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
-                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "c")}
+                                                    checked={this.props.optionDeplacement === "c" ? true : false} />
                                                 <label>Définir un montant forfaitaire </label>
                                             </div>
                                         </div>
+
                                     </div>
                                 </label><br />
                             </Col>
                             <Col md="6" xs="6">
+                                <br />
                                 <br /><label>
                                     <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
                                         style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>

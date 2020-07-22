@@ -20,6 +20,7 @@ class ComplementSpec extends React.Component {
             vgp: "non",
             pieceUsure: "non",
             lavage: "non",
+            expertise: "non",
         };
     }
 
@@ -53,6 +54,11 @@ class ComplementSpec extends React.Component {
         this.props.onchange(this.state);
     }
 
+    setepertise(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ lavage: value });
+        this.props.onchange(this.state);
+    }
 
     render() {
         return (
@@ -76,7 +82,7 @@ class ComplementSpec extends React.Component {
                     <form className="ui form" onSubmit={this.onSubmitForm}>
 
                         <label>
-                            Option Télématique :
+                            Option Télématique myMECALAC :
         <select
                                 name="machines"
                                 //value={this.state.machine}
@@ -126,6 +132,20 @@ class ComplementSpec extends React.Component {
                                 <option key={"oui"}>oui</option>
                             </select>
                         </label><br />
+
+                        <label>
+                            Option Expertise de fin de garantie :
+        <select
+                                name="expertise"
+                                //value={this.state.machine}
+                                onChange={e => this.setexpertise(e.target.value)}
+                                required>
+                                {/* <option key=""></option> */}
+                                <option key={"non"}>non</option>
+                                <option key={"oui"}>oui</option>
+                            </select>
+                        </label><br />
+
 
                         {/* <button className="ui button" >Submit</button> */}
                     </form>
