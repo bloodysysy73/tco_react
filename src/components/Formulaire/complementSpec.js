@@ -20,6 +20,7 @@ class ComplementSpec extends React.Component {
             vgp: "non",
             pieceUsure: "non",
             lavage: "non",
+            expertise: "non",
         };
     }
 
@@ -53,6 +54,13 @@ class ComplementSpec extends React.Component {
         this.props.onchange(this.state);
     }
 
+    setepertise(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ lavage: value });
+        this.props.onchange(this.state);
+    }
+
+
 
     render() {
         return (
@@ -76,9 +84,9 @@ class ComplementSpec extends React.Component {
                     <form className="ui form" onSubmit={this.onSubmitForm}>
 
                         <label>
-                            Option Télématique :
+                            Option Télématique MyMECALAC :
         <select
-                                name="machines"
+                                name="capture"
                                 //value={this.state.machine}
                                 onChange={e => this.setcapture(e.target.value)}
                                 required>
@@ -91,7 +99,7 @@ class ComplementSpec extends React.Component {
                         <label>
                             Option VPG (Visite Générale Périodique) :
         <select
-                                name="machines"
+                                name="vgps"
                                 //value={this.state.machine}
                                 onChange={e => this.setvgp(e.target.value)}
                                 required>
@@ -104,7 +112,7 @@ class ComplementSpec extends React.Component {
                         <label>
                             Option pièces d'usure :
         <select
-                                name="machines"
+                                name="pieceUsure"
                                 //value={this.state.machine}
                                 onChange={e => this.setpieceUsure(e.target.value)}
                                 required>
@@ -117,9 +125,22 @@ class ComplementSpec extends React.Component {
                         <label>
                             Option lavage :
         <select
-                                name="machines"
+                                name="lavage"
                                 //value={this.state.machine}
                                 onChange={e => this.setlavage(e.target.value)}
+                                required>
+                                {/* <option key=""></option> */}
+                                <option key={"non"}>non</option>
+                                <option key={"oui"}>oui</option>
+                            </select>
+                        </label><br />
+
+                        <label>
+                            Option Expertise de fin de garantie :
+        <select
+                                name="expertise"
+                                //value={this.state.machine}
+                                onChange={e => this.setexpertise(e.target.value)}
                                 required>
                                 {/* <option key=""></option> */}
                                 <option key={"non"}>non</option>

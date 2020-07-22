@@ -139,18 +139,7 @@ class ChoixTypeModalA extends React.Component {
                                 </div>
                             </label>
                             <br />
-                            <label>
-                                <br />
-                                <div className="hidden content">
-                                    <React.Fragment>
-                                        <Link to="/admin/Parametres">
-                                            <div className="ui button">
-                                                <i aria-hidden="true" className="calculator icon"></i>parametres</div>
-                                        </Link>
-                                    </React.Fragment>
-                                </div>
-                            </label>
-                            <br />
+
                             <br />
 
                             <label>
