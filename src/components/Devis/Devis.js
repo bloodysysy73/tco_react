@@ -157,7 +157,7 @@ class Devis extends React.Component {
                             </div>
                         </main>
                         <footer>
-                            Disclamer,legal, etc.
+                            Disclamer, legal, etc.
                 </footer>
                     </div>
                     <div></div>

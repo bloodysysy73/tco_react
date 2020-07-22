@@ -61,6 +61,7 @@ class ComplementSpec extends React.Component {
         this.props.onchange(this.state);
     }
 
+
     render() {
         return (
             <Card className="card-stats">
@@ -83,9 +84,9 @@ class ComplementSpec extends React.Component {
                     <form className="ui form" onSubmit={this.onSubmitForm}>
 
                         <label>
-                            Option Télématique myMECALAC :
+                            Option Télématique MyMECALAC :
         <select
-                                name="machines"
+                                name="capture"
                                 //value={this.state.machine}
                                 onChange={e => this.setcapture(e.target.value)}
                                 required>
@@ -98,7 +99,7 @@ class ComplementSpec extends React.Component {
                         <label>
                             Option VPG (Visite Générale Périodique) :
         <select
-                                name="machines"
+                                name="vgps"
                                 //value={this.state.machine}
                                 onChange={e => this.setvgp(e.target.value)}
                                 required>
@@ -115,7 +116,7 @@ class ComplementSpec extends React.Component {
                         <label>
                             Option pièces d'usure :
         <select
-                                name="machines"
+                                name="pieceUsure"
                                 //value={this.state.machine}
                                 onChange={e => this.setpieceUsure(e.target.value)}
                                 required>
@@ -141,7 +142,7 @@ class ComplementSpec extends React.Component {
                         <label>
                             Option lavage :
         <select
-                                name="machines"
+                                name="lavage"
                                 //value={this.state.machine}
                                 onChange={e => this.setlavage(e.target.value)}
                                 required>

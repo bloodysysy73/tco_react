@@ -138,7 +138,6 @@ class ChoixTypeModalA extends React.Component {
                                         <i aria-hidden="true" className="calculator icon"></i>Calculer</div>
                                 </div>
                             </label>
-
                             <br />
 
                             <label>

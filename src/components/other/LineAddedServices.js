@@ -40,6 +40,20 @@ class LineAddedService extends React.Component {
                         <Col md="6" xs="6"> Coût de l'élémént</Col>
                         </Row>
                         <br />
+                        <Row>
+                        <Col md="6" xs="6"> <input
+                                name="name"
+                                type="text"
+                                placeholder="Elément à ajouter"
+                                required />
+                            </Col>
+
+                            <Col md="6" xs="6">  <input
+                                name="cout"
+                                type="number"
+                                placeholder="€"
+                                required /></Col>
+                        </Row>
                         {this.line()}
                     </form>
                 </CardFooter>

@@ -46,7 +46,6 @@ class CalculTelematique extends React.Component {
             installationTele: this.state.installationTele,
             dureeContratM: this.state.dureeContratM,
         }
-
         this.props.CalculTelematiqueA(teleAValue);
     }
 
@@ -73,7 +72,11 @@ class CalculTelematique extends React.Component {
         }
         this.props.CalculTelematiqueB(teleBValue);
     }
-**/
+
+        this.props.CalculTelematiqueA(modalBValue);
+    }
+    **/
+
 
     renderContent = () => {
         return (
@@ -141,6 +144,7 @@ class CalculTelematique extends React.Component {
         return (
             <Modal
                 title="Télématique"
+                title="Choix type déplacement."
                 content={this.renderContent()}
                 actions={this.renderActions()}
                 onDismiss={() => history.push('/admin/dashboard')}
@@ -156,6 +160,11 @@ const mapStateToProps = (state) => {
     return {
         estimatedCostTele: state.specMachineReducer.estimatedCostTele,
         installationTele: state.specMachineReducer.installationTele,
+        estimatedCostOptionA: state.specMachineReducer.estimatedCostOptionA,
+        geoScope: state.specMachineReducer.geoScope,
+        kmCost: state.specMachineReducer.kmCost,
+        averageSpeed: state.specMachineReducer.averageSpeed,
+        tripWfCost: state.specMachineReducer.tripWfCost
     };
 };
 
