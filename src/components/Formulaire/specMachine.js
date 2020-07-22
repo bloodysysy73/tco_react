@@ -156,25 +156,26 @@ class SpecMachine extends React.Component {
                             <Col md="6" xs="6"> 
                                 <label>
                                     <div className="grouped fields">
-                                    <div className="field">
-                                            <div className="ui slider checkbox checked"> 
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")} // Mettre cette option par défault ?
-                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
-                                                <label>Ne pas considérer le coût du déplacement </label>
-                                            </div>
-                                        </div>
+
                                         <div className="field">
                                             <div className="ui slider checkbox">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
-                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
+                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
                                                 <label>Calculer le déplacement </label>
                                             </div>
                                         </div>
                                         <div className="field">
                                             <div className="ui slider checkbox checked">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "c")}
-                                                    checked={this.props.optionDeplacement === "c" ? true : false} />
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
+                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
                                                 <label>Définir un montant forfaitaire </label>
+                                            </div>
+                                        </div>
+                                        <div className="field">
+                                            <div className="ui slider checkbox checked"> 
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "c")} // Mettre cette option par défault ?
+                                                    checked={this.props.optionDeplacement === "c" ? true : false} />
+                                                <label>Ne pas considérer le coût du déplacement </label>
                                             </div>
                                         </div>
 
@@ -184,7 +185,7 @@ class SpecMachine extends React.Component {
                             <Col md="6" xs="6">
                                 <br />
                                 <br /><label>
-                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/'}
+                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/ '} // revoir la fonction pour ajouter '/admin/choixTypeModalC/ '
                                         style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
                                         <div className="ui animated button" tabIndex="0">
                                             <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>

@@ -27,19 +27,52 @@ class CalculTelematique extends React.Component {
         this.setState({ installationTele: value });
     }
 
+    /* Méthode de calcul pour les anciens modèles. Prends en compte les variabes suivantes : 
+     - Le coût de l'installation du boitier (paramétrable par le concessionnaire)
+     - Le coût du boitier : 225 euros
+     - La durée du contrat en nombre de mois (variable définie lors de la simulation sur la feuille specMachine)
+     - Le coût mensuel de l'abonnement au software Télématique MyMecalac 10 euros / mois dans ce cas
+
+     Le calcul sera le suivant : CalculTelematiqueA() 
+    **/
+
     CalculTelematiqueA() {
         let estimatedCostTele = 10 * parseFloat(this.state.dureeContratM) + 225 + parseFloat(this.state.installationTele) ;
         this.setState({ estimatedCostTele: estimatedCostTele });
 
-        let modalBValue = {
+        let teleAValue = {
             estimatedCostTele: estimatedCostTele,
             installationTele: this.state.installationTele,
             dureeContratM: this.state.dureeContratM,
         }
 
-        this.props.CalculTelematiqueA(modalBValue);
+        this.props.CalculTelematiqueA(teleAValue);
     }
 
+    /* 
+    Lorsque la télématique est déjà installé sur les machines vendues, alors le calcul sera le suivant : CalculTelematiqueB() 
+    C'est le cas pour les modèles :
+     - 15MC et les références 87011
+     - 12MTX et les références 47011
+     - 15MWR et les références 83011
+
+    les variabes évoluent : 
+     - Le coût de l'installation du boitier : 0 euros
+     - Le coût du boitier : 0 euros
+     - La durée du contrat en nombre de mois (variable définie lors de la simulation sur la feuille specMachine)
+     - Le coût mensuel de l'abonnement au software Télématique MyMecalac 8.5 euros / mois dans ce cas ci
+
+    CalculTelematiqueB(){
+        let estimatedCostTeleB = 8.5 * parseFloat(this.state.dureeContratM);
+        this.setState({ estimatedCostTeleB: estimatedCostTeleB });
+        
+        let teleBValue = {
+            estimatedCostTeleB: estimatedCostTeleB,
+            dureeContratM: this.state.dureeContratM,
+        }
+        this.props.CalculTelematiqueB(teleBValue);
+    }
+**/
 
     renderContent = () => {
         return (
@@ -74,13 +107,13 @@ class CalculTelematique extends React.Component {
                             <br />
 
                             <label>
-                                Coût estimé d'un  déplacement :
+                                Coût de la télématique myMECALAC :
 <input
                                     //Résultat du coût d'estimation estimé
-                                    name="workTripResult"
+                                    name="telematiqueResult"
                                     type="number"
-                                    value={this.props.estimatedCostOptionA}
-                                    onChange={e => this.calculDeplacement(e.target.value)}
+                                    value={this.props.estimatedCostTele}
+                                    onChange={e => this.CalculTelematiqueA(e.target.value)}
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     required />
@@ -106,7 +139,7 @@ class CalculTelematique extends React.Component {
     render() {
         return (
             <Modal
-                title="Choix type déplacement."
+                title="Télématique"
                 content={this.renderContent()}
                 actions={this.renderActions()}
                 onDismiss={() => history.push('/admin/dashboard')}
@@ -120,11 +153,8 @@ class CalculTelematique extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        estimatedCostOptionA: state.specMachineReducer.estimatedCostOptionA,
-        geoScope: state.specMachineReducer.geoScope,
-        kmCost: state.specMachineReducer.kmCost,
-        averageSpeed: state.specMachineReducer.averageSpeed,
-        tripWfCost: state.specMachineReducer.tripWfCost
+        estimatedCostTele: state.specMachineReducer.estimatedCostTele,
+        installationTele: state.specMachineReducer.installationTele,
     };
 };
 
