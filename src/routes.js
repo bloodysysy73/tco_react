@@ -2,12 +2,13 @@ import Dashboard from "views/Dashboard.jsx";
 import ChoixTypeModalA from "./components/Modal/ChoixTypeModalA"
 import HelpModal from "components/Modal/HelpModal";
 import SettingModal from "components/Modal/SettingModal";
-import Parametres from "components/Modal/Parametres";
 import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
 import ChoixTypeModalC from "./components/Modal/ChoixTypeModalC";
 import ChoixPiecesUsures from "./components/Modal/ChoixPiecesUsures";
 import About from "views/About.jsx"
 import Informations from "views/Informations";
+import Calculator from "views/Calculator";
+
 
 
 var routes = [
@@ -75,18 +76,17 @@ var routes = [
     affiche: false
   },
   {
-    path: "/Parametres",
-    name: "Choix Type",
-    icon: "nc-icon nc-bell-55",
-    component: Parametres,
-    layout: "/admin",
-    affiche: false
-  },
-  {
     path: "/informations",
     name: "Informations",
     icon: "nc-icon nc-badge",
     component: Informations,
+    layout: "/admin",
+  },
+  {
+    path: "/calculator",
+    name: "calculator",
+    icon: "nc-icon nc-bell-55",
+    component: Calculator,
     layout: "/admin",
   },
 ];

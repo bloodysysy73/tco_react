@@ -69,7 +69,7 @@ class ChoixPiecesUsures extends React.Component {
                         <Row> 
                             <Col md="3" xs="3" // à ajuster et corriger pour sélectionner ou déselectionner toutes les options
                             >
-                                <br />Tout sélectionner<label> 
+                                Tout sélectionner  <label> 
                                         <input
                                             type="checkbox"
                                             defaultChecked={this.state.i_agree}
@@ -87,7 +87,7 @@ class ChoixPiecesUsures extends React.Component {
                         
                         <Row>
                             <Col md="3" xs="3">
-                            <br />Option A <label> 
+                            Option A <label> 
                                     <input
                                         type="checkbox"
                                         defaultChecked={this.state.i_agree}
@@ -118,7 +118,7 @@ class ChoixPiecesUsures extends React.Component {
 
                         <Row>
                             <Col md="3" xs="3">
-                            <br />Option B <label> 
+                            Option B <label> 
                                     <input
                                         type="checkbox"
                                         defaultChecked={this.state.i_agree}
@@ -138,7 +138,7 @@ class ChoixPiecesUsures extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     value={this.props.freqOptionB}
                                     min="0.4" max="0.8"
-                                    onChange={e => this.setFreqOptionA(e.target.value)}
+                                    onChange={e => this.setFreqOptionB(e.target.value)}
                                     required />
                             </label><br />
                             </Col>
@@ -157,7 +157,7 @@ class ChoixPiecesUsures extends React.Component {
                             <label>
                                 Total :
                                     <input
-                                    //Résultat du coût d'estimation estimé
+                                    //Résultat du calcul d'estimation du coût des options Pièces d'usure
                                     name="choixPiecesUsuresResult"
                                     type="number"
                                     value={this.props.estimatedOptionPieces}

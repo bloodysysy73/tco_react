@@ -64,7 +64,7 @@ class CalculTelematique extends React.Component {
      - Le coût mensuel de l'abonnement au software Télématique MyMecalac 8.5 euros / mois dans ce cas ci
 
     CalculTelematiqueB(){
-        let estimatedCostTeleB = 8.5 * parseFloat(this.state.dureeContratM);
+        let estimatedCostTeleB = 8.5 * (parseFloat(this.state.dureeContratM)-24);
         this.setState({ estimatedCostTeleB: estimatedCostTeleB });
         
         let teleBValue = {
