@@ -22,6 +22,9 @@ class ComplementSpec extends React.Component {
             pieceUsure: "non",
             lavage: "non",
             expertise: "non",
+            reprise: "non",
+            pret: "non",
+            analysePol: "non",
         };
     }
 
@@ -55,9 +58,27 @@ class ComplementSpec extends React.Component {
         this.props.onchange(this.state);
     }
 
-    setepertise(value) {
+    setexpertise(value) {
         console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ lavage: value });
+        this.setState({ expertise: value });
+        this.props.onchange(this.state);
+    }
+
+    setreprise(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ reprise: value });
+        this.props.onchange(this.state);
+    }
+
+    setanalysePol(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ analysePol: value });
+        this.props.onchange(this.state);
+    }
+
+    setpret(value) {
+        console.log("la value de la ou tu viens de cliquer", value);
+        this.setState({ pret: value });
         this.props.onchange(this.state);
     }
 
@@ -158,6 +179,45 @@ class ComplementSpec extends React.Component {
                                 name="expertise"
                                 //value={this.state.machine}
                                 onChange={e => this.setexpertise(e.target.value)}
+                                required>
+                                {/* <option key=""></option> */}
+                                <option key={"non"}>non</option>
+                                <option key={"oui"}>oui</option>
+                            </select>
+                        </label><br />
+
+                        <label>
+                            Option reprise et réglages :
+        <select
+                                name="reprise"
+                                //value={this.state.machine}
+                                onChange={e => this.setreprise(e.target.value)}
+                                required>
+                                {/* <option key=""></option> */}
+                                <option key={"non"}>non</option>
+                                <option key={"oui"}>oui</option>
+                            </select>
+                        </label><br />
+
+                        <label>
+                            Option Analyses polution :
+        <select
+                                name="analysePol"
+                                //value={this.state.machine}
+                                onChange={e => this.setanalysePol(e.target.value)}
+                                required>
+                                {/* <option key=""></option> */}
+                                <option key={"non"}>non</option>
+                                <option key={"oui"}>oui</option>
+                            </select>
+                        </label><br />
+
+                        <label>
+                            Option pret de machines :
+        <select
+                                name="pret"
+                                //value={this.state.machine}
+                                onChange={e => this.setpret(e.target.value)}
                                 required>
                                 {/* <option key=""></option> */}
                                 <option key={"non"}>non</option>
