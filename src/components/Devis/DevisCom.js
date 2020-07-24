@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { defineTime } from 'actions';
 
 import "assets/css/invoice.css";
+import contact from "assets/img/contact.png"; 
 
 class DevisCom extends React.Component {
 
@@ -158,6 +159,10 @@ class DevisCom extends React.Component {
                         </main>
                         <footer>
                             Disclamer,legal, etc.
+                        <div> <img src={contact} alt="Contact"/> 
+                        <a id="img" target="" href="https://www.mecalac.com/">
+                        </a>
+                        </div>
                 </footer>
                     </div>
                     <div></div>

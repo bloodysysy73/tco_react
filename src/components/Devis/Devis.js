@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { defineTime } from 'actions';
 
 import "assets/css/invoice.css";
+import contact from "assets/img/contact.png"; 
 
 class Devis extends React.Component {
 
@@ -22,7 +23,7 @@ class Devis extends React.Component {
                         <header>
                             <div className="row">
                                 <div className="col">
-                                    <a id="img" target="" href="https://www.mecalac.com/">
+                                    <a id="img" target="" href="https://www.mecalac.com/" alt="test">
                                     </a>
                                 </div>
                                 <div className="col company-details">
@@ -43,8 +44,8 @@ class Devis extends React.Component {
                                     <div className="text-gray-light">INVOICE TO:</div>
                                     <h2 className="to">{this.props.prenomNom}</h2>
                                     <div className="address">{this.props.adresse}</div>
-                                    <div className="email"><a href="mailto:jeremy.paris17@gmail.com">{this.props.email}</a></div>
-                                </div>
+                                                <div className="email"><a href="mailto:jeremy.paris17@gmail.com">{this.props.email}</a></div>
+                                            </div>
                                 <div className="col invoice-details">
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
                                     <div className="date">  Date: {this.props.date}</div>
@@ -158,6 +159,10 @@ class Devis extends React.Component {
                         </main>
                         <footer>
                             Disclamer, legal, etc.
+                        <div> <img src={contact} alt="Contact"/> 
+                        <a id="img" target="" href="https://www.mecalac.com/">
+                        </a>
+                        </div>
                 </footer>
                     </div>
                     <div></div>
@@ -177,5 +182,7 @@ const mapStateToProps = (state) => {
         lieu: state.infocomplementaireReducer.lieu
     };
 };
+
+
 
 export default connect(mapStateToProps, { defineTime })(Devis);
