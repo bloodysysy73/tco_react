@@ -14,6 +14,7 @@ import Fonctionnalites from "components/other/Fonctionnalites";
 import MachineView from "components/Images/MachineView"
 import MachineFleet from "components/Images/MachineFleet";
 import Devis from "components/Devis/Devis";
+import Fourniture from "components/Formulaire/Fourtniture";
 
 
 class Dashboard extends React.Component {
@@ -27,6 +28,7 @@ class Dashboard extends React.Component {
             <Row className="justify-content-md-center">
               <Col lg="4" md="6" sm="6">
                 <SpecMachine></SpecMachine>
+                <Fourniture></Fourniture>
                 <Fonctionnalites></Fonctionnalites>
               </Col>
               <Col lg="4" md="6" sm="6">

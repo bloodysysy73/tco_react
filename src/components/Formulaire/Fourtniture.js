@@ -8,7 +8,7 @@ import {
     Col
 } from "reactstrap";
 
-class BilanEntretienMaintenance extends React.Component {
+class Fourniture extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,12 +33,12 @@ class BilanEntretienMaintenance extends React.Component {
                 <Row>
                     <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                            <i className="nc-icon nc-single-copy-04 text-warning" />
+                            <i className="nc-icon nc-vector text-warning" />
                         </div>
                     </Col>
                     <Col md="8" xs="7">
                         <div className="numbers">
-                            <p className="card-category">Bilan Entretien & Maintenance</p>
+                            <p className="card-category">Autres Options</p>
                             <p />
                         </div>
                     </Col>
@@ -47,28 +47,27 @@ class BilanEntretienMaintenance extends React.Component {
             <CardFooter><br />
                 <form className="ui form">
                     <label>
-                        Coût horaire entre :
+                        Petite fourniture :
                         <input
                             name="min"
                             type="number"
-                            placeholder="h"
-                            //value={dureeContratH}
+                            placeholder="€/h"
+                            
                             onChange={e => this.setMin(e.target.value)}
                             required />
-                    </label>&nbsp; <label> heures</label><br />
-                    <label>et
+                    </label>&nbsp; <label> € / heure
+                        </label><br />
+                    
+                    <label>Fofait recyclage pièces
                         <input
                             name="max"
                             type="number"
-                            placeholder="h"
-                            //value={dureeContratH}
+                            placeholder="€/intervention"
+                            
                             onChange={e => this.setMax(e.target.value)}
                             required />
-                    </label> &nbsp; <label> heures</label>
+                    </label> &nbsp; <label> € / intervention </label>
                 </form><br />
-                TOTAL - Entretien & maintenance : 
-                &nbsp;<label>&nbsp; N/A &nbsp; </label>&nbsp;  € 
-                &nbsp;<label>&nbsp; N/A &nbsp; </label>&nbsp; € / h 
 
             </CardFooter> 
         </Card>);
@@ -76,4 +75,4 @@ class BilanEntretienMaintenance extends React.Component {
     }
 }
 
-export default BilanEntretienMaintenance;
+export default Fourniture;

@@ -22,24 +22,23 @@ class Line extends React.Component {
         return (
             <div>
                 <Row>
-                    <Col >
+                    <Col md="6" xs="6">
                         <input
                             key={this.props.key1}
                             name="name"
                             type="text"
-                            //value={dureeContratH}
+                            placeholder="Elément à ajouter"                            
                             mykey={this.props.key1}
                             onChange={e => this.handleChange(e)}
                         />
                     </Col>
 
-                    <Col >
+                    <Col md="6" xs="6">
                         <input
                             key={this.props.key2}
                             mykey={this.props.key1}
                             name="cout"
-                            type="text"
-                            //value={dureeContratH}
+                            type="text"                                                    
                             onChange={e => this.handleChange(e)}
                             placeholder="€"
                             style={{ direction: "rtl", textAlign: "right" }} /></Col>
