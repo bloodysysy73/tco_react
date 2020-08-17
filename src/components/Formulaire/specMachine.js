@@ -1,6 +1,7 @@
 import React from 'react';
 import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
+import { extensionGarantie } from '../../variables/extensionGarantie'
 
 import { connect } from "react-redux";
 import { definiAttribut } from 'actions/actionMachine'
@@ -29,6 +30,88 @@ class SpecMachine extends React.Component {
 
     handleChange(e) {
         this.props.definiAttribut(e.target.name, e.target.value);
+
+        if (e.target.name === 'machine') {
+            this.defineFamilyServices(e.target.value);
+        }
+    }
+
+    // TODO : cette fonction doit attendre la MAJ du store 
+    defineFamilyServices(machine) {
+        machinesSpec.map((machinesSpec, i) => {
+            return machinesSpec.gamme === machine ? this.props.definiAttribut('familyServices', machinesSpec.familyServices) : ''
+        }
+        )
+    }
+
+    handleChangeExtension(e) {
+        this.props.definiAttribut(e.target.name, e.target.value);
+
+        let dureeContratM = this.props.dureeContratM
+        let dureeContratH = this.props.dureeContratH
+        let familyServices = this.props.familyServices
+
+        if (e.target.name === 'dureeContratM') { dureeContratM = e.target.value }
+        if (e.target.name === 'dureeContratH') { dureeContratH = e.target.value }
+
+        let index_X;
+        let index_Y;
+
+        switch (dureeContratM) {
+            case "24": index_X = 0;
+                break
+            case "36": index_X = 1;
+                break
+            case "48": index_X = 2;
+                break
+            case "60": index_X = 3;
+                break
+        }
+
+        switch (dureeContratH) {
+            case "3000": index_Y = 0;
+                break
+            case "3500": index_Y = 1;
+                break
+            case "4000": index_Y = 2;
+                break
+            case "4500": index_Y = 3;
+                break
+            case "5000": index_Y = 4;
+                break
+            case "5500": index_Y = 5;
+                break
+            case "6000": index_Y = 6;
+                break
+            case "6500": index_Y = 7;
+                break
+            case "7000": index_Y = 8;
+                break
+            case "7500": index_Y = 9;
+                break
+            case "8000": index_Y = 10;
+                break
+            case "8500": index_Y = 11;
+                break
+            case "9000": index_Y = 12;
+                break
+            case "9500": index_Y = 13;
+                break
+            case "1000": index_Y = 14;
+                break
+
+        }
+
+        extensionGarantie.map((extensionGarantie, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("familyServices", familyServices);
+
+            if (extensionGarantie.familyServices === familyServices) { this.props.definiAttribut('prixExtension', extensionGarantie.prix[index_X, index_Y]) }
+            else { return '' }
+        }
+        )
+
     }
 
 
@@ -92,6 +175,7 @@ class SpecMachine extends React.Component {
                         </Row>
                         <Row>
                             <Col md="6" xs="6">
+
                                 <label>
                                     Modèle:
         <select
@@ -100,10 +184,15 @@ class SpecMachine extends React.Component {
                                         onChange={e => this.handleChange(e)}
                                         required>
                                         <option key=""></option>
-                                        {machinesSpec.map(machine => (
-                                            <option key={machine.id}>{machine.gamme}</option>
-                                        ))}
+                                        {
+
+                                            machinesSpec.map((machinesSpec, i) => {
+
+                                                return machinesSpec.categorie === this.props.categories ? <option key={i}> {machinesSpec.gamme}  </option> : <option hidden key={i} ></option>
+                                            }
+                                            )}
                                     </select>
+
                                 </label><br />
 
                             </Col>
@@ -153,7 +242,7 @@ class SpecMachine extends React.Component {
                         <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
 
                         <Row>
-                            <Col md="6" xs="6"> 
+                            <Col md="6" xs="6">
                                 <label>
                                     <div className="grouped fields">
 
@@ -184,8 +273,8 @@ class SpecMachine extends React.Component {
                             <Col md="6" xs="6">
                                 <br />
                                 <br /><label>
-                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/ '} 
-                                        style={!this.props.optionDeplacement ? { pointerEvents: "none" } : null}>
+                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/ '}
+                                        style={!this.props.optionDeplacement || this.props.optionDeplacement === 'c' ? { pointerEvents: "none" } : null}>
                                         <div className="ui animated button" tabIndex="0">
                                             <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>
                                             <div className="hidden content">
@@ -206,7 +295,7 @@ class SpecMachine extends React.Component {
                                         name="dureeContratM"
                                         value={this.props.dureeContratM}
                                         defaultValue="24"
-                                        onChange={e => this.handleChange(e)}
+                                        onChange={e => this.handleChangeExtension(e)}
                                         required>
                                         <option key=""></option>
                                         {dureeContratM.map(dureeContratM => (
@@ -222,7 +311,7 @@ class SpecMachine extends React.Component {
                                         name="dureeContratH"
                                         value={this.props.dureeContratH}
                                         defaultValue="3000"
-                                        onChange={e => this.handleChange(e)}
+                                        onChange={e => this.handleChangeExtension(e)}
                                         required>
                                         <option key=""></option>
                                         {dureeContratH.map(dureeContratH => (
@@ -240,6 +329,18 @@ class SpecMachine extends React.Component {
                                                 <input type="radio" name="optionExtension" readOnly
                                                     checked={this.props.dureeContratM > 24 || this.props.dureeContratH > 3000 ? true : false} />
                                                 <label>Extension de garranties </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label><br />
+
+                                <label>
+                                    <div className="grouped fields">
+                                        <div className="field">
+                                            <div >
+                                                <label>Coût Extension de garranties </label>
+                                                {this.props.prixExtension}
+
                                             </div>
                                         </div>
                                     </div>
@@ -285,6 +386,8 @@ const mapStateToProps = (state) => {
         type: state.specMachineReducer.type,
         dureeContratM: state.specMachineReducer.dureeContratM,
         dureeContratH: state.specMachineReducer.dureeContratH,
+        prixExtension: state.specMachineReducer.prixExtension,
+        familyServices: state.specMachineReducer.familyServices
     };
 };
 
