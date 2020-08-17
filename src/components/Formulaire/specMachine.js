@@ -32,14 +32,14 @@ class SpecMachine extends React.Component {
         this.props.definiAttribut(e.target.name, e.target.value);
 
         if (e.target.name === 'machine') {
-            this.defineFamilyServices();
+            this.defineFamilyServices(e.target.value);
         }
     }
 
     // TODO : cette fonction doit attendre la MAJ du store 
-    defineFamilyServices() {
+    defineFamilyServices(machine) {
         machinesSpec.map((machinesSpec, i) => {
-            return machinesSpec.gamme === this.props.machine ? this.props.definiAttribut('familyServices', machinesSpec.familyServices) : ''
+            return machinesSpec.gamme === machine ? this.props.definiAttribut('familyServices', machinesSpec.familyServices) : ''
         }
         )
     }
@@ -50,6 +50,9 @@ class SpecMachine extends React.Component {
         let dureeContratM = this.props.dureeContratM
         let dureeContratH = this.props.dureeContratH
         let familyServices = this.props.familyServices
+
+        if (e.target.name === 'dureeContratM') { dureeContratM = e.target.value }
+        if (e.target.name === 'dureeContratH') { dureeContratH = e.target.value }
 
         let index_X;
         let index_Y;
@@ -336,8 +339,7 @@ class SpecMachine extends React.Component {
                                         <div className="field">
                                             <div >
                                                 <label>Coût Extension de garranties </label>
-                                                <input type="text" name="prixExtension" disabled
-                                                    value={this.props.prixExtension} />
+                                                {this.props.prixExtension}
 
                                             </div>
                                         </div>
