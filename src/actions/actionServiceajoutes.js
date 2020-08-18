@@ -1,13 +1,5 @@
-import { SETSERVICENUMBER_SA, ADD_UPDATE_LINE, UPDATE_ATTRIBUT_SA } from 'actions';
+import { ADD_UPDATE_LINE, UPDATE_ATTRIBUT_SA } from 'actions';
 
-
-export const setServiceNumber = (value) => {
-
-    return {
-        type: SETSERVICENUMBER_SA,
-        payload: value
-    };
-};
 
 export const definiAttribut_sa = (name, value) => {
     return {
