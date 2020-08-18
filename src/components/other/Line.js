@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { definiAttributline } from 'actions/actionServiceajoutes'
+import { saveLine, definiAttribut_sa } from 'actions/actionServiceajoutes'
 
 import {
     Row,
@@ -10,13 +10,31 @@ import {
 class Line extends React.Component {
 
     handleChange(e) {
-        let key = e.target.getAttribute('mykey');
+        let id = e.target.getAttribute('mykey');
         let attributname = e.target.name;
         let attributvalue = e.target.value;
 
-        this.props.definiAttributline(attributname.concat(key), attributvalue);
-    }
+        //this.props.definiAttributline(attributname.concat(key), attributvalue);
 
+        //meme chose que dessus avec un objet
+        if (attributname === 'label') {
+            this.props.saveLine(
+                {
+                    'id': id,
+                    'label': attributvalue
+                }
+            );
+        }
+
+        if (attributname === 'cost') {
+            this.props.saveLine(
+                {
+                    'id': id,
+                    'cost': attributvalue
+                }
+            );
+        }
+    }
 
     render() {
         return (
@@ -25,9 +43,9 @@ class Line extends React.Component {
                     <Col md="6" xs="6">
                         <input
                             key={this.props.key1}
-                            name="name"
+                            name="label"
                             type="text"
-                            placeholder="Elément à ajouter"                            
+                            placeholder="Elément à ajouter"
                             mykey={this.props.key1}
                             onChange={e => this.handleChange(e)}
                         />
@@ -37,8 +55,8 @@ class Line extends React.Component {
                         <input
                             key={this.props.key2}
                             mykey={this.props.key1}
-                            name="cout"
-                            type="text"                                                    
+                            name="cost"
+                            type="text"
                             onChange={e => this.handleChange(e)}
                             placeholder="€"
                             style={{ direction: "rtl", textAlign: "right" }} /></Col>
@@ -54,4 +72,4 @@ const mapStateToProps = (state) => {
     return {
     };
 };
-export default connect(mapStateToProps, { definiAttributline })(Line);
+export default connect(mapStateToProps, { saveLine, definiAttribut_sa })(Line);

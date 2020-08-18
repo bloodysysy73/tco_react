@@ -1,5 +1,8 @@
 import React from 'react';
 import LineAddedSerices from 'components/other/LineAddedServices'
+import { definiAttribut_sa } from 'actions/actionServiceajoutes'
+import { connect } from "react-redux";
+
 
 import {
     Card,
@@ -34,12 +37,36 @@ class ListCouts extends React.Component {
             </CardBody>
             <CardFooter><br />
 
-                TOTAL - Autres services ajoutés :
-                &nbsp;<label>&nbsp; N/A &nbsp; </label>&nbsp;  €
+                TOTAL - Autres services ajoutés : =)
+                &nbsp;<label>&nbsp;{this.props.totalCost_autreService} &nbsp; </label>&nbsp;  €
 
             </CardFooter>
         </Card>);
     }
+
+    updatetotalcost() {
+        let tot_cost = 0;
+        if (this.props.lines) {
+            this.props.lines.map((line, i) => {
+
+                console.log('i', i)
+                console.log('line[]', line)
+
+                return tot_cost = tot_cost + line.cost;
+            })
+
+            this.props.definiAttribut_sa('totalCost_autreService', tot_cost);
+        }
+        return '';
+    }
 }
 
-export default ListCouts;
+
+
+const mapStateToProps = (state) => {
+    return {
+        lines: state.serviceAjoutesReducer.lines ? Object.values(state.serviceAjoutesReducer.lines) : null,
+        totalCost_autreService: state.serviceAjoutesReducer.totalCost_autreService
+    };
+};
+export default connect(mapStateToProps, { definiAttribut_sa })(ListCouts);

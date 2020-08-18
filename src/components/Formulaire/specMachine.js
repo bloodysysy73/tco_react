@@ -66,6 +66,7 @@ class SpecMachine extends React.Component {
                 break
             case "60": index_X = 3;
                 break
+            default: index_X = 0;
         }
 
         switch (dureeContratH) {
@@ -99,6 +100,7 @@ class SpecMachine extends React.Component {
                 break
             case "1000": index_Y = 14;
                 break
+            default: index_Y = 0;
 
         }
 
@@ -107,7 +109,7 @@ class SpecMachine extends React.Component {
             console.log("index_y", index_Y);
             console.log("familyServices", familyServices);
 
-            if (extensionGarantie.familyServices === familyServices) { this.props.definiAttribut('prixExtension', extensionGarantie.prix[index_X, index_Y]) }
+            if (extensionGarantie.familyServices === familyServices) { return this.props.definiAttribut('prixExtension', extensionGarantie.prix[index_X][index_Y]) }
             else { return '' }
         }
         )
@@ -339,7 +341,7 @@ class SpecMachine extends React.Component {
                                         <div className="field">
                                             <div >
                                                 <label>Coût Extension de garranties </label>
-                                                {this.props.prixExtension}
+                                                &nbsp; {this.props.prixExtension} €
 
                                             </div>
                                         </div>
