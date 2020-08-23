@@ -7,6 +7,9 @@ export const DEFINETIME = "DEFINETIME";
 export const DEFINEREF = "DEFINEREF";
 export const ADD_UPDATE_LINE = "ADD_UPDATE_LINE";
 export const UPDATE_ATTRIBUT_SA = "UPDATE_ATTRIBUT_SA";
+export const UPDATE_TOT_COST = "UPDATE_TOT_COST";
+
+
 
 
 

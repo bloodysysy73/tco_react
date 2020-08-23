@@ -1,5 +1,5 @@
 import {
-    ADD_UPDATE_LINE, UPDATE_ATTRIBUT_SA
+    ADD_UPDATE_LINE, UPDATE_ATTRIBUT_SA, UPDATE_TOT_COST
 } from "../actions";
 
 
@@ -47,28 +47,33 @@ export default (state = {}, action) => {
                 ...state,
                 [action.payload.name]: action.payload.value
             };
+        case UPDATE_TOT_COST:
+            console.log('UPDATING TOT')
+            let newstate = { ...state };
+            let newTotal = 0;
+            newstate.lines.forEach(line => {
+                let cost = parseInt(line.cost, 10);
+                newTotal += cost;
+            });
+            newstate.totalCost_autreService = newTotal;
+            return newstate;
+
         default:
             return state
     }
 };
 
-// const { menu_item_id, ingrediant } = action.payload;
-
-//     const nextState = state.map(item => {
-//         if (item.menu_item_id !== menu_item_id) {
-//             // not our item, return it as is
-//             return item;
-//         }
-
-//         // this is our relevant item, return a new copy of it with modified fields
-//         return {
-//             ...item,
-//             ingrediantTotal: ingrediant.price,
-//             ingrediants: [
-//                 ...item.ingrediants,
-//                 ingrediant
-//             ]
-//         }
-//     });
-
-//     return nextState;
+// const Cart = (state = initialState, action) => {
+//     switch (action.type) {
+//         case 'ADD_TO_CART':
+//             let newstate = [...state, action.payload];
+//             let newTotal = 0;
+//             newstate.items.forEach(item => {
+//                 newTotal += item.price;
+//             });
+//             newstate.total = newTotal;
+//             return newstate;
+//         default:
+//             return state
+//     }
+// }

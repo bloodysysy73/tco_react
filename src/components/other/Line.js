@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { saveLine, definiAttribut_sa } from 'actions/actionServiceajoutes'
+import { saveLine, definiAttribut_sa, update_tot_cost } from 'actions/actionServiceajoutes'
 
 import {
     Row,
@@ -33,6 +33,7 @@ class Line extends React.Component {
                     'cost': attributvalue
                 }
             );
+            this.props.update_tot_cost();
         }
     }
 
@@ -72,4 +73,4 @@ const mapStateToProps = (state) => {
     return {
     };
 };
-export default connect(mapStateToProps, { saveLine, definiAttribut_sa })(Line);
+export default connect(mapStateToProps, { saveLine, definiAttribut_sa, update_tot_cost })(Line);
