@@ -22,23 +22,10 @@ les coûts kilométriques correspondants a vos véhicules ainsi que la vitesse m
 
 class ChoixTypeModalB extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            montantForfait: null
-        };
-    }
-
 
     setMontantForfait = () => {
         this.props.definiMontantForfait(this.state.montantForfait);
     }
-
-    setStateMontantForfait(value) {
-        this.setState({ montantForfait: value });
-        console.log("montantForfait : ", value)
-    }
-
 
     renderContent = () => {
         return (

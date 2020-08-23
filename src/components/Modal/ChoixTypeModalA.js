@@ -20,38 +20,10 @@ les coûts kilométriques correspondants a vos véhicules ainsi que la vitesse m
 
 class ChoixTypeModalA extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            geoScope: 0,
-            kmCost: 0,
-            averageSpeed: 0,
-            tripWfCost: 0,
-            estimatedCostOptionA: 0
-        };
-    }
-
-    setGeoScope(value) {
-        this.setState({ geoScope: value });
-    }
-
-    setKmCost(value) {
-        this.setState({ kmCost: value });
-    }
-
-    setAverageSpeed(value) {
-        this.setState({ averageSpeed: value });
-    }
-
-
-    setTripWfCost(value) {
-        this.setState({ tripWfCost: value });
-    }
 
 
     calculDeplacement() {
-        let estimatedCostOptionA = 2 *(parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope)));
-        this.setState({ estimatedCostOptionA: estimatedCostOptionA });
+        let estimatedCostOptionA = 2 * (parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope)));
 
         let modalBValue = {
             estimatedCostOptionA: estimatedCostOptionA,

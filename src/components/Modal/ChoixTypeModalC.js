@@ -20,24 +20,6 @@ import {
 
 class ChoixTypeModalC extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            zeroCoutDep: null
-        };
-    }
-
-/*
-    setZeroCoutDep = () => {
-        this.props.definiZeroCoutDep(this.state.zeroCoutDep);
-    }
-
-    setStateZeroCoutDep(value) {
-        this.setState({ zeroCoutDep: value });
-        console.log("zeroCoutDep : ", value)
-    }
-**/
-
     renderContent = () => {
         return (
             <div className="content">
@@ -49,14 +31,14 @@ class ChoixTypeModalC extends React.Component {
                         <form className="ui form"  ></form>
 
                         <label
-                                name="zeroCoutDep"
-                                type="number"
-                                placeholder="€"
-                                value={0}
-                                style={{ direction: "rtl", textAlign: "right" }}
-                                min="1" max="1000"
-                                required>
-                                    Le coût du démplacement sera de zéro
+                            name="zeroCoutDep"
+                            type="number"
+                            placeholder="€"
+                            value={0}
+                            style={{ direction: "rtl", textAlign: "right" }}
+                            min="1" max="1000"
+                            required>
+                            Le coût du démplacement sera de zéro
                         </label><br />
                         <br />
                         <label><br />

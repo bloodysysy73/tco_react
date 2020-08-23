@@ -1,5 +1,5 @@
 import React from 'react';
-import { setServiceNumber } from '../../actions/actionServiceajoutes'
+import { definiAttribut_sa } from '../../actions/actionServiceajoutes'
 import { connect } from "react-redux";
 
 import {
@@ -9,21 +9,21 @@ import {
 class Incrementeur extends React.Component {
 
     componentDidMount() {
-        this.props.setServiceNumber(1);
+        this.props.definiAttribut_sa('numberService', 1);
     }
 
     render() {
         return (
             <Card>
                 <div className="ui vertical animated button" tabIndex="0">
-                    <div className=" hidden content" onClick={() => this.props.setServiceNumber(this.props.serviceNumber + 1)}>Ajouter une ligne</div>
+                    <div className=" hidden content" onClick={() => this.props.definiAttribut_sa('numberService', this.props.serviceNumber + 1)}>Ajouter une ligne</div>
                     <div className="visible  content">
                         <i className="add icon"></i>
                     </div>
                 </div>
                 <br />
                 <div className="ui vertical animated button" tabIndex="0">
-                    <div className=" hidden content" onClick={() => this.props.setServiceNumber(this.props.serviceNumber - 1)}>Supprimer une ligne</div>
+                    <div className=" hidden content" onClick={() => this.props.definiAttribut_sa('numberService', this.props.serviceNumber - 1)}>Supprimer une ligne</div>
                     <div className="visible  content">
                         <i className="minus icon"></i>
                     </div>
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { setServiceNumber })(Incrementeur);
+export default connect(mapStateToProps, { definiAttribut_sa })(Incrementeur);

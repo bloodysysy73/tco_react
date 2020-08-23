@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { defineTime } from 'actions';
 
 import "assets/css/invoice.css";
-import contact from "assets/img/contact.png"; 
+import contact from "assets/img/contact.png";
+import DisplayLines from 'components/other/DisplayLines';
+import DisplayLinesExtension from 'components/other/DisplayLinesExtension';
 
 class Devis extends React.Component {
 
@@ -44,8 +46,8 @@ class Devis extends React.Component {
                                     <div className="text-gray-light">INVOICE TO:</div>
                                     <h2 className="to">{this.props.prenomNom}</h2>
                                     <div className="address">{this.props.adresse}</div>
-                                                <div className="email"><a href="mailto:jeremy.paris17@gmail.com">{this.props.email}</a></div>
-                                            </div>
+                                    <div className="email"><a href="mailto:jeremy.paris17@gmail.com">{this.props.email}</a></div>
+                                </div>
                                 <div className="col invoice-details">
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
                                     <div className="date">  Date: {this.props.date}</div>
@@ -72,11 +74,12 @@ class Devis extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr><label> Entretien et maintenance : </label></tr>
                                     <tr>
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Huiles :
                                     </a>
                                         </h3>
                                                 Description service
@@ -91,7 +94,7 @@ class Devis extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Pièces :
                                     </a>
                                         </h3>
                                                 Description service
@@ -106,7 +109,7 @@ class Devis extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Kits :
                                     </a>
                                         </h3>
                                                 Description service
@@ -121,7 +124,7 @@ class Devis extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Main d'oeuvre :
                                     </a>
                                         </h3>
                                                 Description service
@@ -132,18 +135,62 @@ class Devis extends React.Component {
                                         <td className="discount">$0.00</td>
                                         <td className="total">$0.00</td>
                                     </tr>
-                                </tbody>
-                                <tfoot>
+                                    <tr>
+                                        <td className="no">CODE-SERVICE</td>
+                                        <td className="text-left"><h3>
+                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                                Déplacements :
+                                    </a>
+                                        </h3>
+                                                Description
+                                        </td>
+                                        <td className="photo"></td>
+                                        <td className="qty">0</td>
+                                        <td className="unit">$0.00</td>
+                                        <td className="discount">$0.00</td>
+                                        <td className="total">$0.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td className="no">CODE-SERVICE</td>
+                                        <td className="text-left"><h3>
+                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                                Extension de ganratie :
+                                    </a>
+                                        </h3>
+                                        Description:
+                                        </td>
+                                        <td className="photo"></td>
+                                        <td className="qty">0</td>
+                                        <td className="unit">$0.00</td>
+                                        <td className="discount">$0.00</td>
+                                        <td className="total">$0.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td className="no">CODE-SERVICE</td>
+                                        <td className="text-left"><h3>
+                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                                MyMECALAC :
+                                    </a>
+                                        </h3>
+                                                Description service
+                                        </td>
+                                        <td className="photo"></td>
+                                        <td className="qty">0</td>
+                                        <td className="unit">$0.00</td>
+                                        <td className="discount">$0.00</td>
+                                        <td className="total">$0.00</td>
+                                    </tr>
                                     <tr>
                                         <td colSpan="2"></td>
-                                        <td colSpan="4">SUBTOTAL</td>
+                                        <td colSpan="4">Total entretien et maintenace</td>
                                         <td>$X,000.00</td>
                                     </tr>
-                                    <tr>
-                                        <td colSpan="2"></td>
-                                        <td colSpan="4">TAX 25%</td>
-                                        <td>$Y,000.00</td>
-                                    </tr>
+                                    <DisplayLinesExtension label='Extenson de garantie' prixExtension={this.props.prixExtension}></DisplayLinesExtension>
+                                    <DisplayLines lines={this.props.lines}></DisplayLines>
+                                </tbody>
+                                <tfoot>
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
@@ -151,7 +198,6 @@ class Devis extends React.Component {
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div className="thanks">Merci</div>
                             <div className="notices">
                                 <div>NOTES:</div>
                                 <div className="notice">Précisions</div>
@@ -159,11 +205,11 @@ class Devis extends React.Component {
                         </main>
                         <footer>
                             Disclamer, legal, etc.
-                        <div> <img src={contact} alt="Contact"/> 
-                        <a id="img" target="" href="https://www.mecalac.com/">
-                        </a>
-                        </div>
-                </footer>
+                        <div> <img src={contact} alt="Contact" />
+                                <a id="img" target="" href="https://www.mecalac.com/">
+                                </a>
+                            </div>
+                        </footer>
                     </div>
                     <div></div>
                 </div>
@@ -179,7 +225,9 @@ const mapStateToProps = (state) => {
         adresse: state.clientReducer.adresse,
         email: state.clientReducer.email,
         date: state.infocomplementaireReducer.date,
-        lieu: state.infocomplementaireReducer.lieu
+        lieu: state.infocomplementaireReducer.lieu,
+        lines: state.serviceAjoutesReducer.lines ? Object.values(state.serviceAjoutesReducer.lines) : null,
+        prixExtension: state.specMachineReducer.prixExtension
     };
 };
 

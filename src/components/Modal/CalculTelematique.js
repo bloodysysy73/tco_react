@@ -17,16 +17,6 @@ import {
 
 class CalculTelematique extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            installationTele: 0,
-        };
-    }
-
-    setinstallationTele(value) {
-        this.setState({ installationTele: value });
-    }
 
     /* Méthode de calcul pour les anciens modèles. Prends en compte les variabes suivantes : 
      - Le coût de l'installation du boitier (paramétrable par le concessionnaire)
@@ -38,8 +28,7 @@ class CalculTelematique extends React.Component {
     **/
 
     CalculTelematiqueA() {
-        let estimatedCostTele = 10 * parseFloat(this.state.dureeContratM) + 225 + parseFloat(this.state.installationTele) ;
-        this.setState({ estimatedCostTele: estimatedCostTele });
+        let estimatedCostTele = 10 * parseFloat(this.state.dureeContratM) + 225 + parseFloat(this.state.installationTele);
 
         let teleAValue = {
             estimatedCostTele: estimatedCostTele,
@@ -87,7 +76,7 @@ class CalculTelematique extends React.Component {
                     <CardBody>
                         <form className="ui form">
                             <br /><label>
-                            Paramétrer le cout de l'installation
+                                Paramétrer le cout de l'installation
 <input
                                     name="installationTele"
                                     type="number"

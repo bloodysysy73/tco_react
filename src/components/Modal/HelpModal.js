@@ -13,17 +13,6 @@ import {
 
 class HelpModal extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            prixLavage: null,
-            prixDeplacement: null,
-            nbSemaine: null,
-            nbHeure: null,
-            periodicite: false
-        };
-    }
-
     renderContent = () => {
         return (
             <div className="content">
