@@ -10,9 +10,9 @@ class DisplayLines extends React.Component {
                         {line.label}</a></h3></td>
                     <td className="photo"></td>
                     <td className="qty">0</td>
-                    <td className="unit">$0.00</td>
+                    <td className="unit">{line.cost ? parseFloat(line.cost) / parseInt(this.props.dureeContratH, 10) : 0} €</td>
                     <td className="discount">$0.00</td>
-                    <td className="total">$ {line.cost}</td>
+                    <td className="total">€ {line.cost}</td>
                 </tr>
             )
         })
@@ -27,7 +27,7 @@ class DisplayLines extends React.Component {
                     <tr>
                         <td colSpan="2"></td>
                         <td colSpan="4">Total des autres couts</td>
-                        <td>$X,000.00</td>
+                        <td>€ {this.props.totalCost_autreService}</td>
                     </tr>
                 </>
             );

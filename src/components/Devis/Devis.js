@@ -66,7 +66,7 @@ class Devis extends React.Component {
                                         <th className="text-left">LABEL</th>
                                         <th className="text-right">PICTURE</th>
                                         <th className="text-right">QTY</th>
-                                        <th className="text-right">HOUR PRICE</th>
+                                        <th className="text-right">HOUR PRICE ({this.props.dureeContratH} hours)</th>
                                         <th className="text-right">DISCOUNT</th>
 
 
@@ -185,16 +185,24 @@ class Devis extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">Total entretien et maintenace</td>
-                                        <td>$X,000.00</td>
+                                        <td>0 €</td>
                                     </tr>
-                                    <DisplayLinesExtension label='Extenson de garantie' prixExtension={this.props.prixExtension}></DisplayLinesExtension>
-                                    <DisplayLines lines={this.props.lines}></DisplayLines>
+                                    <DisplayLinesExtension
+                                        label='Extenson de garantie'
+                                        prixExtension={this.props.prixExtension}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayLinesExtension>
+                                    <DisplayLines
+                                        lines={this.props.lines}
+                                        totalCost_autreService={this.props.totalCost_autreService}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayLines>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>$Z,000.00</td>
+                                        <td>€ {(this.props.totalCost_autreService || this.props.prixExtension) ? parseFloat(this.props.totalCost_autreService) + parseFloat(this.props.prixExtension) : 0}</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -227,7 +235,9 @@ const mapStateToProps = (state) => {
         date: state.infocomplementaireReducer.date,
         lieu: state.infocomplementaireReducer.lieu,
         lines: state.serviceAjoutesReducer.lines ? Object.values(state.serviceAjoutesReducer.lines) : null,
-        prixExtension: state.specMachineReducer.prixExtension
+        prixExtension: state.specMachineReducer.prixExtension,
+        totalCost_autreService: state.serviceAjoutesReducer.totalCost_autreService,
+        dureeContratH: state.specMachineReducer.dureeContratH
     };
 };
 
