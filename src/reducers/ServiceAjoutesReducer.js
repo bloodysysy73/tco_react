@@ -28,13 +28,11 @@ export default (state = {}, action) => {
                     };
                 }
             } else if (state.lines) {
-                console.log('state lines', state.lines)
                 return {
                     ...state,
                     lines: [...state.lines, action.payload]
                 };
             } else {
-                console.log('state lines', state.lines)
                 return {
                     ...state,
                     lines: [action.payload]
@@ -48,7 +46,6 @@ export default (state = {}, action) => {
                 [action.payload.name]: action.payload.value
             };
         case UPDATE_TOT_COST:
-            console.log('UPDATING TOT')
             let newstate = { ...state };
             let newTotal = 0;
             newstate.lines.forEach(line => {
@@ -62,18 +59,3 @@ export default (state = {}, action) => {
             return state
     }
 };
-
-// const Cart = (state = initialState, action) => {
-//     switch (action.type) {
-//         case 'ADD_TO_CART':
-//             let newstate = [...state, action.payload];
-//             let newTotal = 0;
-//             newstate.items.forEach(item => {
-//                 newTotal += item.price;
-//             });
-//             newstate.total = newTotal;
-//             return newstate;
-//         default:
-//             return state
-//     }
-// }
