@@ -18,7 +18,7 @@ class HelpModal extends React.Component {
             <div className="content">
                 <Card className="card-user">
                     <br />
-                    <CardTitle>Help</CardTitle>
+                    <CardTitle>Documentation</CardTitle>
                     <CardBody>
 
                     </CardBody>
@@ -32,7 +32,7 @@ class HelpModal extends React.Component {
 
         return (
             <React.Fragment>
-                <Link to="/admin/dashboard" className="ui button">Cancel</Link>
+                <Link to="/admin/calculator" className="ui button">Cancel</Link>
             </React.Fragment>
         )
     }

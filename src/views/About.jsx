@@ -1,6 +1,7 @@
 import React from "react";
-import InfoConcessForm from "components/Formulaire/InfoConcessForm";
 import { Container, Row, Col } from "reactstrap";
+import InfoConcessForm from "components/Formulaire/InfoConcessForm";
+
 
 
 class About extends React.Component {

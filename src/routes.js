@@ -40,7 +40,8 @@ var routes = [
     name: "V2 en construction",
     icon: "nc-icon nc-ruler-pencil",
     component: Dashboard,
-    layout: "/admin"
+    layout: "/admin",
+    affiche: false
   },
 
   {

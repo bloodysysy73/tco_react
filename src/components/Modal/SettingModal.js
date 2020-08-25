@@ -256,7 +256,7 @@ class SettingModal extends React.Component {
 
         return (
             <React.Fragment>
-                <Link to="/admin/dashboard" className="ui button">Cancel</Link>
+                <Link to="/admin/calculator" className="ui button">Cancel</Link>
             </React.Fragment>
         )
     }
