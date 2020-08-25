@@ -9,6 +9,7 @@ import {
     Col
 } from "reactstrap";
 import Printer from '../Devis/Printer';
+import PDF from '../Devis/PDF';
 
 class Fonctionnalites extends React.Component {
 
@@ -31,16 +32,20 @@ class Fonctionnalites extends React.Component {
             </CardBody>
             <CardFooter>
                 <hr />
+                <Row>
+                <Col md="2" xs="2">
                 <label>
-                    calculer <br />
+                Calculer<br />
                     <button className="ui vertical animated button">
                     <div className="hidden content">Calculer</div>
                     <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button><br />
                 </label>
+                </Col>
+                <Col md="2" xs="2">
 
                 <label>
-                    paramètrer <br />
+                Paramètrer<br />
                     <Link to='/admin/SettingModal/' >
                     <div className="ui animated button" tabIndex="0">
                         <div className="visible content"><i aria-hidden="true" className="setting icon"></i></div>
@@ -48,27 +53,35 @@ class Fonctionnalites extends React.Component {
                             Options
                         </div></div>
                 </Link> </label>
+                </Col>
+                <Col md="2" xs="2">
                 <label>
-                    Imprimer <br />
+                Imprimer<br />
                 <button className="ui vertical animated button">
                     <div className="hidden content"><Printer></Printer></div>
                     <div className="visible content"><i aria-hidden="true" className="print icon"></i></div>
                 </button>
                 </label>
-                
+                </Col>
+                <Col md="2" xs="2">
+                <label>
+                Enregistrer<br />
                 <button className="ui vertical animated button">
-                    <div className="hidden content">Excel</div>
-                    <div className="visible content"><i aria-hidden="true" className="file excel icon"></i></div>
-                </button>
+                    <div className="hidden content"><PDF></PDF></div>
+                    <div className="visible content"><i aria-hidden="true" className="file pdf icon"></i></div>
+                </button></label>
+                </Col>
+                <Col md="2" xs="2">
+                <label>
+                Documentation<br />
                 <Link to='/admin/HelpModal/' >
                     <div className="ui animated button" tabIndex="0">
                         <div className="visible content"><i aria-hidden="true" className="help circle icon"></i></div>
                         <div className="hidden content">
-                            Help
+                            Doc
                         </div></div>
-                </Link>
-
-
+                </Link></label>
+                </Col></Row>
             </CardFooter>
         </Card>
     }

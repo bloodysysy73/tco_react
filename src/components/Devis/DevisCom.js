@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { defineTime } from 'actions';
 
 import "assets/css/invoice.css";
-import contact from "assets/img/contact.png"; 
+import contact from "assets/img/contact.png";
+import DisplayLines from 'components/other/DisplayLines';
+import DisplayLinesExtension from 'components/other/DisplayLinesExtension';
 
 class DevisCom extends React.Component {
 
@@ -23,7 +25,7 @@ class DevisCom extends React.Component {
                         <header>
                             <div className="row">
                                 <div className="col">
-                                    <a id="img" target="" href="https://www.mecalac.com/">
+                                    <a id="img" target="" href="https://www.mecalac.com/" alt="test">
                                     </a>
                                 </div>
                                 <div className="col company-details">
@@ -64,7 +66,7 @@ class DevisCom extends React.Component {
                                         <th className="text-left">LABEL</th>
                                         <th className="text-right">PICTURE</th>
                                         <th className="text-right">QTY</th>
-                                        <th className="text-right">HOUR PRICE</th>
+                                        <th className="text-right">HOUR PRICE ({this.props.dureeContratH} hours)</th>
                                         <th className="text-right">DISCOUNT</th>
 
 
@@ -72,11 +74,12 @@ class DevisCom extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr><label> Entretien et maintenance : </label></tr>
                                     <tr>
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Main d'oeuvre :
                                     </a>
                                         </h3>
                                                 Description service
@@ -91,7 +94,24 @@ class DevisCom extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Déplacements :
+                                    </a>
+                                        </h3>
+                                                Description
+                                        </td>
+                                        <td className="photo"></td>
+                                        <td className="qty">0</td>
+                                        <td className="unit">$0.00</td>
+                                        <td className="discount">$0.00</td>
+                                        <td className="total">$0.00</td>
+                                    </tr>
+
+                                    
+                                    <tr>
+                                        <td className="no">CODE-SERVICE</td>
+                                        <td className="text-left"><h3>
+                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                                Huiles :
                                     </a>
                                         </h3>
                                                 Description service
@@ -106,7 +126,7 @@ class DevisCom extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Pièces :
                                     </a>
                                         </h3>
                                                 Description service
@@ -121,7 +141,7 @@ class DevisCom extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Titre service #1
+                                                Kits :
                                     </a>
                                         </h3>
                                                 Description service
@@ -132,38 +152,42 @@ class DevisCom extends React.Component {
                                         <td className="discount">$0.00</td>
                                         <td className="total">$0.00</td>
                                     </tr>
+                                    <tr>
+                                        <td colSpan="2"></td>
+                                        <td colSpan="4">Total entretien et maintenace</td>
+                                        <td>0 €</td>
+                                    </tr>
+                                    <DisplayLinesExtension
+                                        label='Extenson de garantie'
+                                        prixExtension={this.props.prixExtension}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayLinesExtension>
+                                    <DisplayLines
+                                        lines={this.props.lines}
+                                        totalCost_autreService={this.props.totalCost_autreService}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayLines>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td colSpan="2"></td>
-                                        <td colSpan="4">SUBTOTAL</td>
-                                        <td>$X,000.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan="2"></td>
-                                        <td colSpan="4">TAX 25%</td>
-                                        <td>$Y,000.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>$Z,000.00</td>
+                                        <td>€ {(this.props.totalCost_autreService || this.props.prixExtension) ? parseFloat(this.props.totalCost_autreService) + parseFloat(this.props.prixExtension) : 0}</td>
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div className="thanks">Merci</div>
                             <div className="notices">
                                 <div>NOTES:</div>
                                 <div className="notice">Précisions</div>
                             </div>
                         </main>
                         <footer>
-                            Disclamer,legal, etc.
-                        <div> <img src={contact} alt="Contact"/> 
-                        <a id="img" target="" href="https://www.mecalac.com/">
-                        </a>
-                        </div>
-                </footer>
+                            Disclamer, legal, etc.
+                        <div> <img src={contact} alt="Contact" />
+                                <a id="img" target="" href="https://www.mecalac.com/">
+                                </a>
+                            </div>
+                        </footer>
                     </div>
                     <div></div>
                 </div>
@@ -179,8 +203,14 @@ const mapStateToProps = (state) => {
         adresse: state.clientReducer.adresse,
         email: state.clientReducer.email,
         date: state.infocomplementaireReducer.date,
-        lieu: state.infocomplementaireReducer.lieu
+        lieu: state.infocomplementaireReducer.lieu,
+        lines: state.serviceAjoutesReducer.lines ? Object.values(state.serviceAjoutesReducer.lines) : null,
+        prixExtension: state.specMachineReducer.prixExtension,
+        totalCost_autreService: state.serviceAjoutesReducer.totalCost_autreService,
+        dureeContratH: state.specMachineReducer.dureeContratH
     };
 };
+
+
 
 export default connect(mapStateToProps, { defineTime })(DevisCom);

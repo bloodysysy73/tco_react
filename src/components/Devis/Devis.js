@@ -66,8 +66,8 @@ class Devis extends React.Component {
                                         <th className="text-left">LABEL</th>
                                         <th className="text-right">PICTURE</th>
                                         <th className="text-right">QTY</th>
-                                        <th className="text-right">HOUR PRICE ({this.props.dureeContratH} hours)</th>
-                                        <th className="text-right">DISCOUNT</th>
+                                        <th className="text-right">PRICE/HOUR ({this.props.dureeContratH} hours)</th>
+                                        <th className="text-right">TBC</th>
 
 
                                         <th className="text-right">TOTAL</th>
@@ -75,6 +75,40 @@ class Devis extends React.Component {
                                 </thead>
                                 <tbody>
                                     <tr><label> Entretien et maintenance : </label></tr>
+                                    
+                                    
+                                    <tr>
+                                        <td className="no">CODE-SERVICE</td>
+                                        <td className="text-left"><h3>
+                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                                Main d'oeuvre :
+                                    </a>
+                                        </h3>
+                                                Description service
+                                        </td>
+                                        <td className="photo"></td>
+                                        <td className="qty">0</td>
+                                        <td className="unit">$0.00</td>
+                                        <td className="discount">$0.00</td>
+                                        <td className="total">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no">CODE-SERVICE</td>
+                                        <td className="text-left"><h3>
+                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                                Déplacements :
+                                    </a>
+                                        </h3>
+                                                Description
+                                        </td>
+                                        <td className="photo"></td>
+                                        <td className="qty">0</td>
+                                        <td className="unit">$0.00</td>
+                                        <td className="discount">$0.00</td>
+                                        <td className="total">$0.00</td>
+                                    </tr>
+
+                                    
                                     <tr>
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
@@ -120,68 +154,9 @@ class Devis extends React.Component {
                                         <td className="discount">$0.00</td>
                                         <td className="total">$0.00</td>
                                     </tr>
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Main d'oeuvre :
-                                    </a>
-                                        </h3>
-                                                Description service
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Déplacements :
-                                    </a>
-                                        </h3>
-                                                Description
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
 
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Extension de ganratie :
-                                    </a>
-                                        </h3>
-                                        Description:
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
 
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                MyMECALAC :
-                                    </a>
-                                        </h3>
-                                                Description service
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
+
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">Total entretien et maintenace</td>

@@ -9,7 +9,7 @@ import {
 import SpecMachine from 'components/Formulaire/specMachine';
 import ListCouts from "components/Formulaire/ListCouts";
 import Fonctionnalites from "components/other/Fonctionnalites";
-// import MachineView from "components/Images/MachineView"
+import MachineView from "components/Images/MachineView"
 import DevisCom from "components/Devis/DevisCom";
 
 
@@ -22,11 +22,11 @@ class Calculator extends React.Component {
         <div className="content">
           <Container fluid>
             <Row className="justify-content-md-center">
-              <Col lg="4" md="6" sm="6">
+              <Col lg="5" md="6" sm="6">
                 <SpecMachine></SpecMachine>
                 
               </Col>
-              <Col lg="8" md="6" sm="6">
+              <Col lg="7" md="6" sm="6">
                 <ListCouts></ListCouts>
                 <Fonctionnalites></Fonctionnalites>
               </Col>
@@ -35,6 +35,7 @@ class Calculator extends React.Component {
             <Row className="justify-content-md-center">
               <Col md="12">
                 <DevisCom></DevisCom>
+                <MachineView></MachineView>
               </Col>
             </Row>
 

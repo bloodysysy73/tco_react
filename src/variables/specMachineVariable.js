@@ -47,7 +47,7 @@ export const machinesSpec = [
 
         id: '4',
         categorie: 'Excavator', 
-        type: 'Roue' ,
+        type: 'Chenille' ,
         gamme: '10MCR', 
         numSerie: ['140300', '172011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
@@ -56,7 +56,7 @@ export const machinesSpec = [
     {
         id: '5',
         categorie: 'Excavator', 
-        type: 'Roue' ,
+        type: 'Chenille' ,
         gamme: '8MCR', 
         numSerie: ['130900', '162011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
@@ -65,7 +65,7 @@ export const machinesSpec = [
     {
         id: '6',
         categorie: 'Excavator', 
-        type: 'Roue' ,
+        type: 'Chenille' ,
         gamme: '6MCR', 
         numSerie: ['120015','152011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
@@ -74,7 +74,7 @@ export const machinesSpec = [
     {
         id: '7',
         categorie: 'Excavator', 
-        type: 'Roue' ,
+        type: 'RChenille' ,
         gamme: '15MC', 
         numSerie: ['87011', '86011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
