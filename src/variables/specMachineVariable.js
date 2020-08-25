@@ -8,9 +8,9 @@ export const categories = [
 ];
 
 export const type = [
-    'Sur Roue', 
-    'Sur Chenille', 
-    'Sur Rail', 
+    'Roue', 
+    'Chenille', 
+    'Rail', 
 
 ];
 

@@ -9,7 +9,6 @@ import {
 import SpecMachine from 'components/Formulaire/specMachine';
 import ComplementSpec from "components/Formulaire/complementSpec";
 import AutresCouts from "components/Formulaire/autreCouts";
-import BilanEntretienMaintenance from "components/Formulaire/BilanEntretienMaintenance"
 import Fonctionnalites from "components/other/Fonctionnalites";
 import MachineView from "components/Images/MachineView"
 import MachineFleet from "components/Images/MachineFleet";

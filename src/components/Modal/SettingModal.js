@@ -28,34 +28,6 @@ class SettingModal extends React.Component {
         };
     }
 
-    setTripWfCost(value) {
-        this.setState({ tripWfCost: value });
-    }
-
-    setEntWfCost(value) {
-        this.setState({ entWfCost: value });
-    }
-
-    setClimCost(value) {
-        this.setState({ climCost: value });
-    }
-
-    setTimeOpe1(value) {
-        this.setState({ timeOpe1: value });
-    }
-
-    setTimeOpe1(value) {
-        this.setState({ timeOpe2: value });
-    }
-
-    setTimeOpe1(value) {
-        this.setState({ timeOpe3: value });
-    }
-
-    setTimeOpe1(value) {
-        this.setState({ timeOpe4: value });
-    }
-
     renderContent = () => {
         return (
             <div className="content">

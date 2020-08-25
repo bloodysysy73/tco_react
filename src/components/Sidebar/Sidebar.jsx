@@ -36,8 +36,9 @@ class Sidebar extends React.Component {
         data-active-color={this.props.activeColor}
       >
         <div className="logo">
+        <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQELJdZeAb4dPA/company-logo_200_200/0?e=1600905600&v=beta&t=F6ZsmtXt7BLhhQBMfB6XqclM_nomTYLtsW-XM-Zt3IU" className="img-fluid" alt="" />
           <a
-            href="http://localhost:3000/admin/dashboard"
+            href="http://localhost:3000/admin/calculator"
             className="simple-text logo-mini"
           >
             <div className="logo-img">
@@ -45,10 +46,10 @@ class Sidebar extends React.Component {
             </div>
           </a>
           <a
-            href="http://localhost:3000/admin/dashboard"
+            href="http://localhost:3000/admin/calculator"
             className="simple-text logo-normal"
           >
-            CACULATOR
+            CACULATEUR
           </a>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>

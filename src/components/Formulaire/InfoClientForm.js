@@ -44,7 +44,17 @@ class InfoClientForm extends React.Component {
 
 
                         <label>
-                            Prenom et Nom:
+                            Nom de l'entreprise cliente :
+<input
+                                name="companyName"
+                                type="text"
+                                value={this.props.companyName}
+                                onChange={e => this.handleChange(e)}
+                                required />
+                        </label><br />
+
+                        <label>
+                            Nom et prénom de la personne en charge :
 <input
                                 name="prenomNom"
                                 type="text"
@@ -54,7 +64,7 @@ class InfoClientForm extends React.Component {
                         </label><br />
 
                         <label>
-                            adresse:
+                            Adresse:
 <input
                                 name="adresse"
                                 type="text"
@@ -64,7 +74,7 @@ class InfoClientForm extends React.Component {
                         </label><br />
 
                         <label>
-                            email :
+                            Email :
                         <input
                                 name="email"
                                 type="text"
@@ -86,6 +96,7 @@ class InfoClientForm extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        companyName: state.clientReducer.companyName,
         prenomNom: state.clientReducer.prenomNom,
         adresse: state.clientReducer.adresse,
         email: state.clientReducer.email,

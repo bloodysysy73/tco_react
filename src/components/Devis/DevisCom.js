@@ -44,9 +44,10 @@ class DevisCom extends React.Component {
                             <div className="row contacts">
                                 <div className="col invoice-to">
                                     <div className="text-gray-light">INVOICE TO:</div>
-                                    <h2 className="to">{this.props.prenomNom}</h2>
+                                    <h2 className="to">{this.props.companyName}</h2>
+                                    <h3 className="to">{this.props.prenomNom}</h3>
                                     <div className="address">{this.props.adresse}</div>
-                                    <div className="email"><a href="mailto:jeremy.paris17@gmail.com">{this.props.email}</a></div>
+                                    <div className="email"><a href={"mailto:" + this.props.email}>{this.props.email}</a></div>
                                 </div>
                                 <div className="col invoice-details">
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
@@ -177,8 +178,7 @@ class DevisCom extends React.Component {
                                 </tfoot>
                             </table>
                             <div className="notices">
-                                <div>NOTES:</div>
-                                <div className="notice">Précisions</div>
+                                <div>Commentaires et précisions :</div>
                             </div>
                         </main>
                         <footer>
@@ -199,6 +199,7 @@ class DevisCom extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        companyName: state.clientReducer.companyName,
         prenomNom: state.clientReducer.prenomNom,
         adresse: state.clientReducer.adresse,
         email: state.clientReducer.email,
