@@ -63,9 +63,6 @@ Mes objectifs personnels ? Un design moderne et responsive, une utilisation simp
 
 * []() ReactJS 16.8 (javascript ES6) pour la partie frontend
 * []() Redux pour la gestion des states
-* []() Framework Spring (JAVA 8) pour la partie backend (projet spring boot)
-* []() maven 4.0 pour la gestion des dépendences 
-* []() hibernate pour la persistance des données
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -74,13 +71,13 @@ Pour obtenir un copie locale de cette application veuillez suivre ces étapes.
 
 ### Prerequisites
 
-installer node et java JDK 8 :
+installer node:
 
 * npm
 ```sh
 npm install npm@latest -g
 ```
-* java 8
+
 
 ### Installation
  
