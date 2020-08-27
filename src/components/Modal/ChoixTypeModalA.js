@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Modal from './Modaux'
 
 import { connect } from "react-redux";
-import { calculOptionA } from "../../actions/actionMachine"
+import { calculOptionA, definiAttribut } from "../../actions/actionMachine"
 
 import {
     Card,
@@ -23,17 +23,11 @@ class ChoixTypeModalA extends React.Component {
 
 
     calculDeplacement() {
-        let estimatedCostOptionA = 2 * (parseFloat(this.state.tripWfCost) * (parseFloat(this.state.geoScope) / parseFloat(this.state.averageSpeed)) + (parseFloat(this.state.kmCost) * parseFloat(this.state.geoScope)));
+        //calcul le cout du déplacement et mettre a jour le state
+    }
 
-        let modalBValue = {
-            estimatedCostOptionA: estimatedCostOptionA,
-            geoScope: this.state.geoScope,
-            kmCost: this.state.kmCost,
-            averageSpeed: this.state.averageSpeed,
-            tripWfCost: this.state.tripWfCost
-        }
-
-        this.props.calculOptionA(modalBValue);
+    handleChange(e) {
+        this.props.definiAttribut(e.target.name, e.target.value);
     }
 
 
@@ -55,7 +49,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     value={this.props.geoScope}
                                     min="1" max="100"
-                                    onChange={e => this.setGeoScope(e.target.value)}
+                                    onChange={e => this.handleChange(e)}
                                     required />
                             </label><br />
 
@@ -69,7 +63,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     value={this.props.kmCost}
                                     min="0.4" max="0.8"
-                                    onChange={e => this.setKmCost(e.target.value)}
+                                    onChange={e => this.handleChange(e)}
                                     required />
                             </label><br />
 
@@ -83,7 +77,7 @@ class ChoixTypeModalA extends React.Component {
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     value={this.props.averageSpeed}
                                     min="30" max="100"
-                                    onChange={e => this.setAverageSpeed(e.target.value)}
+                                    onChange={e => this.handleChange(e)}
                                     required />
                             </label><br />
 
@@ -99,7 +93,7 @@ class ChoixTypeModalA extends React.Component {
                                     value={this.props.tripWfCost}
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     min="1" max="100"
-                                    onChange={e => this.setTripWfCost(e.target.value)}
+                                    onChange={e => this.handleChange(e)}
                                     required />
                             </label><br /><br />
 
@@ -119,10 +113,9 @@ class ChoixTypeModalA extends React.Component {
                                     name="workTripResult"
                                     type="number"
                                     value={this.props.estimatedCostOptionA}
-                                    onChange={e => this.calculDeplacement(e.target.value)}
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
-                                    required />
+                                    readOnly />
                             </label><br />
                             <br />
                         </form>
@@ -176,5 +169,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { calculOptionA })(ChoixTypeModalA);
+export default connect(mapStateToProps, { calculOptionA, definiAttribut })(ChoixTypeModalA);
 

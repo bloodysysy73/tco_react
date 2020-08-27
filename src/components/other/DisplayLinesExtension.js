@@ -9,11 +9,16 @@ class DisplayLinesExtension extends React.Component {
                     {this.props.label}</a></h3></td>
                 <td className="photo"></td>
                 <td className="qty">0</td>
-                <td className="unit">{this.props.prixExtension ? parseFloat(this.props.prixExtension) / parseInt(this.props.dureeContratH, 10) : 0} €</td>
+                <td className="unit">{this.props.prixExtension ? this.getCost() : 0} €</td>
                 <td className="discount">$0.00</td>
                 <td className="total">€  {this.props.prixExtension}</td>
             </tr>
         );
+    }
+
+    getCost() {
+        let cost = parseFloat(this.props.prixExtension) / parseInt(this.props.dureeContratH, 10)
+        return Number.parseFloat(cost).toFixed(2);
     }
 
 

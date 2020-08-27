@@ -10,12 +10,17 @@ class DisplayLines extends React.Component {
                         {line.label}</a></h3></td>
                     <td className="photo"></td>
                     <td className="qty">0</td>
-                    <td className="unit">{line.cost ? parseFloat(line.cost) / parseInt(this.props.dureeContratH, 10) : 0} €</td>
+                    <td className="unit">{line.cost ? this.getCost(line) : 0} €</td>
                     <td className="discount">$0.00</td>
                     <td className="total">€ {line.cost}</td>
                 </tr>
             )
         })
+    }
+
+    getCost(line) {
+        let cost = parseFloat(line.cost) / parseInt(this.props.dureeContratH, 10)
+        return Number.parseFloat(cost).toFixed(2);
     }
 
 
