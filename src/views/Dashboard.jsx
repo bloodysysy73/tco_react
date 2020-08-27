@@ -26,29 +26,29 @@ class Dashboard extends React.Component {
         <div className="content">
           <Container fluid>
             <Row className="justify-content-md-center">
-              <Col lg="4" md="6" sm="6">
+              <Col lg="6" md="6" sm="6">
                 <SpecMachine></SpecMachine>
                 <Fourniture></Fourniture>
-                <Fonctionnalites></Fonctionnalites>
               </Col>
-              <Col lg="4" md="6" sm="6">
+              <Col lg="6" md="6" sm="6">
                 <MachineFleet></MachineFleet>
-                <ComplementSpec></ComplementSpec>
-                <BilanEntretienMaintenance></BilanEntretienMaintenance>
+                <ComplementSpec></ComplementSpec>               
               </Col>
-              <Col lg="4" md="6" sm="6" >
-                <Row>
+              </Row>
+              <Row>
+              <Col lg="12" md="6" sm="6" >
+                
                   <AutresCouts></AutresCouts>
-
-                  <MachineView></MachineView>
-                </Row>
-              </Col>
+                  <Fonctionnalites></Fonctionnalites>
+                  
+               </Col>
+              
             </Row>
             <Row className="justify-content-md-center">
 
               <Col md="12">
                 <Devis></Devis>
-
+                <MachineView></MachineView>
               </Col>
             </Row>
 

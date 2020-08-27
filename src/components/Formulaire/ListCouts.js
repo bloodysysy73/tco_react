@@ -37,7 +37,7 @@ class ListCouts extends React.Component {
             </CardBody>
             <CardFooter><br />
 
-                TOTAL - Autres services ajoutés : =)
+                TOTAL - Autres services ajoutés :
                 &nbsp;<label>&nbsp;{this.props.totalCost_autreService} &nbsp; </label>&nbsp;  €
 
             </CardFooter>

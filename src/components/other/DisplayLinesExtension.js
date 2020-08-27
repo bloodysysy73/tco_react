@@ -9,9 +9,9 @@ class DisplayLinesExtension extends React.Component {
                     {this.props.label}</a></h3></td>
                 <td className="photo"></td>
                 <td className="qty">0</td>
-                <td className="unit">$0.00</td>
+                <td className="unit">{this.props.prixExtension ? parseFloat(this.props.prixExtension) / parseInt(this.props.dureeContratH, 10) : 0} €</td>
                 <td className="discount">$0.00</td>
-                <td className="total">$ {this.props.prixExtension}</td>
+                <td className="total">€  {this.props.prixExtension}</td>
             </tr>
         );
     }
@@ -25,7 +25,7 @@ class DisplayLinesExtension extends React.Component {
                     <tr>
                         <td colSpan="2"></td>
                         <td colSpan="4">Total Extension de Garantie</td>
-                        <td>{this.props.prixExtension}</td>
+                        <td>€ {this.props.prixExtension}</td>
                     </tr>
                 </>
             );

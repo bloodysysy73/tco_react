@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { saveLine, definiAttribut_sa } from 'actions/actionServiceajoutes'
+import { saveLine, definiAttribut_sa, update_tot_cost } from 'actions/actionServiceajoutes'
 
 import {
     Row,
@@ -8,6 +8,11 @@ import {
 } from "reactstrap";
 
 class Line extends React.Component {
+
+    constructor() {
+        super();
+        this.state = { value: '' };
+    }
 
     handleChange(e) {
         let id = e.target.getAttribute('mykey');
@@ -27,12 +32,31 @@ class Line extends React.Component {
         }
 
         if (attributname === 'cost') {
-            this.props.saveLine(
-                {
-                    'id': id,
-                    'cost': attributvalue
+
+            if (!e.target.value) {
+                this.setState({ value: 0 })
+                this.props.saveLine(
+                    {
+                        'id': id,
+                        'cost': '0'
+                    }
+                );
+                this.props.update_tot_cost();
+            }
+
+            if (e.target.value) {
+                const re = /^\d+(\.\d{1,2})?$/;
+                if (e.target.value === '' || re.test(e.target.value)) {
+                    this.setState({ value: e.target.value })
                 }
-            );
+                this.props.saveLine(
+                    {
+                        'id': id,
+                        'cost': attributvalue
+                    }
+                );
+                this.props.update_tot_cost();
+            }
         }
     }
 
@@ -57,6 +81,7 @@ class Line extends React.Component {
                             mykey={this.props.key1}
                             name="cost"
                             type="text"
+                            value={this.state.value}
                             onChange={e => this.handleChange(e)}
                             placeholder="€"
                             style={{ direction: "rtl", textAlign: "right" }} /></Col>
@@ -72,4 +97,4 @@ const mapStateToProps = (state) => {
     return {
     };
 };
-export default connect(mapStateToProps, { saveLine, definiAttribut_sa })(Line);
+export default connect(mapStateToProps, { saveLine, definiAttribut_sa, update_tot_cost })(Line);

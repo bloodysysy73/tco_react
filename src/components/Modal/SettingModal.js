@@ -317,4 +317,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { SettingModal })(SettingModal);
-

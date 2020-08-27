@@ -98,7 +98,7 @@ class SpecMachine extends React.Component {
                 break
             case "9500": index_Y = 13;
                 break
-            case "1000": index_Y = 14;
+            case "10000": index_Y = 14;
                 break
             default: index_Y = 0;
 
