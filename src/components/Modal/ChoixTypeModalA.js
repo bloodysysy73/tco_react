@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Modal from './Modaux'
 
 import { connect } from "react-redux";
-import { calculOptionA } from "../../actions/actionMachine"
+import { calculOptionA, definiAttribut } from "../../actions/actionMachine"
 
 import {
     Card,
@@ -23,13 +23,11 @@ class ChoixTypeModalA extends React.Component {
 
 
     calculDeplacement() {
-
+        //calcul le cout du déplacement et mettre a jour le state
     }
 
     handleChange(e) {
-
-        //prendre exemple sur le composant : infoClient :
-        // this.props.definiInfoClient(e.target.name, e.target.value);
+        this.props.definiAttribut(e.target.name, e.target.value);
     }
 
 
@@ -171,5 +169,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { calculOptionA })(ChoixTypeModalA);
+export default connect(mapStateToProps, { calculOptionA, definiAttribut })(ChoixTypeModalA);
 

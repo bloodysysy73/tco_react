@@ -5,7 +5,7 @@ import Modal from './Modaux'
 
 //pour redux
 import { connect } from "react-redux";
-import { definiMontantForfait } from "../../actions/actionMachine"
+import { definiMontantForfait, definiAttribut } from "../../actions/actionMachine"
 
 
 import {
@@ -24,9 +24,7 @@ class ChoixTypeModalB extends React.Component {
 
 
     handleChange(e) {
-
-        //prendre exemple sur le composant : infoClient :
-        // this.props.definiMontantForfait(e.target.name, e.target.value);
+        this.props.definiAttribut(e.target.name, e.target.value);
     }
 
     renderContent = () => {
@@ -91,4 +89,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { definiMontantForfait })(ChoixTypeModalB);
+export default connect(mapStateToProps, { definiMontantForfait, definiAttribut })(ChoixTypeModalB);
