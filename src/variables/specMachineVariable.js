@@ -8,8 +8,8 @@ export const categories = [
 ];
 
 export const type = [
-    'Roue', // 7MWR ; 9MWR ; 11MWR ; 15MWR ;          12MTX
-    'Chenille', // 6MCR ; 8MCR ; 10MCR 
+    'Roue', 
+    'Chenille', 
     'Rail', 
 
 ];

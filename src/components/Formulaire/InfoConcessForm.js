@@ -1,5 +1,5 @@
 import React from 'react';
-import { definiInfoClient } from 'actions';
+import { definiInfoConcess } from 'actions';
 import { connect } from "react-redux";
 
 
@@ -11,12 +11,12 @@ import {
     Row
 } from "reactstrap";
 
-class InfoClientForm extends React.Component {
+class InfoConcessForm extends React.Component {
 
 
     handleChange(e) {
 
-        this.props.definiInfoClient(e.target.name, e.target.value);
+        this.props.definiInfoConcess(e.target.name, e.target.value);
     }
 
     render() {
@@ -33,7 +33,7 @@ class InfoClientForm extends React.Component {
                         </Col>
                         <Col md="8" xs="7">
                             <div className="numbers">
-                                <p className="card-category">Informations Client</p>
+                                <p className="card-category">Informations Concess</p>
                                 <p />
                             </div>
                         </Col>
@@ -46,9 +46,9 @@ class InfoClientForm extends React.Component {
                         <label>
                             Nom de l'entreprise cliente :
 <input
-                                name="companyName"
+                                name="companyNameA"
                                 type="text"
-                                value={this.props.companyName}
+                                value={this.props.companyNameA}
                                 onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
@@ -56,19 +56,29 @@ class InfoClientForm extends React.Component {
                         <label>
                             Nom et prénom de la personne en charge :
 <input
-                                name="prenomNom"
+                                name="prenomNomA"
                                 type="text"
-                                value={this.props.prenomNom}
+                                value={this.props.prenomNomA}
                                 onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
 
                         <label>
-                            Adresse:
+                            Adresse :
 <input
-                                name="adresse"
+                                name="adresseA"
                                 type="text"
-                                value={this.props.adresse}
+                                value={this.props.adresseA}
+                                onChange={e => this.handleChange(e)}
+                                required />
+                        </label><br />
+
+                        <label>
+                            Ville :
+<input
+                                name="villeA"
+                                type="text"
+                                value={this.props.villeA}
                                 onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
@@ -76,9 +86,9 @@ class InfoClientForm extends React.Component {
                         <label>
                             Email :
                         <input
-                                name="email"
+                                name="emailA"
                                 type="text"
-                                value={this.props.email}
+                                value={this.props.emailA}
                                 onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
@@ -96,11 +106,11 @@ class InfoClientForm extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        companyName: state.clientReducer.companyName,
-        prenomNom: state.clientReducer.prenomNom,
-        adresse: state.clientReducer.adresse,
-        email: state.clientReducer.email,
+        companyNameA: state.concessReducer.companyNameA,
+        prenomNomA: state.concessReducer.prenomNomA,
+        adresseA: state.concessReducer.adresseA,
+        emailA: state.concessReducer.emailA,
     };
 };
 
-export default connect(mapStateToProps, { definiInfoClient })(InfoClientForm);
+export default connect(mapStateToProps, { definiInfoConcess })(InfoConcessForm);

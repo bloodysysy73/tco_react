@@ -4,6 +4,7 @@ import { defineTime } from 'actions';
 
 import "assets/css/invoice.css";
 import contact from "assets/img/contact.png";
+import blue from "assets/img/blue.png";
 import DisplayLines from 'components/other/DisplayLines';
 import DisplayLinesExtension from 'components/other/DisplayLinesExtension';
 
@@ -24,19 +25,22 @@ class DevisCom extends React.Component {
                     <div style={{ minWidth: '600px' }}>
                         <header>
                             <div className="row">
-                                <div className="col">
-                                    <a id="img" target="" href="https://www.mecalac.com/" alt="test">
-                                    </a>
+                                <div className="col" >
+                                <img src={blue} alt="blue" />
+                                <a id="img" target="" href="https://www.mecalac.com/">
+                                </a>
+                                <h2 className="name">
+                                        <a target="blank" href="https://www.mecalac.com/">
+                                            MECALAC GROUP SERVICES</a> 
+                                    </h2>
+    
                                 </div>
                                 <div className="col company-details">
-                                    <h2 className="name">
-                                        <a target="" href="https://www.mecalac.com/">
-                                            MECALAC GROUP SERVICES
-                                </a>
-                                    </h2>
-                                    <div>Parc des Glaisins 2 av. du Pré de Challes</div>
-                                    <div>F-74940 Annecy-le-Vieux</div>
-                                    <div>services-parts@mecalac.com</div>
+                                    <h2 className="to">{this.props.companyNameA}</h2>
+                                    <h3 className="to">{this.props.prenomNomA}</h3>
+                                    <div className="address">{this.props.adresseA}</div>
+                                    <div className="ville">{this.props.villeA}</div>
+                                    <div className="email"><a href={"mailto:" + this.props.emailA}>{this.props.emailA}</a></div>                                    
                                 </div>
                             </div>
                         </header>
@@ -44,14 +48,15 @@ class DevisCom extends React.Component {
                             <div className="row contacts">
                                 <div className="col invoice-to">
                                     <div className="text-gray-light">INVOICE TO:</div>
-                                    <h2 className="to">{this.props.prenomNom}</h2>
+                                    <h2 className="to">{this.props.companyName}</h2>
+                                    <h3 className="to">{this.props.prenomNom}</h3>
                                     <div className="address">{this.props.adresse}</div>
-                                    <div className="email"><a href="mailto:jeremy.paris17@gmail.com">{this.props.email}</a></div>
+                                    <div className="email"><a href={"mailto:" + this.props.email}>{this.props.email}</a></div>
                                 </div>
                                 <div className="col invoice-details">
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
                                     <div className="date">  Date: {this.props.date}</div>
-                                    <div className="date">  Lieu: {this.props.lieu}</div>
+                                    <div className="date">  Lieu: {this.props.villeA} {this.props.lieu}</div>
                                     <div className="Label">Label: FR 30/07/2020</div>
                                     <div className="Order type">Order type: FR</div>
                                 </div>
@@ -177,15 +182,15 @@ class DevisCom extends React.Component {
                                 </tfoot>
                             </table>
                             <div className="notices">
-                                <div>NOTES:</div>
-                                <div className="notice">Précisions</div>
+                                <div>Commentaires et précisions :</div>
                             </div>
                         </main>
                         <footer>
-                            Disclamer, legal, etc.
+                            Ce devis a été généré avec le configurateur de contrat de service de MECALAC
                         <div> <img src={contact} alt="Contact" />
                                 <a id="img" target="" href="https://www.mecalac.com/">
                                 </a>
+                                <div>services-parts@mecalac.com</div>
                             </div>
                         </footer>
                     </div>
@@ -199,6 +204,12 @@ class DevisCom extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        companyNameA: state.concessReducer.companyNameA,
+        prenomNomA: state.concessReducer.prenomNomA,
+        adresseA: state.concessReducer.adresseA,
+        villeA: state.concessReducer.villeA,
+        emailA: state.concessReducer.emailA,
+        companyName: state.clientReducer.companyName,
         prenomNom: state.clientReducer.prenomNom,
         adresse: state.clientReducer.adresse,
         email: state.clientReducer.email,

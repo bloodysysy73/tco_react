@@ -3,7 +3,7 @@ import ChoixTypeModalA from "./components/Modal/ChoixTypeModalA"
 import HelpModal from "components/Modal/HelpModal";
 import SettingModal from "components/Modal/SettingModal";
 import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
-import ChoixTypeModalC from "./components/Modal/ChoixTypeModalC";
+
 import ChoixPiecesUsures from "./components/Modal/ChoixPiecesUsures";
 import About from "views/About.jsx"
 import Informations from "views/Informations";
@@ -13,20 +13,37 @@ import Calculator from "views/Calculator";
 
 var routes = [
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: "nc-icon nc-ruler-pencil",
-    component: Dashboard,
-    layout: "/admin"
+    path: "/informations",
+    name: "Informations client",
+    icon: "nc-icon nc-badge",
+    component: Informations,
+    layout: "/admin",
+  },
+  
+  {
+    path: "/calculator",
+    name: "Calculateur",
+    icon: "nc-icon nc-briefcase-24",
+    component: Calculator,
+    layout: "/admin",
   },
   {
     path: "/about",
-    name: "About",
+    name: "A propos",
     icon: "nc-icon nc-compass-05",
     component: About,
     layout: "/admin",
     affiche: true
   },
+  {
+    path: "/dashboard",
+    name: "V2 en construction",
+    icon: "nc-icon nc-ruler-pencil",
+    component: Dashboard,
+    layout: "/admin",
+    affiche: false
+  },
+
   {
     path: "/choixTypeModalA",
     name: "Choix Type",
@@ -44,14 +61,6 @@ var routes = [
     affiche: false
   },
   {
-    path: "/choixTypeModalC",
-    name: "Choix Type",
-    icon: "nc-icon nc-bell-55",
-    component: ChoixTypeModalC,
-    layout: "/admin",
-    affiche: false
-  },
-  {
     path: "/choixPiecesUsures",
     name: "Choix Type",
     icon: "nc-icon nc-bell-55",
@@ -61,7 +70,7 @@ var routes = [
   },
   {
     path: "/HelpModal",
-    name: "Help",
+    name: "Documentation",
     icon: "nc-icon nc-bell-55",
     component: HelpModal,
     layout: "/admin",
@@ -69,25 +78,13 @@ var routes = [
   },
   {
     path: "/SettingModal",
-    name: "Help",
+    name: "Paramètres",
     icon: "nc-icon nc-bell-55",
     component: SettingModal,
     layout: "/admin",
     affiche: false
   },
-  {
-    path: "/informations",
-    name: "Informations",
-    icon: "nc-icon nc-badge",
-    component: Informations,
-    layout: "/admin",
-  },
-  {
-    path: "/calculator",
-    name: "calculator",
-    icon: "nc-icon nc-bell-55",
-    component: Calculator,
-    layout: "/admin",
-  },
+
+
 ];
 export default routes;

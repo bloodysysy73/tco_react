@@ -145,7 +145,7 @@ class SpecMachine extends React.Component {
                         <Row>
                             <Col md="6" xs="6">
                                 <label>
-                                    Catégories:
+                                    Catégories :
         <select
                                         name="categories"
                                         value={this.props.categories}
@@ -160,7 +160,7 @@ class SpecMachine extends React.Component {
                             </Col>
                             <Col md="6" xs="6">
                                 <label>
-                                    Type:
+                                    Type :
         <select
                                         name="type"
                                         value={this.props.type}
@@ -179,7 +179,7 @@ class SpecMachine extends React.Component {
                             <Col md="6" xs="6">
 
                                 <label>
-                                    Modèle:
+                                    Modèle :
         <select
                                         name="machine"
                                         value={this.props.machine}
@@ -190,7 +190,8 @@ class SpecMachine extends React.Component {
 
                                             machinesSpec.map((machinesSpec, i) => {
 
-                                                return machinesSpec.categorie === this.props.categories ? <option key={i}> {machinesSpec.gamme}  </option> : <option hidden key={i} ></option>
+                                                // return machinesSpec.categorie === this.props.categories ? <option key={i}> {machinesSpec.gamme}  </option> : <option hidden key={i} ></option>
+                                                return machinesSpec.type === this.props.type ? <option key={i}> {machinesSpec.gamme}  </option> : <option hidden key={i} ></option>
                                             }
                                             )}
                                     </select>
@@ -201,7 +202,7 @@ class SpecMachine extends React.Component {
                             <Col md="6" xs="6">
 
                                 <label>
-                                    nSerie:
+                                    Numéro de Serie :
         <select
                                         name="nSerie"
                                         value={this.props.nSerie}
@@ -228,9 +229,10 @@ class SpecMachine extends React.Component {
                         </Row>
 
                         <label>
-                            clim:
+                            Climatisation :
                             <select
                                 name="clim"
+                                defaultValue="oui"
                                 value={this.props.clim}
                                 onChange={e => this.handleChange(e)}
                                 required>
@@ -240,52 +242,6 @@ class SpecMachine extends React.Component {
                                 ))}
                             </select>
                         </label><br />
-
-                        <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
-
-                        <Row>
-                            <Col md="6" xs="6">
-                                <label>
-                                    <div className="grouped fields">
-
-                                        <div className="field">
-                                            <div className="ui slider checkbox">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
-                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
-                                                <label>Calculer le déplacement </label>
-                                            </div>
-                                        </div>
-                                        <div className="field">
-                                            <div className="ui slider checkbox">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
-                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
-                                                <label>Définir un montant forfaitaire </label>
-                                            </div>
-                                        </div>
-                                        <div className="field">
-                                            <div className="ui slider checkbox checked">
-                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "c")}
-                                                    checked={this.props.optionDeplacement === "c" ? true : false} />
-                                                <label>Ne pas choisir de facturer le déplacement </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </label><br />
-                            </Col>
-                            <Col md="6" xs="6">
-                                <br />
-                                <br /><label>
-                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/ '}
-                                        style={!this.props.optionDeplacement || this.props.optionDeplacement === 'c' ? { pointerEvents: "none" } : null}>
-                                        <div className="ui animated button" tabIndex="0">
-                                            <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>
-                                            <div className="hidden content">
-                                                <i aria-hidden="true" className="angle double right icon"></i>
-                                            </div></div>
-                                    </Link>
-                                </label><br />
-                            </Col>
-                        </Row>
 
                         <Row> <Col md="12" xs="12"><br /> Définir la durée du contrat de service : <br /></Col></Row>
 
@@ -340,7 +296,7 @@ class SpecMachine extends React.Component {
                                     <div className="grouped fields">
                                         <div className="field">
                                             <div >
-                                                <label>Coût Extension de garranties </label>
+                                                <label>Coût Extension de garantie : </label><br />
                                                 &nbsp; {this.props.prixExtension} €
 
                                             </div>
@@ -358,7 +314,8 @@ class SpecMachine extends React.Component {
                             Entretien des 250h:
                             <select
                                 name="entretien250"
-                                value={this.props.entretien250}
+                                defaultValue="Concessionnaire"
+                                value={this.props.entretien250}                                
                                 onChange={e => this.handleChange(e)}
                                 required>
                                 <option key=""></option>
@@ -367,6 +324,52 @@ class SpecMachine extends React.Component {
                                 ))}
                             </select>
                         </label><br />
+
+                        <Row> <Col md="12" xs="12"><br /> Sélectioner la méthode de calcul d'un déplacement :<br /></Col></Row>
+
+                        <Row>
+                            <Col md="6" xs="6">
+                                <label>
+                                    <div className="grouped fields">
+
+                                        <div className="field">
+                                            <div className="ui slider checkbox">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "a")}
+                                                    checked={this.props.optionDeplacement === "a" ? true : false} />
+                                                <label>Calculer le déplacement </label>
+                                            </div>
+                                        </div>
+                                        <div className="field">
+                                            <div className="ui slider checkbox">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "b")}
+                                                    checked={this.props.optionDeplacement === "b" ? true : false} />
+                                                <label>Définir un montant forfaitaire </label>
+                                            </div>
+                                        </div>
+                                        <div className="field">
+                                            <div className="ui slider checkbox checked">
+                                                <input type="radio" name="optionDeplacement" onChange={e => this.handleChangeCheckBox(e, "c")}
+                                                    checked={this.props.optionDeplacement === "c" ? true : false} />
+                                                <label>Ne pas choisir de facturer le déplacement </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label><br />
+                            </Col>
+                            <Col md="6" xs="6">
+                                <br />
+                                <br /><label>
+                                    <Link to={this.props.optionDeplacement === 'a' ? '/admin/choixTypeModalA/' : '/admin/choixTypeModalB/ '}
+                                        style={!this.props.optionDeplacement || this.props.optionDeplacement === 'c' ? { pointerEvents: "none" } : null}>
+                                        <div className="ui animated button" tabIndex="0">
+                                            <div className="visible content">Paramétrer la méthode de calcul d'un déplacement</div>
+                                            <div className="hidden content">
+                                                <i aria-hidden="true" className="angle double right icon"></i>
+                                            </div></div>
+                                    </Link>
+                                </label><br />
+                            </Col>
+                        </Row>
 
                         {/* <button className="ui button" >Submit</button> */}
                     </form>

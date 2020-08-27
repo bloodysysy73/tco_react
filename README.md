@@ -17,7 +17,7 @@
     <br />
   
   <br />
-  Cette application web a été réalisée en javascript avec le framework React JS 
+  Cette application web a été réalisée en javascript avec le framework React JS et à partir du template : Paper Dashboard React by Creative Tim
     <br />
 </p>
 
