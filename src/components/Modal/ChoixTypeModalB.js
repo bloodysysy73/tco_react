@@ -23,8 +23,10 @@ les coûts kilométriques correspondants a vos véhicules ainsi que la vitesse m
 class ChoixTypeModalB extends React.Component {
 
 
-    setMontantForfait = () => {
-        this.props.definiMontantForfait(this.state.montantForfait);
+    handleChange(e) {
+
+        //prendre exemple sur le composant : infoClient :
+        // this.props.definiMontantForfait(e.target.name, e.target.value);
     }
 
     renderContent = () => {
@@ -46,22 +48,9 @@ class ChoixTypeModalB extends React.Component {
                                 value={this.props.prixForfait}
                                 style={{ direction: "rtl", textAlign: "right" }}
                                 min="1" max="1000"
-                                onChange={e => this.setStateMontantForfait(e.target.value)}
+                                onChange={e => this.handleChange(e)}
                                 required />
                         </label><br />
-                        <br />
-                        <label><br />
-                            <div className="ui animated button" tabIndex="0">
-                                <div className="visible content">Sauvegarder et retour</div>
-                                <div className="hidden content">
-                                    <React.Fragment>
-                                        <Link to="/"> <button className="ui button" onClick={() => this.setMontantForfait()}>
-                                            <i className="angle double right icon"></i></button>
-                                        </Link>
-                                    </React.Fragment>
-                                </div></div>
-                        </label><br />
-
                     </CardBody>
                     <CardFooter>
                         <hr />
