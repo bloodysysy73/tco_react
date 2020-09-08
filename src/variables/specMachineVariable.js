@@ -51,7 +51,7 @@ export const machinesSpec = [
         gamme: '10MCR', 
         numSerie: ['140300', '172011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
-        familyPieces: '2',
+        familyPieces: '1',
     },
     {
         id: '5',
@@ -60,7 +60,7 @@ export const machinesSpec = [
         gamme: '8MCR', 
         numSerie: ['130900', '162011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
-        familyPieces: '2',
+        familyPieces: '1',
     },
     {
         id: '6',
@@ -69,7 +69,7 @@ export const machinesSpec = [
         gamme: '6MCR', 
         numSerie: ['120015','152011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '1', // Extension de garrantie confère des prix différenciés.
-        familyPieces: '2',
+        familyPieces: '1',
     },
     {
         id: '7',
@@ -78,7 +78,7 @@ export const machinesSpec = [
         gamme: '15MC', 
         numSerie: ['87011', '86011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
-        familyPieces: '2',
+        familyPieces: '5',
     },
     {
         id: '8',
@@ -87,7 +87,7 @@ export const machinesSpec = [
         gamme: '15MWR', 
         numSerie: ['82011', '83011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
-        familyPieces: '2',
+        familyPieces: '4',
     },
     {
         id: '9',
@@ -96,7 +96,7 @@ export const machinesSpec = [
         gamme: '12MTX', 
         numSerie: ['42011', '42500', '43200', '47011'], // Différenciation type de moteur == différent coûts et types de services
         familyServices: '2', // Extension de garrantie confère des prix différenciés.
-        familyPieces: '2',
+        familyPieces: '3',
     },
 
 ];

@@ -7,6 +7,8 @@ import contact from "assets/img/contact.png";
 import blue from "assets/img/blue.png";
 import DisplayLines from 'components/other/DisplayLines';
 import DisplayLinesExtension from 'components/other/DisplayLinesExtension';
+import DisplayKits from 'components/other/DisplayKits';
+import DisplayMoClim from 'components/other/DisplayMoClim';
 
 class DevisCom extends React.Component {
 
@@ -16,6 +18,11 @@ class DevisCom extends React.Component {
             date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         this.props.date ? console.log("date", this.props.date) : this.props.defineTime("date", date);
 
+    }
+
+    getTotal() {
+        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + (parseFloat(this.props.heureMoClim) * 70);
+        return Number.parseFloat(total).toFixed(2);
     }
 
     render() {
@@ -84,25 +91,10 @@ class DevisCom extends React.Component {
                                         <td className="no">CODE-SERVICE</td>
                                         <td className="text-left"><h3>
                                             <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Main d'oeuvre :
-                                    </a>
-                                        </h3>
-                                                Description service
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
                                                 Déplacements :
                                     </a>
                                         </h3>
-                                                Description
+                                                
                                         </td>
                                         <td className="photo"></td>
                                         <td className="qty">0</td>
@@ -110,63 +102,32 @@ class DevisCom extends React.Component {
                                         <td className="discount">$0.00</td>
                                         <td className="total">$0.00</td>
                                     </tr>
+                                    <DisplayMoClim
+                                        label="Main d'oeuvre"
+                                        heureMoClim={this.props.heureMoClim}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayMoClim>
+                                    
+                                    <DisplayKits
+                                        label='Kits'
+                                        prixKits={this.props.prixKits}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayKits>
 
                                     
                                     <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Huiles :
-                                    </a>
-                                        </h3>
-                                                Description service
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Pièces :
-                                    </a>
-                                        </h3>
-                                                Description service
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Kits :
-                                    </a>
-                                        </h3>
-                                                Description service
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
-                                    <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">Total entretien et maintenace</td>
-                                        <td>0 €</td>
+                                        <td> € {(this.props.prixKits) ? (this.getTotal()-parseFloat(this.props.prixExtension)).toFixed(2): 0}</td>
+                                        
                                     </tr>
+                                    
                                     <DisplayLinesExtension
                                         label='Extenson de garantie'
                                         prixExtension={this.props.prixExtension}
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayLinesExtension>
+
                                     <DisplayLines
                                         lines={this.props.lines}
                                         totalCost_autreService={this.props.totalCost_autreService}
@@ -177,7 +138,7 @@ class DevisCom extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>€ {(this.props.totalCost_autreService || this.props.prixExtension) ? parseFloat(this.props.totalCost_autreService) + parseFloat(this.props.prixExtension) : 0}</td>
+                                        <td>€ {(this.props.totalCost_autreService) ? (this.getTotal() + (this.props.totalCost_autreService)) : this.getTotal() }</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -200,6 +161,9 @@ class DevisCom extends React.Component {
             </div>
         );
     }
+
+
+
 }
 
 const mapStateToProps = (state) => {
@@ -218,7 +182,9 @@ const mapStateToProps = (state) => {
         lines: state.serviceAjoutesReducer.lines ? Object.values(state.serviceAjoutesReducer.lines) : null,
         prixExtension: state.specMachineReducer.prixExtension,
         totalCost_autreService: state.serviceAjoutesReducer.totalCost_autreService,
-        dureeContratH: state.specMachineReducer.dureeContratH
+        dureeContratH: state.specMachineReducer.dureeContratH,
+        prixKits: state.specMachineReducer.prixKits,
+        heureMoClim: state.specMachineReducer.heureMoClim,
     };
 };
 

@@ -49,7 +49,7 @@ class Sidebar extends React.Component {
             href="http://localhost:3000/admin/calculator"
             className="simple-text logo-normal"
           >
-            CACULATEUR
+            CALCULATEUR
           </a>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>

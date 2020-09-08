@@ -11,7 +11,9 @@ import {
 import Printer from '../Devis/Printer';
 import PDF from '../Devis/PDF';
 
+
 class Fonctionnalites extends React.Component {
+    
 
     render() {
         return <Card className="card-stats">
@@ -36,8 +38,10 @@ class Fonctionnalites extends React.Component {
                 <Col md="2" xs="2">
                 <label>
                 Calculer<br />
-                    <button className="ui vertical animated button">
-                    <div className="hidden content">Calculer</div>
+                    <button 
+                    onClick={this.props.onClick} 
+                    className="ui vertical animated button">
+                    <div className="hidden content"> Calculer</div>
                     <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button><br />
                 </label>
@@ -87,4 +91,5 @@ class Fonctionnalites extends React.Component {
     }
 }
 
-export default Fonctionnalites;
+
+export default (Fonctionnalites);

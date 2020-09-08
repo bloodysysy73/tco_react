@@ -2,7 +2,8 @@ import React from 'react';
 import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 import { extensionGarantie } from '../../variables/extensionGarantie'
-
+import { kits } from '../../variables/kits'
+import { moClim } from '../../variables/moClim'
 import { connect } from "react-redux";
 import { definiAttribut } from 'actions/actionMachine'
 
@@ -14,6 +15,7 @@ import {
     Row,
     Col
 } from "reactstrap";
+
 
 class SpecMachine extends React.Component {
 
@@ -33,13 +35,30 @@ class SpecMachine extends React.Component {
 
         if (e.target.name === 'machine') {
             this.defineFamilyServices(e.target.value);
+            this.defineFamilyPieces(e.target.value);
+            
         }
     }
 
-    // TODO : cette fonction doit attendre la MAJ du store 
+    
+
     defineFamilyServices(machine) {
         machinesSpec.map((machinesSpec, i) => {
             return machinesSpec.gamme === machine ? this.props.definiAttribut('familyServices', machinesSpec.familyServices) : ''
+        }
+        )
+    }
+
+    defineType(machine) {
+        machinesSpec.map((machinesSpec, i) => {
+            return machinesSpec.gamme === machine ? this.props.definiAttribut('type', machinesSpec.type) : ''
+        }
+        )
+    }
+
+    defineFamilyPieces(machine) {
+        machinesSpec.map((machinesSpec, i) => {
+            return machinesSpec.gamme === machine ? this.props.definiAttribut('familyPieces', machinesSpec.familyPieces) : ''
         }
         )
     }
@@ -50,6 +69,8 @@ class SpecMachine extends React.Component {
         let dureeContratM = this.props.dureeContratM
         let dureeContratH = this.props.dureeContratH
         let familyServices = this.props.familyServices
+        let familyPieces = this.props.familyPieces
+        let type = this.props.type
 
         if (e.target.name === 'dureeContratM') { dureeContratM = e.target.value }
         if (e.target.name === 'dureeContratH') { dureeContratH = e.target.value }
@@ -111,8 +132,27 @@ class SpecMachine extends React.Component {
 
             if (extensionGarantie.familyServices === familyServices) { return this.props.definiAttribut('prixExtension', extensionGarantie.prix[index_X][index_Y]) }
             else { return '' }
-        }
-        )
+        })
+
+
+        kits.map((kits, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("type", type);
+    
+            if (kits.type === type) { return this.props.definiAttribut('prixKits', kits.prix[index_X][index_Y]) }
+            else { return '' }
+        })
+
+        moClim.map((moClim, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("familyPieces", familyPieces);
+    
+            if (moClim.familyPieces === familyPieces) { return this.props.definiAttribut('heureMoClim', moClim.heure[index_X][index_Y]) }
+            else { return '' }
+        })
+
 
     }
 
@@ -392,7 +432,10 @@ const mapStateToProps = (state) => {
         dureeContratM: state.specMachineReducer.dureeContratM,
         dureeContratH: state.specMachineReducer.dureeContratH,
         prixExtension: state.specMachineReducer.prixExtension,
-        familyServices: state.specMachineReducer.familyServices
+        familyServices: state.specMachineReducer.familyServices,
+        prixKits: state.specMachineReducer.prixKits,
+        prixMoClim: state.specMachineReducer.prixMoClim,
+        familyPieces: state.specMachineReducer.familyPieces,
     };
 };
 
