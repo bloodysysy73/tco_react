@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 import { extensionGarantie } from '../../variables/extensionGarantie'
 import { kits } from '../../variables/kits'
 import { moClim } from '../../variables/moClim'
+import { mo } from '../../variables/mo'
 import { connect } from "react-redux";
 import { definiAttribut } from 'actions/actionMachine'
+import { ent250 } from '../../variables/ent250'
 
 import {
     Card,
@@ -149,7 +151,22 @@ class SpecMachine extends React.Component {
             console.log("index_y", index_Y);
             console.log("familyPieces", familyPieces);
     
-            if (moClim.familyPieces === familyPieces) { return this.props.definiAttribut('heureMoClim', moClim.heure[index_X][index_Y]) }
+            if (moClim.familyPieces === familyPieces) { return this.props.definiAttribut('heureMo', moClim.heure[index_X][index_Y]) }
+            else { return '' }
+        })
+
+        ent250.map((ent250, i) => {
+            console.log("familyPieces", familyPieces);
+            if (ent250.familyPieces === familyPieces) { return this.props.definiAttribut('heure250', ent250.heure) }
+            else { return '' }
+        })
+
+        mo.map((mo, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("familyPieces", familyPieces);
+    
+            if (mo.familyPieces === familyPieces) { return this.props.definiAttribut('heureMo2', mo.heure[index_X][index_Y]) }
             else { return '' }
         })
 

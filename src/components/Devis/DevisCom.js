@@ -21,7 +21,7 @@ class DevisCom extends React.Component {
     }
 
     getTotal() {
-        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + (parseFloat(this.props.heureMoClim) * 70);
+        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + (parseFloat(this.props.heureMo) * 70);
         return Number.parseFloat(total).toFixed(2);
     }
 
@@ -104,7 +104,11 @@ class DevisCom extends React.Component {
                                     </tr>
                                     <DisplayMoClim
                                         label="Main d'oeuvre"
-                                        heureMoClim={this.props.heureMoClim}
+                                        heureMo={this.props.heureMo}
+                                        heureMo2={this.props.heureMo2}
+                                        heure250={this.props.heure250}
+                                        entretien250={this.props.entretien250}
+                                        clim={this.props.clim}
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayMoClim>
                                     
@@ -138,7 +142,7 @@ class DevisCom extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>€ {(this.props.totalCost_autreService) ? (this.getTotal() + (this.props.totalCost_autreService)) : this.getTotal() }</td>
+                                        <td>€ {(this.props.totalCost_autreService) ? (this.getTotal()-parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() }</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -184,7 +188,11 @@ const mapStateToProps = (state) => {
         totalCost_autreService: state.serviceAjoutesReducer.totalCost_autreService,
         dureeContratH: state.specMachineReducer.dureeContratH,
         prixKits: state.specMachineReducer.prixKits,
-        heureMoClim: state.specMachineReducer.heureMoClim,
+        heureMo: state.specMachineReducer.heureMo,
+        heureMo2: state.specMachineReducer.heureMo2,
+        heure250: state.specMachineReducer.heure250,
+        entretien250: state.specMachineReducer.entretien250,
+        clim: state.specMachineReducer.clim,
     };
 };
 

@@ -27,11 +27,7 @@ class DisplayKits extends React.Component {
             return (
                 <><tr> Kits :</tr>
                     {this.renderList()}
-                    <tr>
-                        <td colSpan="2"></td>
-                        <td colSpan="4">Total coûts des kits</td>
-                        <td>€ {this.props.prixKits}</td>
-                    </tr>
+
                 </>
             );
         } else { return <div></div> }
