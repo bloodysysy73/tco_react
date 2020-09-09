@@ -12,14 +12,14 @@ class DisplayMoClim extends React.Component {
                 <td className="qty">0</td>
                 <td className="unit">{(this.props.entretien250 === 'Client final') ? this.getCost() : this.getCost2()} €</td>
                 <td className="discount">$0.00</td>
-                <td className="total">€  {(this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(70*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500)))}</td>
+                <td className="total">€  {(this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500)))}</td>
             </tr>
         );
     }
 
     getMoCost() {
-        let moCost = (parseFloat(this.props.heureMo) * 70)
-        let moCost2 = (parseFloat(this.props.heureMo2) * 70)
+        let moCost = (parseFloat(this.props.heureMo) * parseFloat(this.props.entWfCost)*parseFloat(this.props.coefMo))
+        let moCost2 = (parseFloat(this.props.heureMo2) *parseFloat(this.props.entWfCost)*parseFloat(this.props.coefMo))
         if (this.props.clim === 'non') {
             return Number.parseFloat(moCost2).toFixed(2);
         } else { return Number.parseFloat(moCost).toFixed(2);}
@@ -31,7 +31,7 @@ class DisplayMoClim extends React.Component {
     }
 
     getCost2() {
-        let cost2 = (parseFloat(this.getMoCost())+(70*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))) / parseInt(this.props.dureeContratH, 10)
+        let cost2 = (parseFloat(this.getMoCost())+(parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))) / parseInt(this.props.dureeContratH, 10)
         return Number.parseFloat(cost2).toFixed(2);
     }
 

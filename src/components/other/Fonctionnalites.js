@@ -14,6 +14,10 @@ import PDF from '../Devis/PDF';
 
 class Fonctionnalites extends React.Component {
     
+    calculer() {
+        let total =  parseInt(this.props.dureeContratH, 10)
+        return Number.parseFloat(total).toFixed(2);
+    }
 
     render() {
         return <Card className="card-stats">
@@ -36,11 +40,11 @@ class Fonctionnalites extends React.Component {
                 <hr />
                 <Row>
                 <Col md="2" xs="2">
+
                 <label>
                 Calculer<br />
                     <button 
-                    onClick={this.props.onClick} 
-                    className="ui vertical animated button">
+                    className="ui vertical animated button" onClick={() => this.calculer()}>
                     <div className="hidden content"> Calculer</div>
                     <div className="visible content"><i aria-hidden="true" className="calculator icon"></i></div>
                 </button><br />

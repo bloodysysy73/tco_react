@@ -1,34 +1,44 @@
-import React from "react";
-import history from "../../variables/history";
-import { Link } from 'react-router-dom'
-import Modal from './Modaux'
+import React from 'react';
 import { connect } from "react-redux";
-import { definiAttribut } from "../../actions/actionMachine"
+import { definiAttribut } from "../../actions/actionMachine" 
+
 
 import {
     Card,
     CardFooter,
     CardBody,
-    CardTitle,
-    Row,
-    Col
+    Col,
+    Row
 } from "reactstrap";
 
+class SettingComponent extends React.Component {
 
-class SettingModal extends React.Component {
 
     handleChange(e) {
         this.props.definiAttribut(e.target.name, e.target.value);
     }
 
-    renderContent = () => {
+    render() {
         return (
             <div className="content">
-                <Card className="card-user">
-                    <br />
-                    <CardTitle>Paramètres concessionnaires</CardTitle>
-                    <CardBody>
-                    <form className="ui form">
+                            <Card className="card-stats">
+                <CardBody>
+                    <Row>
+                        <Col md="4" xs="5">
+                            <div className="icon-big text-center icon-warning">
+                                <i className="nc-icon nc-bullet-list-67 text-warning" />
+                            </div>
+                        </Col>
+                        <Col md="8" xs="7">
+                            <div className="numbers">
+                                <p className="card-category">Paramètres concessionnaires</p>
+                                <p />
+                            </div>
+                        </Col>
+                    </Row>
+                </CardBody>
+                <CardFooter><br />
+                    <form className="ui form" onSubmit={this.onSubmitForm}>
                     <Row> <Col md="12" xs="12"><br /> Tarif de la main d'oeuvre <br /><br /></Col></Row> 
                     <Row>
                         <Col md="12" xs="12">
@@ -104,47 +114,14 @@ class SettingModal extends React.Component {
                         </Col>
                     </Row>
 
-                        
-
-                        <label>
-                                <br />
-                                <div className="hidden content">
-                                    <div className="ui button" onClick={() => this.props.saveSetting}>
-                                        <i aria-hidden="true" className="setting icon"></i>Enregistrer les paramètres</div>
-                                </div>
-                            </label>
-                        <br />
+                       
 
                         </form>
-                    </CardBody>
-                    <CardFooter>
                     </CardFooter>
+
                 </Card></div>);
     }
-
-    renderActions = () => {
-
-        return (
-            <React.Fragment>
-                <Link to="/admin/calculator" className="ui button">Retour</Link>
-            </React.Fragment>
-        )
-    }
-
-    render() {
-        return (
-            <Modal
-                title="Paramètres"
-                content={this.renderContent()}
-                actions={this.renderActions()}
-                onDismiss={() => history.push('/admin/dashboard')}
-            />
-        )
-    }
-
-
 }
-
 
 const mapStateToProps = (state) => {
     return {
@@ -156,5 +133,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { SettingModal, definiAttribut })(SettingModal);
-
+export default connect(mapStateToProps, { SettingComponent, definiAttribut })(SettingComponent);

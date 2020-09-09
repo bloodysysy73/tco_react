@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import InformationsCompl from "components/Formulaire/InformationsCompl";
 
 
+
 class InfoClient extends React.Component {
 
   constructor(props) {
@@ -22,7 +23,7 @@ class InfoClient extends React.Component {
                 <InfoClientForm></InfoClientForm>
               </Col>
               <Col lg="6" md="6" sm="6">
-                <InformationsCompl></InformationsCompl>
+              <InformationsCompl></InformationsCompl>
               </Col>
             </Row>
           </Container>

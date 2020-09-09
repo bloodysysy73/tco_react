@@ -22,7 +22,7 @@ class DevisCom extends React.Component {
     }
 
     getTotal() {
-        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(70*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
+        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
         return Number.parseFloat(total).toFixed(2);
     }
 
@@ -35,8 +35,8 @@ class DevisCom extends React.Component {
     }
 
     getMoCost() {
-        let moCost = (parseFloat(this.props.heureMo) * 70)
-        let moCost2 = (parseFloat(this.props.heureMo2) * 70)
+        let moCost = (parseFloat(this.props.heureMo) * parseFloat(this.props.entWfCost)*parseFloat((this.props.coefMo)))
+        let moCost2 = (parseFloat(this.props.heureMo2) * parseFloat(this.props.entWfCost)*parseFloat(this.props.coefMo))
         if (this.props.clim === 'non') {
             return Number.parseFloat(moCost2).toFixed(2);
         } else { return Number.parseFloat(moCost).toFixed(2);}
@@ -107,7 +107,7 @@ class DevisCom extends React.Component {
                                     <DisplayDeplacement
                                            label="Déplacement"
                                            optionDeplacement={this.props.optionDeplacement}
-                                           tripWfCost={this.props.tripWfCost}
+                                           tripWfCost={this.props.tripWfCost}                                           
                                            geoScope={this.props.geoScope}
                                            averageSpeed={this.props.averageSpeed}
                                            kmCost={this.props.kmCost}
@@ -122,6 +122,8 @@ class DevisCom extends React.Component {
                                         heure250={this.props.heure250}
                                         entretien250={this.props.entretien250}
                                         clim={this.props.clim}
+                                        entWfCost={this.props.entWfCost}
+                                        coefMo={this.props.coefMo}
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayMoClim>
                                     
@@ -212,6 +214,8 @@ const mapStateToProps = (state) => {
         kmCost: state.specMachineReducer.kmCost,
         averageSpeed: state.specMachineReducer.averageSpeed,
         tripWfCost: state.specMachineReducer.tripWfCost,
+        entWfCost: state.specMachineReducer.entWfCost,
+        coefMo: state.specMachineReducer.coefMo,
     };
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import InfoConcessForm from "components/Formulaire/InfoConcessForm";
+import SettingComponent from "components/Formulaire/SettingComponent";
 
 
 
@@ -23,6 +24,7 @@ class About extends React.Component {
               <InfoConcessForm></InfoConcessForm>
               </Col>
               <Col lg="6" md="6" sm="6">
+              <SettingComponent></SettingComponent>
               </Col>
             </Row>
 

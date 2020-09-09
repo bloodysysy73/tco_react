@@ -95,15 +95,6 @@ class ChoixTypeModalA extends React.Component {
                             </label><br /><br />
 
                             <label>
-                                <br />
-                                <div className="hidden content">
-                                    <div className="ui button" onClick={() => this.calculDeplacement()}>
-                                        <i aria-hidden="true" className="calculator icon"></i>Calculer</div>
-                                </div>
-                            </label>
-                            <br />
-
-                            <label>
                                 Coût estimé d'un  déplacement :
 <input
                                     //Résultat du coût d'estimation estimé
@@ -162,6 +153,18 @@ const mapStateToProps = (state) => {
         tripWfCost: state.specMachineReducer.tripWfCost
     };
 };
+
+
+/*  
+<label>
+<br />
+<div className="hidden content">
+    <div className="ui button" onClick={() => this.calculDeplacement()}>
+        <i aria-hidden="true" className="calculator icon"></i>Calculer</div>
+</div>
+</label>
+<br />
+**/
 
 export default connect(mapStateToProps, { calculOptionA, definiAttribut })(ChoixTypeModalA);
 
