@@ -22,9 +22,6 @@ class ChoixTypeModalA extends React.Component {
 
 
 
-    calculDeplacement() {
-        //calcul le cout du déplacement et mettre a jour le state
-    }
 
     handleChange(e) {
         this.props.definiAttribut(e.target.name, e.target.value);
@@ -112,7 +109,7 @@ class ChoixTypeModalA extends React.Component {
                                     //Résultat du coût d'estimation estimé
                                     name="workTripResult"
                                     type="number"
-                                    value={this.props.estimatedCostOptionA}
+                                    value={this.calculDeplacement()}
                                     placeholder="€"
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     readOnly />
@@ -126,20 +123,17 @@ class ChoixTypeModalA extends React.Component {
                 </Card></div>);
     }
 
-    // méthode pour calculer le coût de déplacement : tripWfCost*(geoScope/averageSpeed)+kmCost*geoScope
-    workTripCalcul() {
-    }
-
-    // méthode pour afficher le résultat du calcul du coût de déplacement
-    workTripResult() {
-        // console.log(workTripCalcul)
+    calculDeplacement() {
+        let CostOptionA = (parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope))));
+        return  Number.parseFloat(CostOptionA).toFixed(2);
+        
     }
 
     renderActions = () => {
 
         return (
             <React.Fragment>
-                <Link to="/admin/calculator" className="ui button">Cancel</Link>
+                <Link to="/admin/calculator" className="ui button">Valider</Link>
             </React.Fragment>
         )
     }

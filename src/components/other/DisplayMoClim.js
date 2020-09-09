@@ -36,15 +36,11 @@ class DisplayMoClim extends React.Component {
     }
 
     render() {
-        if (this.props.heureMo) {
+        if (this.props.dureeContratH) {
             return (
                 <><tr> Main d'oeuvre :</tr>
                     {this.renderList()}
-                    <tr>
-                        <td colSpan="2"></td>
-                        <td colSpan="4">Total Extension de Garantie</td>
-                        <td>€ {this.getMoCost()}</td>
-                    </tr>
+
 
                 </>
             );

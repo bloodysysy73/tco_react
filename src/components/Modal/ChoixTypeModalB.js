@@ -40,7 +40,7 @@ class ChoixTypeModalB extends React.Component {
                         <label>
                             Définir le prix du forfait de déplacement
                                <br /> <br />  <input
-                                name="montantForfait"
+                                name="prixForfait"
                                 type="number"
                                 placeholder="€"
                                 value={this.props.prixForfait}
@@ -64,7 +64,7 @@ class ChoixTypeModalB extends React.Component {
 
         return (
             <React.Fragment>
-                <Link to="/admin/calculator" className="ui button">Cancel</Link>
+                <Link to="/admin/calculator" className="ui button">Valider</Link>
             </React.Fragment>
         )
     }

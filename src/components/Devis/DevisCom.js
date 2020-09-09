@@ -9,6 +9,7 @@ import DisplayLines from 'components/other/DisplayLines';
 import DisplayLinesExtension from 'components/other/DisplayLinesExtension';
 import DisplayKits from 'components/other/DisplayKits';
 import DisplayMoClim from 'components/other/DisplayMoClim';
+import DisplayDeplacement from 'components/other/DisplayDeplacement';
 
 class DevisCom extends React.Component {
 
@@ -21,8 +22,24 @@ class DevisCom extends React.Component {
     }
 
     getTotal() {
-        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + (parseFloat(this.props.heureMo) * 70);
+        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(70*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
         return Number.parseFloat(total).toFixed(2);
+    }
+
+    getDepCost() {
+        let depCost1 = (parseFloat(this.props.prixForfait)*((parseInt(this.props.dureeContratH, 10))/500))
+        let depCost2 = ((parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope)))))*((parseInt(this.props.dureeContratH, 10))/500)
+        if (this.props.optionDeplacement === 'a') {
+            return Number.parseFloat(depCost2).toFixed(2);
+        } else { return Number.parseFloat(depCost1).toFixed(2);}
+    }
+
+    getMoCost() {
+        let moCost = (parseFloat(this.props.heureMo) * 70)
+        let moCost2 = (parseFloat(this.props.heureMo2) * 70)
+        if (this.props.clim === 'non') {
+            return Number.parseFloat(moCost2).toFixed(2);
+        } else { return Number.parseFloat(moCost).toFixed(2);}
     }
 
     render() {
@@ -87,21 +104,17 @@ class DevisCom extends React.Component {
                                 </thead>
                                 <tbody>
                                     <tr><label> Entretien et maintenance : </label></tr>
-                                    <tr>
-                                        <td className="no">CODE-SERVICE</td>
-                                        <td className="text-left"><h3>
-                                            <a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                Déplacements :
-                                    </a>
-                                        </h3>
-                                                
-                                        </td>
-                                        <td className="photo"></td>
-                                        <td className="qty">0</td>
-                                        <td className="unit">$0.00</td>
-                                        <td className="discount">$0.00</td>
-                                        <td className="total">$0.00</td>
-                                    </tr>
+                                    <DisplayDeplacement
+                                           label="Déplacement"
+                                           optionDeplacement={this.props.optionDeplacement}
+                                           tripWfCost={this.props.tripWfCost}
+                                           geoScope={this.props.geoScope}
+                                           averageSpeed={this.props.averageSpeed}
+                                           kmCost={this.props.kmCost}
+                                           prixForfait={this.props.prixForfait}
+                                           dureeContratH={this.props.dureeContratH}
+                                    ></DisplayDeplacement>
+
                                     <DisplayMoClim
                                         label="Main d'oeuvre"
                                         heureMo={this.props.heureMo}
@@ -122,7 +135,7 @@ class DevisCom extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">Total entretien et maintenace</td>
-                                        <td> € {(this.props.prixKits) ? (this.getTotal()-parseFloat(this.props.prixExtension)).toFixed(2): 0}</td>
+                                        <td> € {(this.props.dureeContratH) ? (this.getTotal()-parseFloat(this.props.prixExtension)).toFixed(2): 0}</td>
                                         
                                     </tr>
                                     
@@ -142,7 +155,7 @@ class DevisCom extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>€ {(this.props.totalCost_autreService) ? (this.getTotal()-parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() }</td>
+                                        <td>€ {(this.props.totalCost_autreService) ? (parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() }</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -193,6 +206,12 @@ const mapStateToProps = (state) => {
         heure250: state.specMachineReducer.heure250,
         entretien250: state.specMachineReducer.entretien250,
         clim: state.specMachineReducer.clim,
+        prixForfait: state.specMachineReducer.prixForfait,
+        optionDeplacement: state.specMachineReducer.optionDeplacement,
+        geoScope: state.specMachineReducer.geoScope,
+        kmCost: state.specMachineReducer.kmCost,
+        averageSpeed: state.specMachineReducer.averageSpeed,
+        tripWfCost: state.specMachineReducer.tripWfCost,
     };
 };
 
