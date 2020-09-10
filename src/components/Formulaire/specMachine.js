@@ -1,5 +1,5 @@
 import React from 'react';
-import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
+import { machinesSpec, clim, entretien250, categories,type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 import { extensionGarantie } from '../../variables/extensionGarantie'
 import { kits } from '../../variables/kits'
@@ -51,9 +51,9 @@ class SpecMachine extends React.Component {
         )
     }
 
-    defineType(machine) {
+    defineMachine(machine) {
         machinesSpec.map((machinesSpec, i) => {
-            return machinesSpec.gamme === machine ? this.props.definiAttribut('type', machinesSpec.type) : ''
+            return machinesSpec.machine === machine ? this.props.definiAttribut('machine', machinesSpec.machine) : ''
         }
         )
     }
@@ -72,7 +72,7 @@ class SpecMachine extends React.Component {
         let dureeContratH = this.props.dureeContratH
         let familyServices = this.props.familyServices
         let familyPieces = this.props.familyPieces
-        let type = this.props.type
+        let machine = this.props.machine
 
         if (e.target.name === 'dureeContratM') { dureeContratM = e.target.value }
         if (e.target.name === 'dureeContratH') { dureeContratH = e.target.value }
@@ -140,9 +140,9 @@ class SpecMachine extends React.Component {
         kits.map((kits, i) => {
             console.log("index_X", index_X);
             console.log("index_y", index_Y);
-            console.log("type", type);
+            console.log("machine", machine);
     
-            if (kits.type === type) { return this.props.definiAttribut('prixKits', kits.prix[index_X][index_Y]) }
+            if (kits.machine === machine) { return this.props.definiAttribut('prixKits', kits.prix[0][index_Y]) }
             else { return '' }
         })
 
@@ -151,7 +151,7 @@ class SpecMachine extends React.Component {
             console.log("index_y", index_Y);
             console.log("familyPieces", familyPieces);
     
-            if (moClim.familyPieces === familyPieces) { return this.props.definiAttribut('heureMo', moClim.heure[index_X][index_Y]) }
+            if (moClim.familyPieces === familyPieces) { return this.props.definiAttribut('heureMo', moClim.heure[0][index_Y]) }
             else { return '' }
         })
 
@@ -166,7 +166,7 @@ class SpecMachine extends React.Component {
             console.log("index_y", index_Y);
             console.log("familyPieces", familyPieces);
     
-            if (mo.familyPieces === familyPieces) { return this.props.definiAttribut('heureMo2', mo.heure[index_X][index_Y]) }
+            if (mo.familyPieces === familyPieces) { return this.props.definiAttribut('heureMo2', mo.heure[0][index_Y]) }
             else { return '' }
         })
 
