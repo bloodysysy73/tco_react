@@ -28,7 +28,7 @@ class InformationsCompl extends React.Component {
                     <Row>
                         <Col md="4" xs="5">
                             <div className="icon-big text-center icon-warning">
-                                <i className="nc-icon nc-single-copy-04 text-warning" />
+                                <i className="nc-icon nc-bullet-list-67 text-warning" />
                             </div>
                         </Col>
                         <Col md="8" xs="7">

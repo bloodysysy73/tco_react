@@ -136,7 +136,7 @@ class CalculTelematique extends React.Component {
                 title="Choix type déplacement."
                 content={this.renderContent()}
                 actions={this.renderActions()}
-                onDismiss={() => history.push('/admin/dashboard')}
+                onDismiss={() => history.push('/admin/calculator')}
             />
         )
     }

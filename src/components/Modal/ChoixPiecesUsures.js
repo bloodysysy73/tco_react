@@ -494,7 +494,7 @@ class ChoixPiecesUsures extends React.Component {
                 title="ChoixPiecesUsures"
                 content={this.renderContent()}
                 actions={this.renderActions()}
-                onDismiss={() => history.push('/admin/dashboard')}
+                onDismiss={() => history.push('/admin/calculator')}
             />
         )
     }

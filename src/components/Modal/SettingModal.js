@@ -137,7 +137,7 @@ class SettingModal extends React.Component {
                 title="Paramètres"
                 content={this.renderContent()}
                 actions={this.renderActions()}
-                onDismiss={() => history.push('/admin/dashboard')}
+                onDismiss={() => history.push('/admin/calculator')}
             />
         )
     }

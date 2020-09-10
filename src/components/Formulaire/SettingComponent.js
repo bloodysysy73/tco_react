@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { definiAttribut } from "../../actions/actionMachine" 
+import { Link } from 'react-router-dom'
+
+
 
 
 import {
@@ -94,7 +97,7 @@ class SettingComponent extends React.Component {
 
                     <Row> <Col md="12" xs="12"><br /> Climatisation <br /></Col></Row> 
                     <Row>
-                        <Col md="12" xs="12">
+                        <Col md="6" xs="6">
                         <label><br />
                                 Prix de la recharge de gaz :
                                 <br /><br />
@@ -108,10 +111,21 @@ class SettingComponent extends React.Component {
                                     min="1" max="100"
                                     onChange={e => this.handleChange(e)}
                                     required />
-                            </label><br /><br />
+                            </label><br />
                         </Col>
                         <Col md="6" xs="6">
+                        
                         </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md="5" xs="5"></Col>
+                        <Col md="2" xs="2">
+                        <br /><label><br />
+                                    <Link to="/admin/calculator" className="ui button">Valider</Link>
+                                    </label><br />
+                        </Col>
+                        <Col md="5" xs="5"></Col>
                     </Row>
 
                        
@@ -122,6 +136,7 @@ class SettingComponent extends React.Component {
                 </Card></div>);
     }
 }
+
 
 const mapStateToProps = (state) => {
     return {

@@ -1,10 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import InfoConcessForm from "components/Formulaire/InfoConcessForm";
+import SettingComponent from "components/Formulaire/SettingComponent";
 
 
 
 
-class About extends React.Component {
+class Concessionnaire extends React.Component {
 
   constructor(props) {
     super(props)
@@ -17,15 +19,16 @@ class About extends React.Component {
       <>
         <div className="content">
           <Container>
-            <div>A PROPOS DE CE CALCULATEUR</div>
+            <div></div>
             <Row className="justify-content-md-center">
               <Col lg="6" md="6" sm="6">
-              
+              <InfoConcessForm></InfoConcessForm>
               </Col>
               <Col lg="6" md="6" sm="6">
-              
+              <SettingComponent></SettingComponent>
               </Col>
             </Row>
+            
 
           </Container>
         </div>
@@ -34,4 +37,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default Concessionnaire;

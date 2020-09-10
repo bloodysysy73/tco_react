@@ -5,9 +5,10 @@ import SettingModal from "components/Modal/SettingModal";
 import ChoixTypeModalB from "./components/Modal/ChoixTypeModalB";
 
 import ChoixPiecesUsures from "./components/Modal/ChoixPiecesUsures";
-import About from "views/About.jsx"
+import Concessionnaire from "views/Concessionnaire.jsx"
 import Informations from "views/Informations";
 import Calculator from "views/Calculator";
+import About from "views/About.jsx"
 
 
 
@@ -28,8 +29,16 @@ var routes = [
     layout: "/admin",
   },
   {
+    path: "/concessionnaire",
+    name: "Paramètres Concessionnaire",
+    icon: "nc-icon nc-settings-gear-65",
+    component: Concessionnaire,
+    layout: "/admin",
+    affiche: true
+  },
+  {
     path: "/about",
-    name: "A propos",
+    name: "A propos & documentation",
     icon: "nc-icon nc-compass-05",
     component: About,
     layout: "/admin",
