@@ -10,6 +10,7 @@ import DisplayLinesExtension from 'components/other/DisplayLinesExtension';
 import DisplayKits from 'components/other/DisplayKits';
 import DisplayMoClim from 'components/other/DisplayMoClim';
 import DisplayDeplacement from 'components/other/DisplayDeplacement';
+import DisplayPieces from 'components/other/DisplayPieces';
 
 class DevisCom extends React.Component {
 
@@ -133,6 +134,12 @@ class DevisCom extends React.Component {
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayKits>
 
+                                    <DisplayPieces
+                                        label='Pièces'
+                                        prixPieces={this.props.prixPieces}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayPieces>
+
                                     
                                     <tr>
                                         <td colSpan="2"></td>
@@ -216,6 +223,8 @@ const mapStateToProps = (state) => {
         tripWfCost: state.specMachineReducer.tripWfCost,
         entWfCost: state.specMachineReducer.entWfCost,
         coefMo: state.specMachineReducer.coefMo,
+        prixPieces: state.specMachineReducer.prixPieces,
+        numSerie: state.specMachineReducer.numSerie,
     };
 };
 

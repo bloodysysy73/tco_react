@@ -23,7 +23,7 @@ class Valider extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                         <div className="numbers">
-                            <p className="card-category">Valider les paramètres concessionnaires</p>
+                            <p className="card-category">Documentation</p>
                             <p />
                         </div>
                     </Col>
@@ -34,7 +34,7 @@ class Valider extends React.Component {
             <Col md="5" xs="5"></Col>
             <Col md="2" xs="2">
                         <label><br />
-                        <Link to="/admin/calculator" className="ui button">Valider</Link>
+                        <Link to="/admin/calculator" className="ui button">Retour</Link>
                         </label><br />
             </Col>
             <Col md="5" xs="5"></Col>

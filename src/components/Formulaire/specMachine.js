@@ -1,5 +1,5 @@
 import React from 'react';
-import { machinesSpec, clim, entretien250, categories,type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
+import { machinesSpec, clim, entretien250, categories, type, dureeContratH, dureeContratM } from "../../variables/specMachineVariable";
 import { Link } from 'react-router-dom'
 import { extensionGarantie } from '../../variables/extensionGarantie'
 import { kits } from '../../variables/kits'
@@ -8,6 +8,7 @@ import { mo } from '../../variables/mo'
 import { connect } from "react-redux";
 import { definiAttribut } from 'actions/actionMachine'
 import { ent250 } from '../../variables/ent250'
+import { piecesClim } from '../../variables/piecesClim'
 
 import {
     Card,
@@ -38,6 +39,7 @@ class SpecMachine extends React.Component {
         if (e.target.name === 'machine') {
             this.defineFamilyServices(e.target.value);
             this.defineFamilyPieces(e.target.value);
+            this.defineNumSerie(e.target.value);
             
         }
     }
@@ -65,6 +67,13 @@ class SpecMachine extends React.Component {
         )
     }
 
+    defineNumSerie(machine) {
+        machinesSpec.map((machinesSpec, i) => {
+            return machinesSpec.gamme === machine ? this.props.definiAttribut('numSerie', machinesSpec.numSerie) : ''
+        }
+        )
+    }
+
     handleChangeExtension(e) {
         this.props.definiAttribut(e.target.name, e.target.value);
 
@@ -73,6 +82,7 @@ class SpecMachine extends React.Component {
         let familyServices = this.props.familyServices
         let familyPieces = this.props.familyPieces
         let machine = this.props.machine
+        let numSerie = this.props.numSerie
 
         if (e.target.name === 'dureeContratM') { dureeContratM = e.target.value }
         if (e.target.name === 'dureeContratH') { dureeContratH = e.target.value }
@@ -170,6 +180,17 @@ class SpecMachine extends React.Component {
             else { return '' }
         })
 
+        piecesClim.map((piecesClim, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("machine", machine);
+            console.log("numSerie", numSerie);
+    
+            if (piecesClim.numSerie === numSerie){ return this.props.definiAttribut('prixPieces', piecesClim.prix[0][index_Y]) }
+            else { return '' }
+        })
+
+
 
     }
 
@@ -261,8 +282,8 @@ class SpecMachine extends React.Component {
                                 <label>
                                     Numéro de Serie :
         <select
-                                        name="nSerie"
-                                        value={this.props.nSerie}
+                                        name="numSerie"
+                                        value={this.props.numSerie}
                                         onChange={e => this.handleChange(e)}
                                         required>
                                         <option key=""></option>
@@ -444,7 +465,7 @@ const mapStateToProps = (state) => {
     return {
         optionDeplacement: state.specMachineReducer.optionDeplacement,
         machine: state.specMachineReducer.machine,
-        nSerie: state.specMachineReducer.nSerie,
+        numSerie: state.specMachineReducer.numSerie,
         clim: state.specMachineReducer.clim,
         entretien250: state.specMachineReducer.entretien250,
         categories: state.specMachineReducer.categories,
@@ -456,6 +477,7 @@ const mapStateToProps = (state) => {
         prixKits: state.specMachineReducer.prixKits,
         prixMoClim: state.specMachineReducer.prixMoClim,
         familyPieces: state.specMachineReducer.familyPieces,
+        prixPieces: state.specMachineReducer.prixPieces,
     };
 };
 

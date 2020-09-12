@@ -82,7 +82,7 @@ class Fonctionnalites extends React.Component {
                 <Col md="2" xs="2">
                 <label>
                 Documentation<br />
-                <Link to='/admin/HelpModal/' >
+                <Link to='/admin/about/' >
                     <div className="ui animated button" tabIndex="0">
                         <div className="visible content"><i aria-hidden="true" className="help circle icon"></i></div>
                         <div className="hidden content">
