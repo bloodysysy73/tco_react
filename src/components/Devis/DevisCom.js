@@ -43,6 +43,8 @@ class DevisCom extends React.Component {
         } else { return Number.parseFloat(moCost).toFixed(2);}
     }
 
+    
+
     render() {
         return (
             <div><div id="invoice">
@@ -81,23 +83,27 @@ class DevisCom extends React.Component {
                                 <div className="col invoice-details">
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
                                     <div className="date">  Date: {this.props.date}</div>
-                                    <div className="date">  Lieu: {this.props.villeA} {this.props.lieu}</div>
+                                    <div className="date">  Lieu: {this.props.villeA} ; {this.props.lieu}</div>
                                     <div className="Label">Label: FR 30/07/2020</div>
                                     <div className="Order type">Order type: FR</div>
                                 </div>
                             </div>
                             <div className="row contacts">
-                                Order : WEB1598607  à définir
-                    </div>
+                                <div> Numéro de contrat : {this.props.nbContrat} </div>
+                            </div>
+                            <div className="col specMachine">
+                                    <div className="text-gray-light">Specifications machine :</div>
+                                    <h3 className="to">{this.props.machine} - {this.props.numSerie} - {this.props.categories} - {this.props.type}</h3>
+                            </div>
                             <table border="0" cellSpacing="0" cellPadding="0">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th className="text-left">LABEL</th>
-                                        <th className="text-right">PICTURE</th>
-                                        <th className="text-right">QTY</th>
-                                        <th className="text-right">HOUR PRICE ({this.props.dureeContratH} hours)</th>
-                                        <th className="text-right">DISCOUNT</th>
+                                        <th className="text-left">DESCRIPTION</th>
+                                        <th className="text-right"></th>
+                                        <th className="text-right"></th>
+                                        <th className="text-right">COÛT A L'HEURE ({this.props.dureeContratH} heures)</th>
+                                        <th className="text-right"></th>
 
 
                                         <th className="text-right">TOTAL</th>
@@ -164,13 +170,19 @@ class DevisCom extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>€ {(this.props.totalCost_autreService) ? (parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() }</td>
+                                        <td>{(this.props.totalCost_autreService) ? (parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() } € </td>
                                     </tr>
+                                    <tr>
+                                        <td colSpan="2"></td>
+                                        <td colSpan="4">Coût à l'heure</td>
+                                        <td>{((this.props.totalCost_autreService) ? ((parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService))/ (parseInt(this.props.dureeContratH, 10))).toFixed(2) : ((this.getTotal()) / (parseInt(this.props.dureeContratH, 10))).toFixed(2))} € /heure</td>
+                                    </tr>  
                                 </tfoot>
                             </table>
                             <div className="notices">
-                                <div>Commentaires et précisions :</div>
-                            </div>
+                                <div>Commentaires et précisions : </div>
+                                <p>{this.props.textBox}</p>
+                            </div>                            
                         </main>
                         <footer>
                             Ce devis a été généré avec le configurateur de contrat de service de MECALAC
@@ -225,6 +237,12 @@ const mapStateToProps = (state) => {
         coefMo: state.specMachineReducer.coefMo,
         prixPieces: state.specMachineReducer.prixPieces,
         numSerie: state.specMachineReducer.numSerie,
+        machine: state.specMachineReducer.machine,
+        type: state.specMachineReducer.type,
+        categories: state.specMachineReducer.categories,
+        nbContrat: state.concessReducer.nbContrat,
+        textBox: state.textBoxReducer.textBox,
+
     };
 };
 

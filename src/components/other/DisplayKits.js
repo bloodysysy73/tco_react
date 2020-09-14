@@ -4,14 +4,14 @@ class DisplayKits extends React.Component {
 
     renderList = () => {
         return (
-            <tr ><td className="no">CODE-SERVICE</td>
-                <td className="text-left"><h3><a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                    {this.props.label}</a></h3></td>
+            <tr ><td className="no">{this.props.label}</td>
+                <td className="text-left"><h3><a target="" href="https://www.mecalac.com/en/consumer-services/spare-parts.html">
+                description  </a></h3></td>
                 <td className="photo"></td>
-                <td className="qty">0</td>
+                <td className="text-left"></td>
                 <td className="unit">{this.props.prixKits ? this.getCost() : 0} €</td>
-                <td className="discount">$0.00</td>
-                <td className="total">€  {this.props.prixKits}</td>
+                <td className="discount"></td>
+                <td className="total">{this.props.prixKits} €  </td>
             </tr>
         );
     }
@@ -25,7 +25,7 @@ class DisplayKits extends React.Component {
     render() {
         if (this.props.prixKits) {
             return (
-                <><tr> Kits :</tr>
+                <>
                     {this.renderList()}
 
                 </>

@@ -32,7 +32,16 @@
     text-align: left
 }
 
+.invoice .specMachine {
+    text-align: left
+}
+
 .invoice .invoice-to .to {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.invoice .specMachine .to {
     margin-top: 0;
     margin-bottom: 0
 }
@@ -57,6 +66,8 @@
 }
 
 .invoice main .notices {
+    width: auto;
+    white-space: pre-line;
     padding-left: 6px;
     border-left: 6px solid #00539F
 }
@@ -103,7 +114,8 @@
 }
 
 .invoice table .photo {
-    background: #ddd
+    background: #ddd;
+    text-align: right;
 }
 
 .invoice table .discount {
@@ -111,7 +123,8 @@
 }
 
 .invoice table .unit {
-    background: #ddd
+    background: #ddd;
+    text-align: left;
 }
 
 .invoice table .total {

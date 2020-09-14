@@ -38,6 +38,7 @@ class Fonctionnalites extends React.Component {
             </CardBody>
             <CardFooter>
                 <hr />
+                
                 <Row>
                 <Col md="2" xs="2">
 

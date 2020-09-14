@@ -5,14 +5,14 @@ class DisplayLines extends React.Component {
     renderList = () => {
         return this.props.lines.map(line => {
             return (
-                <tr key={line.id}><td className="no">CODE-SERVICE</td>
-                    <td className="text-left"><h3><a target="" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                        {line.label}</a></h3></td>
+                <tr key={line.id}><td className="no">{line.label}</td>
+                    <td className="text-left"><h3><a target="" href="https://www.mecalac.com/en/consumer-services/spare-parts.html">
+                    description </a></h3></td>
                     <td className="photo"></td>
-                    <td className="qty">0</td>
+                    <td className="text-left"></td>
                     <td className="unit">{line.cost ? this.getCost(line) : 0} €</td>
-                    <td className="discount">$0.00</td>
-                    <td className="total">€ {line.cost}</td>
+                    <td className="discount"></td>
+                    <td className="total">{line.cost} € </td>
                 </tr>
             )
         })
@@ -31,7 +31,7 @@ class DisplayLines extends React.Component {
                     {this.renderList()}
                     <tr>
                         <td colSpan="2"></td>
-                        <td colSpan="4">Total des autres couts</td>
+                        <td colSpan="4">.</td>
                         <td>€ {this.props.totalCost_autreService}</td>
                     </tr>
                 </>

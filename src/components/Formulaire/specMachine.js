@@ -368,6 +368,7 @@ class SpecMachine extends React.Component {
                             </Col>
                         </Row>
 
+
                         <Row> <Col md="12" xs="12"><br /> Définir la durée du contrat de service : <br /></Col></Row>
 
                         <Row>
@@ -433,7 +434,6 @@ class SpecMachine extends React.Component {
                         </Row>
 
                         <Row> <Col md="12" xs="12"><br /> Définir qui assurera l'entretien des 250 heures :<br /></Col></Row>
-
 
                         <label>
                             Entretien des 250h:

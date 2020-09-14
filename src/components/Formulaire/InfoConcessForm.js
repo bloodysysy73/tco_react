@@ -41,9 +41,10 @@ class InfoConcessForm extends React.Component {
                 </CardBody>
                 <CardFooter><br />
                     <form className="ui form" onSubmit={this.onSubmitForm}>
-
-
-                        <label>
+                    <Row> <Col md="12" xs="12"><br /> <br /><br /></Col></Row> 
+                    <Row>
+                        <Col md="12" xs="12">
+                       <label>
                             Nom de l'entreprise cliente :
 <input
                                 name="companyNameA"
@@ -91,7 +92,25 @@ class InfoConcessForm extends React.Component {
                                 value={this.props.emailA}
                                 onChange={e => this.handleChange(e)}
                                 required />
-                        </label><br />
+                        </label><br /><br />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md="12" xs="12">
+                        <label>
+                             Numéro de contrat :
+                        
+                        <input                                    
+                                    name="nbContrat"
+                                    type="text"
+                                    placeholder="WEB005720"
+                                    value={this.props.nbContrat}
+                                    style={{ direction: "rtl", textAlign: "left" }}
+                                    onChange={e => this.handleChange(e)}
+                                    required />
+                            </label><br />
+                            </Col>
+                    </Row>
 
 
 
@@ -110,6 +129,7 @@ const mapStateToProps = (state) => {
         prenomNomA: state.concessReducer.prenomNomA,
         adresseA: state.concessReducer.adresseA,
         emailA: state.concessReducer.emailA,
+        nbContrat: state.concessReducer.nbContrat,
     };
 };
 
