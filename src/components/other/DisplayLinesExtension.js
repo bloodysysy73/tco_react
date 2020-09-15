@@ -9,7 +9,7 @@ class DisplayLinesExtension extends React.Component {
                 description </a></h3></td>
                 <td className="photo"></td>
                 <td className="text-left"></td>
-                <td className="unit">{this.props.prixExtension ? this.getCost() : 0} €</td>
+                <td className="unit">{this.props.prixExtension ? this.getCost() : 0} € / heure</td>
                 <td className="discount"></td>
                 <td className="total">{this.props.prixExtension} €  </td>
             </tr>

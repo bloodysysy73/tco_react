@@ -25,7 +25,7 @@ export const moClim = [
     },
     {
         id: '4', //15 MCR
-        familyPieces: '4', 
+        familyPieces: '5', 
         heure: [
             [85.02, 95.67, 109.77, 121.75, 134.68, 145.33, 161.77, 172.42, 185.35, 197.33, 211.43, 222.08, 238.52, 249.17, 263.27],
         ]
@@ -33,7 +33,7 @@ export const moClim = [
     },
     {
         id: '5', // 15 MWR
-        familyPieces: '5', // Extension de garrantie confère des prix différenciés.
+        familyPieces: '4', // Extension de garrantie confère des prix différenciés.
         heure: [
             [96.62, 110.03, 125.70, 139.73, 154.57, 167.98, 184.68, 198.10, 212.93, 226.97, 242.63, 256.05, 272.75, 286.17, 301.83],
         ]

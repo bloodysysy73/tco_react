@@ -10,7 +10,7 @@ class DisplayMoClim extends React.Component {
                 description  </a></h3></td>
                 <td className="photo" >{(this.props.entretien250 === 'Client final') ? this.getHeure1() : this.getHeure2()}</td>
                 <td className="text-left">heures </td>
-                <td className="unit">{(this.props.entretien250 === 'Client final') ? this.getCost() : this.getCost2()} €</td>
+                <td className="unit">{(this.props.entretien250 === 'Client final') ? this.getCost() : this.getCost2()} € / heure</td>
                 <td className="discount"></td>
                 <td className="total">{(this.props.entretien250 === 'Client final') ? this.getMoCost() : ((parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))).toFixed(2))} €  </td>
             </tr>

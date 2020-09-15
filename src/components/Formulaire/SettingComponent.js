@@ -105,7 +105,7 @@ class SettingComponent extends React.Component {
                                     // Une intervention au 3000 heures
                                     name="climCost"
                                     type="number"
-                                    placeholder="€"
+                                    placeholder="293 €"
                                     value={this.props.climCost}
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     min="1" max="100"

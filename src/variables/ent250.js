@@ -22,14 +22,14 @@
         },
         
         {
-            id: '4', //15 MCR
-            familyPieces: '4', 
-            heure250: 3.87,
+        id: '4', //15 MCR
+        familyPieces: '5', 
+        heure: 3.87,
         },
         
         {
-            id: '5', // 15 MWR
-            familyPieces: '5', // Extension de garrantie confère des prix différenciés.
-            heure250: 4.78,
+        id: '5', // 15 MWR
+        familyPieces: '4',
+        heure: 4.78,
         }
     ]

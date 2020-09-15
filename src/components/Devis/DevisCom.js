@@ -143,7 +143,10 @@ class DevisCom extends React.Component {
                                     <DisplayPieces
                                         label='Pièces'
                                         prixPieces={this.props.prixPieces}
+                                        prixPieces2={this.props.prixPieces2}
+                                        clim={this.props.clim}
                                         dureeContratH={this.props.dureeContratH}
+                                        climCost={this.props.climCost}
                                     ></DisplayPieces>
 
                                     
@@ -236,12 +239,14 @@ const mapStateToProps = (state) => {
         entWfCost: state.specMachineReducer.entWfCost,
         coefMo: state.specMachineReducer.coefMo,
         prixPieces: state.specMachineReducer.prixPieces,
+        prixPieces2: state.specMachineReducer.prixPieces2,
         numSerie: state.specMachineReducer.numSerie,
         machine: state.specMachineReducer.machine,
         type: state.specMachineReducer.type,
         categories: state.specMachineReducer.categories,
         nbContrat: state.concessReducer.nbContrat,
         textBox: state.textBoxReducer.textBox,
+        climCost: state.specMachineReducer.climfCost,
 
     };
 };

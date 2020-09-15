@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { definiAttribut } from 'actions/actionMachine'
 import { ent250 } from '../../variables/ent250'
 import { piecesClim } from '../../variables/piecesClim'
+import { piecesSans } from '../../variables/piecesSans'
 
 import {
     Card,
@@ -187,6 +188,16 @@ class SpecMachine extends React.Component {
             console.log("numSerie", numSerie);
     
             if (piecesClim.numSerie === numSerie){ return this.props.definiAttribut('prixPieces', piecesClim.prix[0][index_Y]) }
+            else { return '' }
+        })
+
+        piecesSans.map((piecesSans, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("machine", machine);
+            console.log("numSerie", numSerie);
+    
+            if (piecesSans.numSerie === numSerie){ return this.props.definiAttribut('prixPieces2', piecesSans.prix[0][index_Y]) }
             else { return '' }
         })
 
@@ -478,6 +489,7 @@ const mapStateToProps = (state) => {
         prixMoClim: state.specMachineReducer.prixMoClim,
         familyPieces: state.specMachineReducer.familyPieces,
         prixPieces: state.specMachineReducer.prixPieces,
+        prixPieces2: state.specMachineReducer.prixPieces2,
     };
 };
 

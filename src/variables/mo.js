@@ -25,7 +25,7 @@ export const mo = [
     },
     {
         id: '4', //15 MCR
-        familyPieces: '4', 
+        familyPieces: '5', 
         heure: [
             [83.32, 93.80, 107.73, 119.55, 132.32, 142.80, 158.40, 168.88, 181.65, 193.47, 207.40, 217.88, 233.48, 243.97, 257.90],
         ]
@@ -33,7 +33,7 @@ export const mo = [
     },
     {
         id: '5', // 15 MWR
-        familyPieces: '5', // Extension de garrantie confère des prix différenciés.
+        familyPieces: '4', 
         heure: [
             [94,92, 108.17, 123.67, 137.53, 152.20, 165.45, 181.32, 194.57, 209.23, 223.10, 238.60, 251.85, 267.72, 280.97, 296.47],
         ]

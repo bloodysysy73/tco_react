@@ -10,7 +10,7 @@ class DisplayDeplacement extends React.Component {
                 description  </a></h3></td>
                 <td className="photo">{(this.props.optionDeplacement === 'c') ? 0 : this.getNbDep()}</td>
                 <td className="text-left">déplacements</td>
-                <td className="unit">{(this.props.optionDeplacement === 'c') ? 0 : (parseFloat(this.getDepCost())/(parseInt(this.props.dureeContratH, 10))).toFixed(2)} €</td>
+                <td className="unit">{(this.props.optionDeplacement === 'c') ? 0 : (parseFloat(this.getDepCost())/(parseInt(this.props.dureeContratH, 10))).toFixed(2)} € / heure</td>
                 <td className="discount"></td>
                 <td className="total">{(this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()} €  </td>
             </tr>
