@@ -246,7 +246,7 @@ const mapStateToProps = (state) => {
         categories: state.specMachineReducer.categories,
         nbContrat: state.concessReducer.nbContrat,
         textBox: state.textBoxReducer.textBox,
-        climCost: state.specMachineReducer.climfCost,
+        climCost: state.specMachineReducer.climCost,
 
     };
 };

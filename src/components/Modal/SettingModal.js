@@ -85,20 +85,21 @@ class SettingModal extends React.Component {
                     <Row> <Col md="12" xs="12"><br /> Climatisation <br /></Col></Row> 
                     <Row>
                         <Col md="12" xs="12">
-                        <label><br />
+
+                        <label>
                                 Prix de la recharge de gaz :
-                                <br /><br />
-                        <input
-                                    // Une intervention au 3000 heures
+                                </label>
+
+                            <input
                                     name="climCost"
                                     type="number"
-                                    placeholder="€"
+                                    placeholder="293 €"
                                     value={this.props.climCost}
                                     style={{ direction: "rtl", textAlign: "right" }}
                                     min="1" max="100"
                                     onChange={e => this.handleChange(e)}
                                     required />
-                            </label><br /><br />
+                            <br /><br />
                         </Col>
                         <Col md="6" xs="6">
                         </Col>
@@ -150,7 +151,7 @@ const mapStateToProps = (state) => {
     return {
         tripWfCost: state.specMachineReducer.tripWfCost,
         entWfCost: state.specMachineReducer.entWfCost,
-        climCost: state.specMachineReducer.climfCost,
+        climCost: state.specMachineReducer.climCost,
         coefMo: state.specMachineReducer.coefMo,
 
     };
