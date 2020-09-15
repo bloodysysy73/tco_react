@@ -11,6 +11,8 @@ import DisplayKits from 'components/other/DisplayKits';
 import DisplayMoClim from 'components/other/DisplayMoClim';
 import DisplayDeplacement from 'components/other/DisplayDeplacement';
 import DisplayPieces from 'components/other/DisplayPieces';
+import DisplayHuiles from 'components/other/DisplayHuiles';
+
 
 class DevisCom extends React.Component {
 
@@ -23,7 +25,7 @@ class DevisCom extends React.Component {
     }
 
     getTotal() {
-        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
+        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixHuiles)+ parseFloat((this.props.clim === 'non') ? this.getClimCost2() : this.getClimCost()) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
         return Number.parseFloat(total).toFixed(2);
     }
 
@@ -44,6 +46,33 @@ class DevisCom extends React.Component {
     }
 
     
+    
+    getClimCost() {
+        let climRech = parseFloat(this.props.prixPieces) + (parseFloat(this.props.climCost)-293)
+        let climRech2 = parseFloat(this.props.prixPieces) + (parseFloat(this.props.climCost)-293)+ (parseFloat(this.props.climCost)-293)
+        let climRech3 = parseFloat(this.props.prixPieces) + (parseFloat(this.props.climCost)-293)+ (parseFloat(this.props.climCost)-293)+ (parseFloat(this.props.climCost)-293)
+        if (this.props.dureeContratH < '6000') {
+            return Number.parseFloat(climRech).toFixed(2);
+        } else if ('5500' < this.props.dureeContratH < '9000') { 
+            return Number.parseFloat(climRech2).toFixed(2);
+        } else { 
+            return Number.parseFloat(climRech3).toFixed(2)
+        }
+    }
+
+    getClimCost2() {
+        let climRech = parseFloat(this.props.prixPieces2) + (parseFloat(this.props.climCost)-293)
+        let climRech2 = parseFloat(this.props.prixPieces2) + (parseFloat(this.props.climCost)-293)+ (parseFloat(this.props.climCost)-293)
+        let climRech3 = parseFloat(this.props.prixPieces2) + (parseFloat(this.props.climCost)-293)+ (parseFloat(this.props.climCost)-293)+ (parseFloat(this.props.climCost)-293)
+        if (this.props.dureeContratH < '6000') {
+            return Number.parseFloat(climRech).toFixed(2);
+        } else if ('5500' < this.props.dureeContratH < '9000') { 
+            return Number.parseFloat(climRech2).toFixed(2);
+        } else { 
+            return Number.parseFloat(climRech3).toFixed(2)
+        }
+    }
+
 
     render() {
         return (
@@ -92,8 +121,15 @@ class DevisCom extends React.Component {
                                 <div> Numéro de contrat : {this.props.nbContrat} </div>
                             </div>
                             <div className="col specMachine">
-                                    <div className="text-gray-light">Specifications machine :</div>
-                                    <h3 className="to">{this.props.machine} - {this.props.numSerie} - {this.props.categories} - {this.props.type}</h3>
+                                    <div className="text-gray-light"> Specifications machine :</div>
+                                    <h3 className="to">{this.props.machine} - {this.props.numSerie} </h3>
+                                    <div> Catégorie : {this.props.categories} et type : {this.props.type} </div>
+                                    <div> Option Climatisation : {(this.props.clim === 'non') ? (this.props.clim) : "oui"} </div>
+                            </div>
+                            <div className="col invoice-details">
+                            <div className="text-gray-light"> Informations contrat :</div>
+                                    <div>Durée du contrat : {this.props.dureeContratH} heures, sur {this.props.dureeContratM} mois</div>
+                                    <div> Le {(this.props.entretien250 === 'Client final') ? (this.props.entretien250) : "Concessionnaire"} assurera l'entretien des 250 heures</div>
                             </div>
                             <table border="0" cellSpacing="0" cellPadding="0">
                                 <thead>
@@ -148,6 +184,12 @@ class DevisCom extends React.Component {
                                         dureeContratH={this.props.dureeContratH}
                                         climCost={this.props.climCost}
                                     ></DisplayPieces>
+
+                                    <DisplayHuiles
+                                        label='Huiles'
+                                        prixHuiles={this.props.prixHuiles}
+                                        dureeContratH={this.props.dureeContratH}
+                                    ></DisplayHuiles>
 
                                     
                                     <tr>
@@ -247,6 +289,8 @@ const mapStateToProps = (state) => {
         nbContrat: state.concessReducer.nbContrat,
         textBox: state.textBoxReducer.textBox,
         climCost: state.specMachineReducer.climCost,
+        prixHuiles: state.specMachineReducer.prixHuiles,
+        dureeContratM: state.specMachineReducer.dureeContratM,
 
     };
 };

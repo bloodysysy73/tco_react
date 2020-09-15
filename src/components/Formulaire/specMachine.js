@@ -10,6 +10,7 @@ import { definiAttribut } from 'actions/actionMachine'
 import { ent250 } from '../../variables/ent250'
 import { piecesClim } from '../../variables/piecesClim'
 import { piecesSans } from '../../variables/piecesSans'
+import { huilesTab } from '../../variables/huilesTab'
 
 import {
     Card,
@@ -198,6 +199,15 @@ class SpecMachine extends React.Component {
             console.log("numSerie", numSerie);
     
             if (piecesSans.numSerie === numSerie){ return this.props.definiAttribut('prixPieces2', piecesSans.prix[0][index_Y]) }
+            else { return '' }
+        })
+
+        huilesTab.map((huilesTab, i) => {
+            console.log("index_X", index_X);
+            console.log("index_y", index_Y);
+            console.log("machine", machine);
+    
+            if (huilesTab.machine === machine) { return this.props.definiAttribut('prixHuiles', huilesTab.prix[0][index_Y]) }
             else { return '' }
         })
 
@@ -490,6 +500,7 @@ const mapStateToProps = (state) => {
         familyPieces: state.specMachineReducer.familyPieces,
         prixPieces: state.specMachineReducer.prixPieces,
         prixPieces2: state.specMachineReducer.prixPieces2,
+        prixHuiles: state.specMachineReducer.prixHuiles,
     };
 };
 
