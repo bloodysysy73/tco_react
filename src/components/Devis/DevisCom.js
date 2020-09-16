@@ -12,6 +12,7 @@ import DisplayMoClim from 'components/other/DisplayMoClim';
 import DisplayDeplacement from 'components/other/DisplayDeplacement';
 import DisplayPieces from 'components/other/DisplayPieces';
 import DisplayHuiles from 'components/other/DisplayHuiles';
+import DisplaySpace from 'components/other/DisplaySpace';
 
 
 class DevisCom extends React.Component {
@@ -45,7 +46,6 @@ class DevisCom extends React.Component {
         } else { return Number.parseFloat(moCost).toFixed(2);}
     }
 
-    
     
     getClimCost() {
         let climRech = parseFloat(this.props.prixPieces) + (parseFloat(this.props.climCost)-293)
@@ -113,25 +113,24 @@ class DevisCom extends React.Component {
                                     <h1 className="invoice-id">MECALAC CALCULATOR</h1>
                                     <div className="date">  Date: {this.props.date}</div>
                                     <div className="date">  Lieu: {this.props.villeA} ; {this.props.lieu}</div>
-                                    <div className="Label">Label: FR 30/07/2020</div>
-                                    <div className="Order type">Order type: FR</div>
+
                                 </div>
                             </div>
                             <div className="row contacts">
-                                <div> Numéro de contrat : {this.props.nbContrat} </div>
-                            </div>
-                            <div className="col specMachine">
+                            <div className="col invoice-to">
                                     <div className="text-gray-light"> Specifications machine :</div>
                                     <h3 className="to">{this.props.machine} - {this.props.numSerie} </h3>
                                     <div> Catégorie : {this.props.categories} et type : {this.props.type} </div>
                                     <div> Option Climatisation : {(this.props.clim === 'non') ? (this.props.clim) : "oui"} </div>
                             </div>
                             <div className="col invoice-details">
-                            <div className="text-gray-light"> Informations contrat :</div>
+                            <div className="text-gray-light"> Informations contrat : {this.props.nbContrat} </div>
                                     <div>Durée du contrat : {this.props.dureeContratH} heures, sur {this.props.dureeContratM} mois</div>
                                     <div> Le {(this.props.entretien250 === 'Client final') ? (this.props.entretien250) : "Concessionnaire"} assurera l'entretien des 250 heures</div>
-                            </div>
+                            </div></div>
+                            
                             <table border="0" cellSpacing="0" cellPadding="0">
+                                
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -142,11 +141,11 @@ class DevisCom extends React.Component {
                                         <th className="text-right"></th>
 
 
-                                        <th className="text-right">TOTAL</th>
+                                        <th className="text-left">TOTAL</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><label> Entretien et maintenance : </label></tr>
+                                    <DisplaySpace  prixExtension={this.props.prixExtension} totalCost_autreService={this.props.totalCost_autreService}></DisplaySpace>
                                     <DisplayDeplacement
                                            label="Déplacement"
                                            optionDeplacement={this.props.optionDeplacement}
@@ -156,6 +155,7 @@ class DevisCom extends React.Component {
                                            kmCost={this.props.kmCost}
                                            prixForfait={this.props.prixForfait}
                                            dureeContratH={this.props.dureeContratH}
+                                           entretien250={this.props.entretien250}
                                     ></DisplayDeplacement>
 
                                     <DisplayMoClim
@@ -198,45 +198,49 @@ class DevisCom extends React.Component {
                                         <td> € {(this.props.dureeContratH) ? (this.getTotal()-parseFloat(this.props.prixExtension)).toFixed(2): 0}</td>
                                         
                                     </tr>
-                                    
+                                    <DisplaySpace  prixExtension={this.props.prixExtension} totalCost_autreService={this.props.totalCost_autreService}></DisplaySpace>
                                     <DisplayLinesExtension
                                         label='Extenson de garantie'
                                         prixExtension={this.props.prixExtension}
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayLinesExtension>
-
+                                    <DisplaySpace  prixExtension={this.props.prixExtension} totalCost_autreService={this.props.totalCost_autreService}></DisplaySpace>
                                     <DisplayLines
                                         lines={this.props.lines}
                                         totalCost_autreService={this.props.totalCost_autreService}
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayLines>
+                                    <DisplaySpace  prixExtension={this.props.prixExtension} totalCost_autreService={this.props.totalCost_autreService}></DisplaySpace>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">GRAND TOTAL</td>
-                                        <td>{(this.props.totalCost_autreService) ? (parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() } € </td>
+                                        <td className="text-left">{(this.props.totalCost_autreService) ? (parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService)).toFixed(2) : this.getTotal() } € </td>
                                     </tr>
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">Coût à l'heure</td>
-                                        <td>{((this.props.totalCost_autreService) ? ((parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService))/ (parseInt(this.props.dureeContratH, 10))).toFixed(2) : ((this.getTotal()) / (parseInt(this.props.dureeContratH, 10))).toFixed(2))} € /heure</td>
+                                        <td className="text-left">{((this.props.totalCost_autreService) ? ((parseFloat(this.getTotal())+parseFloat(this.props.totalCost_autreService))/ (parseInt(this.props.dureeContratH, 10))).toFixed(2) : ((this.getTotal()) / (parseInt(this.props.dureeContratH, 10))).toFixed(2))} € /heure</td>
                                     </tr>  
                                 </tfoot>
+                                
                             </table>
                             <div className="notices">
-                                <div>Commentaires et précisions : </div>
+                                <div className="title">Commentaires et précisions : </div>
                                 <p>{this.props.textBox}</p>
-                            </div>                            
+                            </div>                      
                         </main>
+                        <div className="ft">Ce devis a été généré avec le configurateur de contrat de service de MECALAC</div>
                         <footer>
-                            Ce devis a été généré avec le configurateur de contrat de service de MECALAC
-                        <div> <img src={contact} alt="Contact" />
+                        <div> <img src={contact} alt="Contact" />                        
                                 <a id="img" target="" href="https://www.mecalac.com/">
                                 </a>
                                 <div>services-parts@mecalac.com</div>
                             </div>
+                            
                         </footer>
+                        
                     </div>
                     <div></div>
                 </div>

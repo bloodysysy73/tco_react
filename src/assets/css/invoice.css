@@ -3,14 +3,13 @@
 }
 
 .invoice {
-    position: relative;
     background-color: #FFF;
     min-height: 680px;
     padding: 15px
 }
 
 .invoice header {
-    padding: 10px 0;
+    padding: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid #00539F
 }
@@ -56,7 +55,7 @@
 }
 
 .invoice main {
-    padding-bottom: 50px
+    padding-bottom: 50px;
 }
 
 .invoice main .thanks {
@@ -102,8 +101,13 @@
     font-size: 1.2em
 }
 
-.invoice table .qty,.invoice table .total,.invoice table .unit, .invoice table .photo {
+.invoice table .qty,.invoice table .unit, .invoice table .photo {
     text-align: right;
+    font-size: 1.2em
+}
+
+.invoice table .total{
+    text-align: left;
     font-size: 1.2em
 }
 
@@ -132,9 +136,7 @@
     color: #fff
 }
 
-.invoice table tbody tr:last-child td {
-    border: none
-}
+
 
 .invoice table tfoot td {
     background: 0 0;
@@ -161,7 +163,6 @@
 }
 
 .invoice footer {
-    width: 100%;
     text-align: center;
     color: #777;
     border-top: 1px solid #aaa;
@@ -171,21 +172,75 @@
 @media print {
     .invoice {
         font-size: 11px!important;
-        overflow: hidden!important
+        overflow: hidden!important;
+    }
+
+    .invoice header {
+        box-sizing: border-box;
+        position: running;
+        width: 100%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 0px;
+    }
+
+    .invoice main, .invoice main .thanks, .invoice .contacts,.invoice table, .invoice table tbody, .invoice table .qty,.invoice table .unit, .invoice table .photo {
+        top: 10px; 
+        padding-bottom: 50px;
+        box-sizing: border-box;
+        margin: 10px auto 10px auto;
+    
+    }
+
+    .invoice table tfoot tr td {
+        top: 10px; 
+        padding-bottom: 50px;
+        box-sizing: border-box;
+        margin: 10px auto 10px auto;
+    
+    }
+
+    
+    .invoice main .notices, .invoice main .notices .notice {
+        top: 0px; 
+        padding-bottom: 0px;
+        box-sizing: border-box;
+        margin: 10px auto 10px auto;
+    
     }
 
     .invoice footer {
-        position: absolute;
-        bottom: 10px;
-        page-break-after: always
+        box-sizing: border-box;
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 9999;
+        width: 95%;
+        bottom: 0;
+        page-break-after: auto;
+        margin: 0 auto 0 auto
     }
 
     .invoice>div:last-child {
-        page-break-before: always
+        page-break-before: auto
     }
 }
 
 img {
      width: 100%;
      height: auto;
+}
+
+.space {
+    height: 100px;
+}
+.title {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.ft {
+    color: #FFF;
+    background-color: 1px solid #00539F
 }

@@ -20,8 +20,8 @@ class DisplayDeplacement extends React.Component {
 
 
     getDepCost() {
-        let depCost1 = (parseFloat(this.props.prixForfait)*((parseInt(this.props.dureeContratH, 10))/500))
-        let depCost2 = ((parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope)))))*((parseInt(this.props.dureeContratH, 10))/500)
+        let depCost1 = (parseFloat(this.props.prixForfait)*parseFloat(this.getNbDep()))
+        let depCost2 = ((parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope)))))*(parseFloat(this.getNbDep()))
         if (this.props.optionDeplacement === 'a') {
             return Number.parseFloat(depCost2).toFixed(2);
         } else { return Number.parseFloat(depCost1).toFixed(2);}

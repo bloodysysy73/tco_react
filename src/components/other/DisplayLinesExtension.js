@@ -25,7 +25,7 @@ class DisplayLinesExtension extends React.Component {
     render() {
         if (this.props.prixExtension) {
             return (
-                <><tr>.</tr>
+                <><tr></tr>
                     {this.renderList()}
                     <tr>
                         <td colSpan="2"></td>

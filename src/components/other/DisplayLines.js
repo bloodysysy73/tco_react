@@ -10,7 +10,7 @@ class DisplayLines extends React.Component {
                     description </a></h3></td>
                     <td className="photo"></td>
                     <td className="text-left"></td>
-                    <td className="unit">{line.cost ? this.getCost(line) : 0} €</td>
+                    <td className="unit">{line.cost ? this.getCost(line) : 0} € / heure</td>
                     <td className="discount"></td>
                     <td className="total">{line.cost} € </td>
                 </tr>
@@ -27,11 +27,12 @@ class DisplayLines extends React.Component {
     render() {
         if (this.props.lines) {
             return (
-                <><tr> AUTRE COUT :</tr>
+                <>
+
                     {this.renderList()}
                     <tr>
                         <td colSpan="2"></td>
-                        <td colSpan="4">.</td>
+                        <td colSpan="4">Total Autres Services</td>
                         <td>€ {this.props.totalCost_autreService}</td>
                     </tr>
                 </>

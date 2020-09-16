@@ -30,21 +30,21 @@ class Calculator extends React.Component {
               <Col lg="7" md="6" sm="6">
                 <ListCouts></ListCouts>
                 <Fonctionnalites></Fonctionnalites>
-                
+                <TextBox></TextBox>
               </Col>
             </Row>
 
             <Row className="justify-content-md-center">
               <Col md="12">
-              <TextBox></TextBox>
+              
                 <DevisCom></DevisCom>
-                <MachineView></MachineView>
+                
               </Col>
             </Row>
 
             <Row>
               <Col md="12">
-
+              <MachineView></MachineView>
               </Col>
             </Row>
           </Container>

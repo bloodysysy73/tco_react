@@ -45,7 +45,7 @@ class InfoConcessForm extends React.Component {
                     <Row>
                         <Col md="12" xs="12">
                        <label>
-                            Nom de l'entreprise cliente :
+                            Nom du concessionnaire :
 <input
                                 name="companyNameA"
                                 type="text"
