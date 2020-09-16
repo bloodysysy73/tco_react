@@ -115,7 +115,7 @@ class ChoixTypeModalA extends React.Component {
     }
 
     calculDeplacement() {
-        let CostOptionA = (parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope))));
+        let CostOptionA = 2*(parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope))));
         return  Number.parseFloat(CostOptionA).toFixed(2);
         
     }
