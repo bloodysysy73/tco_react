@@ -24,7 +24,7 @@ class Calculator extends React.Component {
           <Container fluid>
             <Row className="justify-content-md-center">
               <Col lg="5" md="6" sm="6">
-                <SpecMachine></SpecMachine>
+                <SpecMachine dureeContratH={this.props.dureeContratH} dureeContratM={this.props.dureeContratM}></SpecMachine>
                 
               </Col>
               <Col lg="7" md="6" sm="6">
