@@ -1,13 +1,14 @@
 import React from 'react';
+import imgPieces from "assets/img/imgPieces.png";
 
 class DisplayPieces extends React.Component {
 
     renderList = () => {
         return (
             <tr ><td className="no">{this.props.label}</td>
-                <td className="text-left"><h3><a target="" href="https://www.mecalac.com/en/consumer-services/spare-parts.html">
+                <td className="text-left"><h3><a target="_blank" href="https://www.mecalac.com/en/consumer-services/spare-parts.html" rel="noopener noreferrer">
                    description </a></h3></td>
-                <td className="photo"></td>
+                   <td className="photo"><img border="0" align="center" src={imgPieces} alt="imgPieces"/></td>
                 <td className="text-left"></td>
                 <td className="unit">{(this.props.clim === 'non') ? this.getCost2() : this.getCost() } € / heure</td>
                 <td className="discount"></td>

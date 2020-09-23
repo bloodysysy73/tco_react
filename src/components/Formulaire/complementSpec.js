@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { connect } from "react-redux";
+import { definiAttribut } from 'actions/actionMachine'
 
 import {
     Card,
@@ -12,76 +13,9 @@ import {
 
 class ComplementSpec extends React.Component {
 
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            extensionGarantie: "non",
-            capture: "non",
-            vgp: "non",
-            pieceUsure: "non",
-            lavage: "non",
-            expertise: "non",
-            reprise: "non",
-            pret: "non",
-            analysePol: "non",
-        };
+    handleChange(e) {
+        this.props.definiAttribut(e.target.name, e.target.value);
     }
-
-    setextensionGarantie(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ extensionGarantie: value });
-        this.props.onchange(this.state);
-    }
-
-    setcapture(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ capture: value });
-        this.props.onchange(this.state);
-    }
-
-    setvgp(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ vgp: value });
-        this.props.onchange(this.state);
-    }
-
-    setpieceUsure(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ pieceUsure: value });
-        this.props.onchange(this.state);
-    }
-
-    setlavage(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ lavage: value });
-        this.props.onchange(this.state);
-    }
-
-    setexpertise(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ expertise: value });
-        this.props.onchange(this.state);
-    }
-
-    setreprise(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ reprise: value });
-        this.props.onchange(this.state);
-    }
-
-    setanalysePol(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ analysePol: value });
-        this.props.onchange(this.state);
-    }
-
-    setpret(value) {
-        console.log("la value de la ou tu viens de cliquer", value);
-        this.setState({ pret: value });
-        this.props.onchange(this.state);
-    }
-
 
     render() {
         return (
@@ -95,7 +29,7 @@ class ComplementSpec extends React.Component {
                         </Col>
                         <Col md="8" xs="7">
                             <div className="numbers">
-                                <p className="card-category">Compléments Spécifications</p>
+                                <p className="card-category">Options</p>
                                 <p />
                             </div>
                         </Col>
@@ -103,121 +37,39 @@ class ComplementSpec extends React.Component {
                 </CardBody>
                 <CardFooter>
                     <form className="ui form" onSubmit={this.onSubmitForm}>
-
+                    Télématique MyMECALAC <br />
                         <label>
-                            Option Télématique MyMECALAC :
+                            Télématique MyMECALAC (montage de série ou en usine) 
         <select
-                                name="capture"
-                                //value={this.state.machine}
-                                onChange={e => this.setcapture(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br />
-
-                        <label>
-                            Option VPG (Visite Générale Périodique) :
-        <select
-                                name="vgps"
-                                //value={this.state.machine}
-                                onChange={e => this.setvgp(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br /> <br />
-
-
-
-                        <Row>
-                        <Col md="6" xs="6">
-                        <label>
-                            Option pièces d'usure :
-        <select
-                                name="pieceUsure"
-                                //value={this.state.machine}
-                                onChange={e => this.setpieceUsure(e.target.value)}
+                                name="telematique"
+                                defaultValue="non"
+                                value={this.props.telematique}                                
+                                onChange={e => this.handleChange(e)}
                                 required>
                                 {/* <option key=""></option> */}
                                 <option key={"non"}>non</option>
                                 <option key={"oui"}>oui</option>
                             </select>
                         </label>
-                        </Col>
-                        <Col md="6" xs="6">
-                                <br /><label>
-                                <Link to="/admin/choixPiecesUsures" 
-                                        className="ui animated button" tabIndex="0">
-                                            <div className="visible content">Paramétrer les options</div>
-                                            <div className="hidden content">
-                                                <i aria-hidden="true" className="angle double right icon"></i>
-                                            </div>
-                                    </Link>
-                                </label><br />
-                            </Col>
-                    </Row>
-                    <br />
-                        <label>
-                            Option lavage :
-        <select
-                                name="lavage"
-                                //value={this.state.machine}
-                                onChange={e => this.setlavage(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br />
+                        <label> Installation en retrofit (machine en activité) &nbsp; &nbsp; &nbsp;
+                                        <input
+                                            name="retrofit"
+                                            type="checkbox"
+                                            defaultChecked={this.retrofit}
+                                            onChange={e => this.handleChange(e)}
+                                        />
+                                    </label><br />
+                        
+                        <br />
+
 
                         <label>
                             Option Expertise de fin de garantie :
         <select
                                 name="expertise"
-                                //value={this.state.machine}
-                                onChange={e => this.setexpertise(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br />
-
-                        <label>
-                            Option reprise et réglages :
-        <select
-                                name="reprise"
-                                //value={this.state.machine}
-                                onChange={e => this.setreprise(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br />
-
-                        <label>
-                            Option Analyses polution :
-        <select
-                                name="analysePol"
-                                //value={this.state.machine}
-                                onChange={e => this.setanalysePol(e.target.value)}
-                                required>
-                                {/* <option key=""></option> */}
-                                <option key={"non"}>non</option>
-                                <option key={"oui"}>oui</option>
-                            </select>
-                        </label><br />
-
-                        <label>
-                            Option pret de machines :
-        <select
-                                name="pret"
-                                //value={this.state.machine}
-                                onChange={e => this.setpret(e.target.value)}
+                                defaultValue="non"
+                                value={this.props.expertise}                                
+                                onChange={e => this.handleChange(e)}
                                 required>
                                 {/* <option key=""></option> */}
                                 <option key={"non"}>non</option>
@@ -232,7 +84,24 @@ class ComplementSpec extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        telematique: state.specMachineReducer.telematique,
+        pretMachine: state.specMachineReducer.pretMachine,
+        vgp: state.specMachineReducer.vgp,
+        pieceUsure: state.specMachineReducer.pieceUsure,
+        lavage: state.specMachineReducer.lavage,
+        expertise: state.specMachineReducer.expertise,
+        reprise: state.specMachineReducer.reprise,
+        analysePol: state.specMachineReducer.analysePol,
+        petiteFourniture: state.specMachineReducer.petiteFourniture,
+        recyclagePieces: state.specMachineReducer.recyclagePieces,
+        retrofit: state.specMachineReducer.retrofit,
+        margeTele: state.specMachineReducer.margeTele,
 
-export default ComplementSpec;
+    };
+};
+
+export default connect(mapStateToProps, { definiAttribut })(ComplementSpec);
 
 

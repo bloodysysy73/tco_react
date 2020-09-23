@@ -13,6 +13,8 @@ import DisplayDeplacement from 'components/other/DisplayDeplacement';
 import DisplayPieces from 'components/other/DisplayPieces';
 import DisplayHuiles from 'components/other/DisplayHuiles';
 import DisplaySpace from 'components/other/DisplaySpace';
+import DisplayTelematique from 'components/other/DisplayTelematique';
+import DisplayExpertiseFG from 'components/other/DisplayExpertiseFG';
 
 
 class DevisCom extends React.Component {
@@ -26,13 +28,13 @@ class DevisCom extends React.Component {
     }
 
     getTotal() {
-        let total = parseFloat(this.props.prixExtension) + parseFloat(this.props.prixHuiles)+ parseFloat((this.props.clim === 'non') ? this.getClimCost2() : this.getClimCost()) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
+        let total = parseFloat(this.getTelematiqueCost()) + parseFloat((this.props.optionDeplacement === 'c') ? (this.props.expertiseCost) : (this.getExpCost())) +parseFloat(this.props.prixExtension) + parseFloat(this.props.prixHuiles)+ parseFloat((this.props.clim === 'non') ? this.getClimCost2() : this.getClimCost()) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
         return Number.parseFloat(total).toFixed(2);
     }
 
     getDepCost() {
         let depCost1 = (parseFloat(this.props.prixForfait)*((parseInt(this.props.dureeContratH, 10))/500))
-        let depCost2 = ((parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope)))))*((parseInt(this.props.dureeContratH, 10))/500)
+        let depCost2 = ((2*((parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed)))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope))))))*((parseInt(this.props.dureeContratH, 10))/500)
         if (this.props.optionDeplacement === 'a') {
             return Number.parseFloat(depCost2).toFixed(2);
         } else { return Number.parseFloat(depCost1).toFixed(2);}
@@ -73,6 +75,25 @@ class DevisCom extends React.Component {
         }
     }
 
+    getTelematiqueCost() {
+        let estimatedCostTele = (10 * parseFloat(this.props.dureeContratM)) + 225 + parseFloat(this.props.instTeleCost);
+        let estimatedCostTele2 = 8.5 * ((parseFloat(this.props.dureeContratM)-24));
+        if (this.props.numSerie === ('47011')) {
+            return Number.parseFloat(estimatedCostTele2).toFixed(2);
+        } else if (this.props.numSerie === ('87011')) {
+            return Number.parseFloat(estimatedCostTele2).toFixed(2);
+        } else if (this.props.numSerie === ('83011')) {
+            return Number.parseFloat(estimatedCostTele2).toFixed(2);
+        } else { return Number.parseFloat(estimatedCostTele).toFixed(2);}
+    }
+
+    getExpCost() {
+        let expCost1 = (parseFloat(this.props.prixForfait) + parseFloat(this.props.expertiseCost))
+        let expCost2 = ((2*((parseFloat(this.props.tripWfCost)*(parseFloat(this.props.geoScope)/(parseFloat(this.props.averageSpeed))))+((parseFloat(this.props.kmCost)*(parseFloat(this.props.geoScope))))))+parseFloat(this.props.expertiseCost))
+        if (this.props.optionDeplacement === 'a') {
+            return Number.parseFloat(expCost2).toFixed(2);
+        } else { return Number.parseFloat(expCost1).toFixed(2);}
+    }
 
     render() {
         return (
@@ -127,6 +148,7 @@ class DevisCom extends React.Component {
                             <div className="text-gray-light"> Informations contrat : {this.props.nbContrat} </div>
                                     <div>Durée du contrat : {this.props.dureeContratH} heures, sur {this.props.dureeContratM} mois</div>
                                     <div> Le {(this.props.entretien250 === 'Client final') ? (this.props.entretien250) : "Concessionnaire"} assurera l'entretien des 250 heures</div>
+                                    <div> Option Télématique : {(this.props.telematique === 'oui') ? (this.props.telematique) : "oui"} {(this.props.retrofit === 'on') ? "; avec installation retrofit" : ""}</div>
                             </div></div>
                             
                             <table border="0" cellSpacing="0" cellPadding="0">
@@ -195,15 +217,45 @@ class DevisCom extends React.Component {
                                     <tr>
                                         <td colSpan="2"></td>
                                         <td colSpan="4">Total entretien et maintenace</td>
-                                        <td> € {(this.props.dureeContratH) ? (this.getTotal()-parseFloat(this.props.prixExtension)).toFixed(2): 0}</td>
+                                        <td> € {(this.props.dureeContratH) ? (this.getTotal()-parseFloat(this.props.prixExtension)-parseFloat((this.props.optionDeplacement === 'c') ? (this.props.expertiseCost) : (this.getExpCost()))-parseFloat(this.getTelematiqueCost())).toFixed(2): 0}</td>
                                         
                                     </tr>
                                     <DisplaySpace  prixExtension={this.props.prixExtension} totalCost_autreService={this.props.totalCost_autreService}></DisplaySpace>
                                     <DisplayLinesExtension
-                                        label='Extenson de garantie'
+                                        label='Extension de garantie'
                                         prixExtension={this.props.prixExtension}
                                         dureeContratH={this.props.dureeContratH}
                                     ></DisplayLinesExtension>
+                                    <DisplayTelematique
+                                        label='Télématique'
+                                        telematique={this.props.telematique}
+                                        instTeleCost={this.props.instTeleCost}
+                                        machine={this.props.machine}
+                                        numSerie={this.props.numSerie}
+                                        dureeContratH={this.props.dureeContratH}
+                                        dureeContratM={this.props.dureeContratM}
+                                        retrofit={this.props.retrofit}
+                                        margeTele={this.props.margeTele}
+                                    ></DisplayTelematique>
+                                    <DisplayExpertiseFG
+                                        label='Expertise de fin de garrantie'
+                                        optionDeplacement={this.props.optionDeplacement}
+                                        tripWfCost={this.props.tripWfCost}                                           
+                                        geoScope={this.props.geoScope}
+                                        averageSpeed={this.props.averageSpeed}
+                                        kmCost={this.props.kmCost}
+                                        prixForfait={this.props.prixForfait}
+                                        dureeContratH={this.props.dureeContratH}
+                                        expertise={this.props.expertise}
+                                        expertiseCost={this.props.expertiseCost}
+                                    ></DisplayExpertiseFG>
+
+                                    <tr>
+                                        <td colSpan="2"></td>
+                                        <td colSpan="4">Total Options</td>
+                                        <td> € {(this.props.dureeContratM) ? (parseFloat(this.props.prixExtension)+parseFloat((this.props.optionDeplacement === 'c') ? (this.props.expertiseCost) : (this.getExpCost()))+parseFloat(this.getTelematiqueCost())).toFixed(2): 0}</td>
+                                        
+                                    </tr>
                                     <DisplaySpace  prixExtension={this.props.prixExtension} totalCost_autreService={this.props.totalCost_autreService}></DisplaySpace>
                                     <DisplayLines
                                         lines={this.props.lines}
@@ -295,6 +347,12 @@ const mapStateToProps = (state) => {
         climCost: state.specMachineReducer.climCost,
         prixHuiles: state.specMachineReducer.prixHuiles,
         dureeContratM: state.specMachineReducer.dureeContratM,
+        instTeleCost: state.specMachineReducer.instTeleCost,
+        telematique: state.specMachineReducer.telematique,
+        expertiseCost: state.specMachineReducer.expertiseCost,
+        expertise: state.specMachineReducer.expertise,
+        retrofit: state.specMachineReducer.retrofit,
+        margeTele: state.specMachineReducer.margeTele,
 
     };
 };
