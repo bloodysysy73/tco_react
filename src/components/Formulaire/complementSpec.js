@@ -50,7 +50,7 @@ class ComplementSpec extends React.Component {
                                 <option key={"non"}>non</option>
                                 <option key={"oui"}>oui</option>
                             </select>
-                        </label>
+                        </label><br />
                         <label> Installation en retrofit (machine en activité) &nbsp; &nbsp; &nbsp;
                                         <input
                                             name="retrofit"

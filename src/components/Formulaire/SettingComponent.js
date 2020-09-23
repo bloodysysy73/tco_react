@@ -119,7 +119,7 @@ class SettingComponent extends React.Component {
                         </Col>
                     </Row>
 
-                    <Row> <Col md="12" xs="12"><br /> Installation de la Télématique <br /><br /></Col></Row> 
+                    <Row> <Col md="12" xs="12"><br /> Installation de la Télématique <br /></Col></Row> 
                     <Row>
                         <Col md="6" xs="6">
 

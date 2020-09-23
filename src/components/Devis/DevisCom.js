@@ -28,7 +28,7 @@ class DevisCom extends React.Component {
     }
 
     getTotal() {
-        let total = parseFloat(this.getTelematiqueCost()) + parseFloat((this.props.optionDeplacement === 'c') ? (this.props.expertiseCost) : (this.getExpCost())) +parseFloat(this.props.prixExtension) + parseFloat(this.props.prixHuiles)+ parseFloat((this.props.clim === 'non') ? this.getClimCost2() : this.getClimCost()) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
+        let total = (this.props.telematique ? parseFloat(parseFloat(this.getTelematiqueCost())*parseFloat(this.props.margeTele)).toFixed(2) : 0) + parseFloat((this.props.optionDeplacement === 'c') ? (this.props.expertiseCost) : (this.getExpCost())) +parseFloat(this.props.prixExtension) + parseFloat(this.props.prixHuiles)+ parseFloat((this.props.clim === 'non') ? this.getClimCost2() : this.getClimCost()) + parseFloat(this.props.prixKits) + parseFloat((this.props.optionDeplacement === 'c') ? 0 : this.getDepCost()) + parseFloat((this.props.entretien250 === 'Client final') ? this.getMoCost() : (parseFloat(this.getMoCost())+(parseFloat(this.props.coefMo)*parseFloat(this.props.entWfCost)*parseFloat(this.props.heure250)*((parseInt(this.props.dureeContratH, 10))/500))));
         return Number.parseFloat(total).toFixed(2);
     }
 
